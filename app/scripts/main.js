@@ -14,4 +14,9 @@ var map = new ol.Map({
 map.addControl(new ol.control.ZoomToExtent());
 map.addControl(new ol.control.ZoomSlider());
 
-loadForTopic('ech', 'en');
+var layer, layers = [];
+$.getJSON(getTopicUrl('ech', 'en'),
+    function(response) {
+      layers = response.layers;
+      layer = map.addLayer(getOlLayerById('ch.swisstopo.pixelkarte-farbe'));
+    });

@@ -34,16 +34,6 @@ var getTopicUrl = function(topicId, lang) {
 	       lang;
 	};
 
-var layer, layers = [];
-var loadForTopic = function(topicId, lang) {
-  $.getJSON(getTopicUrl(topicId, lang),
-	  function(response) {
-	    layers = response.layers;
-
-			map.addLayer(getOlLayerById('ch.swisstopo.pixelkarte-farbe'));
-  	});
-};
-
 /**
  * Return an ol.layer.Layer object for a layer id.
  */
