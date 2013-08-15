@@ -1,3 +1,8 @@
 node_modules
+dist
+.tmp
+app/bower_components
+
+data/*.xlsx
 data/photos
 .~lock*
