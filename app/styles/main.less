@@ -16,9 +16,13 @@
 #header {
 	opacity:0.8; 
 	background: #fff;
-	
-	h1 { 
-		text-align: right;
+	height: auto;
+
+	.title { 
+		position: absolute;
+		left: 50%; margin-left: -4em;
+		margin-top: 1em;
+		font-size: 24pt;
 	}
 	.logo {
 	  background: url(../images/logo.ch.jpeg) no-repeat top left;
@@ -31,14 +35,13 @@ body { background:grey;}
 @media screen and (max-width: 768px) { 
 
 	#header {
-		h1 { 
-			text-align: center;
-		}
+		.title { display:none; }
 		.logo { 
 			background-image: url(../images/logo-small.ch.png);
 			background-position: 0 5px;
 			background-size: auto 40px;
 			min-height: 0px;
+			padding-left: 50px;
 		}
 	}
 }

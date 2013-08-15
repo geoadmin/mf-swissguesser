@@ -1,3 +1,5 @@
+if (false) {
+
 var swissExtent = [420000, 900000, 30000, 350000];
 var swissProjection = ol.proj.configureProj4jsProjection({
   code: 'EPSG:21781',
@@ -94,3 +96,5 @@ var getOlLayerById = function(id) {
 };
 
 loadForTopic('ech', 'en');
+
+}
