@@ -6,6 +6,6 @@
             it('should run here few assertions', function () {
 
             });
-        });
-    });
-})();
+          });
+      });
+  })();

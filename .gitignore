@@ -3,6 +3,10 @@ dist
 .tmp
 app/bower_components
 
+app/fonts/
+app/styles/*.css
+libpeerconnection.log
+
 data/*.xlsx
 data/photos
 .~lock*

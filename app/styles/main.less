@@ -12,3 +12,33 @@
 .jumbotron {
   margin: 50px auto 0 auto;
 }
+
+#header {
+	opacity:0.8; 
+	background: #fff;
+	
+	h1 { 
+		text-align: right;
+	}
+	.logo {
+	  background: url(../images/logo.ch.jpeg) no-repeat top left;
+	  min-height: 88px;
+	}
+}
+
+body { background:grey;}
+
+@media screen and (max-width: 768px) { 
+
+	#header {
+		h1 { 
+			text-align: center;
+		}
+		.logo { 
+			background-image: url(../images/logo-small.ch.png);
+			background-position: 0 5px;
+			background-size: auto 40px;
+			min-height: 0px;
+		}
+	}
+}

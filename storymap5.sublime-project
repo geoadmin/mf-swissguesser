@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+            "path": "app",
+            "name": "app",
+            "file_exclude_patterns": ["*.css"]
+        }
+	],
+    "settings":
+    {
+        "tab_size": 2
+    }
+}
