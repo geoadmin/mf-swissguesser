@@ -9,6 +9,7 @@
     <title>SwissGuessr</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
     <link rel="stylesheet" href="http://mf-geoadmin3.bgdi.admin.ch/main/prod/1375252537/style/app.css" type="text/css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- build:js scripts/vendor/modernizr.js -->
@@ -50,11 +51,14 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <script src="http://mf-geoadmin3.bgdi.admin.ch/main/prod/1375252537/lib/build.js"></script>
+    <!-- OpenLayers 3 -->
+    <script src="http://ol3js.org/en/master/build/ol.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js" type="text/javascript"></script>
 
     <!-- build:js scripts/main.js -->
     <script src="bower_components/jquery/jquery.js"></script>
-    <script src="scripts/geoadmin.js"></script>
+    <script src="scripts/wms-custom-proj.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 

@@ -2,7 +2,9 @@ SwissGuessr
 ===========
 (Story Map 5)
 
-UNDER DEVELOPMENT
+# Release notes
+
+This project is in a pre-alpha stage.
 
 # Documentation
 

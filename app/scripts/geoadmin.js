@@ -45,7 +45,13 @@ var getOlLayerById = function(id) {
     if (layer.type == 'wmts') {
       var wmtsUrl = wmtsGetTileUrl.replace('{Layer}', id).
                     replace('{Format}', layer.format);
-
+      console.log(JSON.stringify({
+          id:id, 
+          attribution:attribution,
+          timedim:layer.timestamps[0],
+          tilegrid:getTileGrid(layer.resolutions),
+          url:wmtsUrl
+        }));
       olLayer = new ol.layer.TileLayer({
         id: id,
         source: new ol.source.WMTS({
