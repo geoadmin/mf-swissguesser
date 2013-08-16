@@ -45,6 +45,7 @@
     </div>
 
     <a id="btn-start" data-toggle="modal" href="#d-start" class="btn btn-primary btn-large">Launch</a>
+
     <div id="d-start" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label-intro" aria-hidden="true"><div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -56,7 +57,25 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Explore the map</button>
-            <button type="button" class="btn btn-primary">Start game!</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#d-photo">Start game!</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div>
+
+    <div id="d-photo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label-photo" aria-hidden="true"><div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 id="label-photo" class="modal-title">The Game</h4>
+            </div>
+            <div class="modal-body">
+                <div><img width="100%"></div>
+                <p class="description"></p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Restart</button>
+            <button type="button" class="btn btn-primary" id="btn-guess">Make a guess ...</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

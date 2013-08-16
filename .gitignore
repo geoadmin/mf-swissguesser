@@ -7,6 +7,6 @@ app/fonts/
 app/styles/*.css
 libpeerconnection.log
 
-data/*.xlsx
-data/photos
 .~lock*
+app/data/*.xlsx
+app/data/photos

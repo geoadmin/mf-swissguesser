@@ -37,6 +37,7 @@ var getTopicUrl = function(topicId, lang) {
 /**
  * Return an ol.layer.Layer object for a layer id.
  */
+var layer, layers = [];
 var getOlLayerById = function(id) {
   var layer = layers[id];
   var olLayer = layer.olLayer;
