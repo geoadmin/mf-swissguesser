@@ -31,13 +31,12 @@ See Grunt documentation for other commands.
 
 ## Converting data
 
-The metadata for this project is provided in the form of an XSLX file. 
+The metadata for this project is provided in the form of a spreadsheet.
+Export this file to CSV then use the converter tool:
 
-Convert this file to CSV then use a tool like this one (Node.js) to convert to JSON.
-
-$ sudo npm install -g csvtojson
-
-data$ csvtojson MetadatenAufnahmen.csv > data/photos.json
+$ cd app/data
+data$ npm install csvtojson
+data$ node convertCSV.js
 
 # Licensing
 
