@@ -10,14 +10,14 @@ This project is in a pre-alpha stage.
 
 ## Dependencies
 
-The website is built with the Twitter Bootstrap 2 framework.
+The website is built with the Twitter Bootstrap 3 framework.
 
 ### Installation instructions
 
-1. Setup Node.js http://nodejs.org/download/
-2. Install Yeoman from NPM
+1. Install Node.js http://nodejs.org/download/
+2. Install dependencies NPM
 
-$ npm install -g yo
+$ npm install
 
 This will install Grunt and Bower automatically.
 
@@ -34,9 +34,7 @@ See Grunt documentation for other commands.
 The metadata for this project is provided in the form of a spreadsheet.
 Export this file to CSV then use the converter tool:
 
-$ cd app/data
-data$ npm install csvtojson
-data$ node convertCSV.js
+$ node convertCSV.js
 
 # Licensing
 
