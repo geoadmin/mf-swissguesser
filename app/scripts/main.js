@@ -6,21 +6,22 @@ $('.modal.fade').on('shown.bs.modal', function () {
 	$('#btn-start').fadeIn('slow');
 });
 
-var photoCollection = [], currentIndex = 0;
+var collection, config, currentIndex = 0;
 
-$.getJSON('data/photos.json', function(data) {
-	photoCollection = data;
-	loadImage( photoCollection[0] );
+$.getJSON('data/base.json', function(json) {
+	config = json.conf;
+	collection = json.data;
+	loadImage( collection[0] );
 });
 
 function loadImage(metadata) {
-	$('#d-photo p').html(metadata['Beschreibung ' + lang]);
-	var imgsrc = 'data/photos/' + metadata['Bildname'] + '_A1.jpg';
+	$('#d-photo p').html(metadata[lang]);
+	var imgsrc = config.dataPrefix + metadata.id + config.dataSuffix;
 		$('#d-photo img').attr('src', imgsrc);
 }
 
 $('#btn-guess').click(function() {
-	if (++currentIndex == photoCollection.length) 
+	if (++currentIndex == collection.length) 
 			currentIndex = 0;
-	loadImage( photoCollection[currentIndex] );
+	loadImage( collection[currentIndex] );
 });
