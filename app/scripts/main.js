@@ -43,7 +43,7 @@ function loadImage(metadata) {
 		$('.btn.overlay').addClass('hidden');
 		
 		// Set up guesser component
-		guess.init(map, [metadata.x, metadata.y]);
+		guess.init(map, [metadata.y, metadata.x]);
 	});
 }
 
