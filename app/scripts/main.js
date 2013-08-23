@@ -1,5 +1,9 @@
 var lang = 'DE';
 
+var user = {
+			score: 0
+		};
+
 /* Setup UI components */
 
 $('.modal.fade').on('shown.bs.modal', function () {
@@ -34,6 +38,13 @@ function loadImage(metadata) {
 	$('img',imgbox).attr('src', imgsrc);
 	$('p', 	imgbox).html(metadata[lang]);
 	$('h4', imgbox).html(metadata.id);
+
+	$('.btn-primary').one('click', function() {
+		$('.btn.overlay').addClass('hidden');
+		
+		// Set up guesser component
+		guess.init(map, [metadata.x, metadata.y]);
+	});
 }
 
 function nextImage() {
@@ -42,29 +53,43 @@ function nextImage() {
 	loadImage( collection[currentIndex] );
 }
 
-$('#btn-guess').click(function() {
-
-});
-
 var guess = {
 
-	answer: null,
+	overlay: null, answer: null, layers: [],
 
-	init: function(olMap, elementId, coordinates) {
+	domOverlay: $('#map-overlay'),
+	domResults: $('#d-result'),
+	domLocator: $('#d-locator'),
+	domBtnNext: $('#btn-continue'),
+
+	init: function(olMap, coordinates) {
+
+		// Save the correct answer
+		this.answer = coordinates;
+
+		if (this.overlay != null) {
+			$.each(this.layers, function() {
+				map.removeLayer(this);
+			});
+			this.layers = [];
+			this.domLocator.removeClass('hidden');
+			this.domResults.addClass('hidden');
+			return;
+		}
 
 		// Get current template
-		this.dom = $('#' + elementId);
-		this.html = this.dom.html();
-		this.dom.html(''); // and clear
+		this.html = this.domOverlay.html();
+		this.domOverlay.html(''); // and clear
 
 		// Create an Overlay
 		this.overlay =
 			new ol.Overlay({
-				map: olMap, element: this.dom[0]
+				map: olMap, element: this.domOverlay[0]
 			});
 
-		// Save the correct answer
-		this.answer = coordinates;
+		// Bind click event to map
+		var self = this;
+		olMap.on('click', function(evt) { self.place(evt); });
 
 	}, // -- init
 
@@ -77,7 +102,7 @@ var guess = {
 		//console.log(this.position);
 
 		// Show the overlay
-		this.dom
+		this.domOverlay
 			.removeClass('hidden')
 			.popover({ 
 				'placement': 'top', 'html': true, 
@@ -96,10 +121,9 @@ var guess = {
 		
 		console.log('Making a guess: ', this.position, this.answer);
 
-		var style = new ol.style.Style({ rules: this.rules() });
-
+		/* Create overlay vector */
 		var vectorGuess = new ol.layer.Vector({
-			style: style,
+			style: new ol.style.Style({ rules: this.rules() }),
 			source: new ol.source.Vector({
 				projection: map.getView().getProjection(),
 				parser: new ol.parser.GeoJSON(),
@@ -110,7 +134,27 @@ var guess = {
 			})
 		}); // -- ol.layer.Vector
 
-		map.addLayer(vectorGuess);
+		this.layers.push(map.addLayer(vectorGuess));
+
+		/* Calculate score */
+		var dist = 
+			Math.sqrt(
+				Math.pow(Math.abs(this.position[0] - this.answer[0]), 2) +
+				Math.pow(Math.abs(this.position[1] - this.answer[1]), 2));
+
+		var score = parseInt(Math.abs(180000-dist)/10000)*100;
+		user.score += score;
+
+		this.domOverlay.popover('hide');
+		this.domLocator.addClass('hidden');
+
+		this.domResults.find('.score').html(score);
+		this.domResults.find('.total').html(user.score);
+		this.domResults.find('.comment').html('Well done!');
+		this.domResults.removeClass('hidden');
+
+		this.domBtnNext.removeClass('hidden');
+		nextImage(); // continue the game
 
 	}, // -- guess
 
@@ -188,11 +232,3 @@ var guess = {
 		return ruleSet;
 	} // -- rules
 };
-
-$(window).load(function() {
-
-	// Set up guesser component
-	guess.init(map, 'map-overlay', [637750, 193875]);
-	map.on('click', function(evt) { guess.place(evt); });
-	
-});
