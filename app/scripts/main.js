@@ -94,18 +94,61 @@ var guess = {
 
 	guess: function() {
 		
-		console.log('creating layer');
-		console.log(this.answer);
-		console.log(this.position);
+		console.log('Making a guess: ', this.position, this.answer);
 
-		var style = new ol.style.Style({rules: [
+		var style = new ol.style.Style({ rules: this.rules() });
+
+		var vectorGuess = new ol.layer.Vector({
+			style: style,
+			source: new ol.source.Vector({
+				projection: map.getView().getProjection(),
+				parser: new ol.parser.GeoJSON(),
+				data: {
+					type: 'FeatureCollection',
+					features: this.paint(currentIndex + 1, this.position, this.answer)
+				}
+			})
+		}); // -- ol.layer.Vector
+
+		map.addLayer(vectorGuess);
+
+	}, // -- guess
+
+	paint: function(label, from, to) {
+		var geoJSON = 
+			[
+				{
+					type: 'Feature',
+					properties: { color: '#fff' },
+					geometry: {
+						type: 'LineString', coordinates: [from, to] }
+				},{
+					type: 'Feature',
+					properties: { 
+						label: label },
+					geometry: {
+						type: 'Point', coordinates: from }
+				},{
+					type: 'Feature',
+					properties: {
+						label: label, which: 'answer' },
+					geometry: {
+						type: 'Point', coordinates: to }
+				}
+			];
+		return geoJSON;
+	}, // -- paint
+
+	rules: function() {
+		var ruleSet = 
+			[
 			  new ol.style.Rule({
-			  	filter: 'where == "outer"',
+			  	filter: 'geometryType("linestring")',
 			    symbolizers: [
 			      new ol.style.Line({
 			        strokeColor: ol.expr.parse('color'),
-			        strokeWidth: 4,
-			        strokeOpacity: 1
+			        strokeWidth: 2,
+			        strokeOpacity: 0.2
 			      })
 			    ]
 			  }),
@@ -114,7 +157,9 @@ var guess = {
 			    symbolizers: [
 			      new ol.style.Shape({
 			        size: 40,
-			        fillColor: '#511'
+			        fillColor: '#511',
+			        fillOpacity: 0.6,
+			        strokeOpacity: 1
 			      }),
 			      new ol.style.Text({
 			        color: '#bada55',
@@ -139,43 +184,9 @@ var guess = {
 			      })
 			    ]
 			  })
-			]}); // -- style
-
-		var vectorGuess = new ol.layer.Vector({
-			style: style,
-			source: new ol.source.Vector({
-				projection: map.getView().getProjection(),
-				parser: new ol.parser.GeoJSON(),
-				data: {
-					type: 'FeatureCollection',
-					features: [{
-						type: 'Feature',
-						properties: {
-							label: currentIndex + 1,
-						},
-						geometry: {
-							type: 'Point',
-							coordinates: this.position
-						}
-					},{
-						type: 'Feature',
-						properties: {
-							label: currentIndex + 1,
-							which: 'answer'
-						},
-						geometry: {
-							type: 'Point',
-							coordinates: this.answer
-						}
-					}]
-				}
-			})
-		}); // -- ol.layer.Vector
-
-		console.log('adding layer');
-		map.addLayer(vectorGuess);
-
-	}
+			];
+		return ruleSet;
+	} // -- rules
 };
 
 $(window).load(function() {
