@@ -12,12 +12,14 @@ $('.modal.fade').on('shown.bs.modal', function () {
 	$('#btn-start').fadeIn('slow');
 });
 
+/* Disabled: buggy in Chrome
 $('.d-photo').click(function() {
 	if ($(this).hasClass('fullscreen')) {
 		$(this).removeClass('fullscreen');
 	} else {
 		$(this).addClass('fullscreen');
 	} });
+*/
 
 /* Load image data */
 
@@ -55,7 +57,8 @@ function nextImage() {
 
 var guess = {
 
-	overlay: null, answer: null, layers: [],
+	overlay: null, answer: null, 
+	layers: [], active: false,
 
 	domOverlay: $('#map-overlay'),
 	domResults: $('#d-result'),
@@ -66,14 +69,12 @@ var guess = {
 
 		// Save the correct answer
 		this.answer = coordinates;
+		
+		this.clear();
+		this.active = true;
 
+		// On re-init, clear map
 		if (this.overlay != null) {
-			$.each(this.layers, function() {
-				map.removeLayer(this);
-			});
-			this.layers = [];
-			this.domLocator.removeClass('hidden');
-			this.domResults.addClass('hidden');
 			return;
 		}
 
@@ -93,8 +94,21 @@ var guess = {
 
 	}, // -- init
 
+	clear: function() {
+
+			$.each(this.layers, function() {
+				map.removeLayer(this);
+			});
+			this.layers = [];
+			this.domLocator.removeClass('hidden');
+			this.domResults.addClass('hidden');
+			this.active = false;
+
+	}, // -- clear
+
 	place: function(evt) {
 		var self = this;
+		if (!self.active) return;
 
 		// Update placement
 		this.position = evt.getCoordinate();
@@ -119,6 +133,7 @@ var guess = {
 
 	guess: function() {
 		
+		this.active = false;
 		console.log('Making a guess: ', this.position, this.answer);
 
 		/* Create overlay vector */
@@ -192,7 +207,7 @@ var guess = {
 			      new ol.style.Line({
 			        strokeColor: ol.expr.parse('color'),
 			        strokeWidth: 2,
-			        strokeOpacity: 0.2
+			        strokeOpacity: 0.4
 			      })
 			    ]
 			  }),
@@ -202,7 +217,7 @@ var guess = {
 			      new ol.style.Shape({
 			        size: 40,
 			        fillColor: '#511',
-			        fillOpacity: 0.6,
+			        fillOpacity: 0.8,
 			        strokeOpacity: 1
 			      }),
 			      new ol.style.Text({
@@ -218,7 +233,9 @@ var guess = {
 			    symbolizers: [
 			      new ol.style.Shape({
 			        size: 40,
-			        fillColor: '#0e0'
+			        fillColor: '#0e0',
+			        fillOpacity: 0.8,
+			        strokeOpacity: 1
 			      }),
 			      new ol.style.Text({
 			        color: '#bada55',
