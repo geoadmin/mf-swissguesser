@@ -1,12 +1,19 @@
 var lang = 'DE';
 
-/* Setup Bootstrap components */
+/* Setup UI components */
 
 $('.modal.fade').on('shown.bs.modal', function () {
 	$('#btn-start').fadeOut();
 }).on('hidden.bs.modal', function () {
 	$('#btn-start').fadeIn('slow');
 });
+
+$('.d-photo').click(function() {
+	if ($(this).hasClass('fullscreen')) {
+		$(this).removeClass('fullscreen');
+	} else {
+		$(this).addClass('fullscreen');
+	} });
 
 /* Load image data */
 
@@ -29,13 +36,6 @@ function loadImage(metadata) {
 	$('h4', imgbox).html(metadata.id);
 }
 
-$('.d-photo').click(function() {
-	if ($(this).hasClass('fullscreen')) {
-		$(this).removeClass('fullscreen');
-	} else {
-		$(this).addClass('fullscreen');
-	} });
-
 function nextImage() {
 	if (++currentIndex == collection.length) 
 		currentIndex = 0;
@@ -46,42 +46,142 @@ $('#btn-guess').click(function() {
 
 });
 
-var Guess = Backbone.Model.extend({
-	validate: function(attr) {},
-	initialize: function() {
-		// Update overlay
-		this.on('change:dom', function(model) {
+var guess = {
 
-			// Get current template
-			var dom = $(model.get('dom'));
-			model.set({ html: dom.html() });
-			dom.html(''); // and clear
+	answer: null,
 
-			// Create an Overlay
-			model.set({ overlay: 
-				new ol.Overlay({
-					map: map, element: dom[0]
-				})
+	init: function(olMap, elementId, coordinates) {
+
+		// Get current template
+		this.dom = $('#' + elementId);
+		this.html = this.dom.html();
+		this.dom.html(''); // and clear
+
+		// Create an Overlay
+		this.overlay =
+			new ol.Overlay({
+				map: olMap, element: this.dom[0]
 			});
-		});		
+
+		// Save the correct answer
+		this.answer = coordinates;
+
+	}, // -- init
+
+	place: function(evt) {
+		var self = this;
 
 		// Update placement
-		this.on('change:position', function(model) {
-			var position = model.get('position');
-			model.get('overlay').setPosition(position);
-			console.log('Guessed ' + position);
+		this.position = evt.getCoordinate();
+		this.overlay.setPosition(this.position);
+		//console.log(this.position);
 
-			model.get('dom')
-				.popover({ 
-					'placement': 'top', 'html': true, 
-					'content': model.get('html') })
-				.popover('show');
+		// Show the overlay
+		this.dom
+			.removeClass('hidden')
+			.popover({ 
+				'placement': 'top', 'html': true, 
+				'content': this.html })
+			.popover('show');
+
+		// Make a guess
+		$('#btn-guess').click(function(evt) {
+			evt.preventDefault(); 
+			self.guess();
 		});
+
+	}, // -- place
+
+	guess: function() {
+		
+		console.log('creating layer');
+		console.log(this.answer);
+		console.log(this.position);
+
+		var style = new ol.style.Style({rules: [
+			  new ol.style.Rule({
+			  	filter: 'where == "outer"',
+			    symbolizers: [
+			      new ol.style.Line({
+			        strokeColor: ol.expr.parse('color'),
+			        strokeWidth: 4,
+			        strokeOpacity: 1
+			      })
+			    ]
+			  }),
+			  new ol.style.Rule({
+			    filter: 'geometryType("point")',
+			    symbolizers: [
+			      new ol.style.Shape({
+			        size: 40,
+			        fillColor: '#511'
+			      }),
+			      new ol.style.Text({
+			        color: '#bada55',
+			        text: ol.expr.parse('label'),
+			        fontFamily: 'Calibri,sans-serif',
+			        fontSize: 14
+			      })
+			    ]
+			  }),
+			  new ol.style.Rule({
+			    filter: 'geometryType("point") && which == "answer"',
+			    symbolizers: [
+			      new ol.style.Shape({
+			        size: 40,
+			        fillColor: '#0e0'
+			      }),
+			      new ol.style.Text({
+			        color: '#bada55',
+			        text: ol.expr.parse('label'),
+			        fontFamily: 'Calibri,sans-serif',
+			        fontSize: 14
+			      })
+			    ]
+			  })
+			]}); // -- style
+
+		var vectorGuess = new ol.layer.Vector({
+			style: style,
+			source: new ol.source.Vector({
+				projection: map.getView().getProjection(),
+				parser: new ol.parser.GeoJSON(),
+				data: {
+					type: 'FeatureCollection',
+					features: [{
+						type: 'Feature',
+						properties: {
+							label: currentIndex + 1,
+						},
+						geometry: {
+							type: 'Point',
+							coordinates: this.position
+						}
+					},{
+						type: 'Feature',
+						properties: {
+							label: currentIndex + 1,
+							which: 'answer'
+						},
+						geometry: {
+							type: 'Point',
+							coordinates: this.answer
+						}
+					}]
+				}
+			})
+		}); // -- ol.layer.Vector
+
+		console.log('adding layer');
+		map.addLayer(vectorGuess);
+
 	}
-});
+};
 
-var guess = new Guess({ dom:'#map-overlay' });
+$(window).load(function() {
 
-map.on('click', function(evt) {
-	guess.set({ position: evt.getCoordinate() });
+	// Set up guesser component
+	guess.init(map, 'map-overlay', [637750, 193875]);
+	map.on('click', function(evt) { guess.place(evt); });
+	
 });
