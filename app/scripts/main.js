@@ -10,6 +10,10 @@ $('.modal.fade').on('shown.bs.modal', function () {
 	$('#btn-start').fadeOut();
 }).on('hidden.bs.modal', function () {
 	$('#btn-start').fadeIn('slow');
+
+	if (guess.active) {
+		guess.start();
+	}
 });
 
 /* Disabled: buggy in Chrome
@@ -40,7 +44,6 @@ function loadImage(metadata) {
 	$('img',imgbox).attr('src', imgsrc);
 	$('p', 	imgbox).html(metadata[lang]);
 	$('h4', imgbox).html(metadata.id);
-
 	$('.btn-primary').one('click', function() {
 		$('.btn.overlay').addClass('hidden');
 		
@@ -94,13 +97,18 @@ var guess = {
 
 	}, // -- init
 
+	start: function() {
+
+		guess.domLocator.removeClass('hidden');
+
+	},
+
 	clear: function() {
 
 			$.each(this.layers, function() {
 				map.removeLayer(this);
 			});
 			this.layers = [];
-			this.domLocator.removeClass('hidden');
 			this.domResults.addClass('hidden');
 			this.active = false;
 
@@ -216,7 +224,7 @@ var guess = {
 			    symbolizers: [
 			      new ol.style.Shape({
 			        size: 40,
-			        fillColor: '#511',
+			        fillColor: '#aa0',
 			        fillOpacity: 0.8,
 			        strokeOpacity: 1
 			      }),

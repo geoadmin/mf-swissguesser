@@ -16,15 +16,15 @@
     <!-- endbuild -->
   </head>
   <body>
-    <div id="header" class="navbar">
+    <div id="header" class="navbar navbar-fixed-top">
       <div class="container logo">
-        <div class="title">SwissGuessr</div>
+        <div class="title">Story Map 5</div>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="nav-collapse collapse" id="navbar-main">
+        <div class="nav-collapse" id="navbar-main">
 			<ul class="nav navbar-nav pull-right">
 				<li>
 					<a href="?">Help</a>
@@ -50,8 +50,8 @@
        <a id="btn-guess" href="?" class="btn btn-default">Make a guess</a>
     </div>
 
-    <div id="d-locator" class="overlay hidden alert alert-info alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <div id="d-locator" class="overlay hidden alert alert-info">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#d-photobox">Go back</button>
       <p>Where would you say the photo you just saw was taken? Click anywhere on the map.</p>
     </div>
 
@@ -100,6 +100,13 @@
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
+    </div>
+
+    <link rel="stylesheet" href="http://simonwhitaker.github.io/github-fork-ribbon-css/gh-fork-ribbon.css">
+    <div class="github-fork-ribbon-wrapper left-bottom" style="z-index:2000">
+      <div class="github-fork-ribbon">
+        <a href="mailto:info@geo.admin.ch">Application preview</a>
+      </div>
     </div>
 
     <!--[if lt IE 7]>
