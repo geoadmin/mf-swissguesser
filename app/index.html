@@ -16,7 +16,7 @@
     <!-- endbuild -->
   </head>
   <body>
-    <div id="header" class="navbar navbar-fixed-top">
+    <div id="header" class="navbar">
       <div class="container logo">
         <div class="title">SwissGuessr</div>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -44,7 +44,16 @@
       </div>
     </div>
 
-    <a id="btn-start" data-toggle="modal" href="#d-start" class="btn btn-primary btn-large">Launch</a>
+    <div id="map" class="map"></div>
+
+    <div id="map-overlay"></div>
+
+    <div id="d-locator" class="overlay alert alert-info alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      Where would you say the photo you just saw was taken? Click anywhere on the map.
+    </div>
+
+    <a id="btn-start" data-toggle="modal" href="#d-start" class="overlay btn btn-primary btn-large">Launch</a>
 
     <div id="d-start" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label-intro" aria-hidden="true"><div class="modal-dialog">
         <div class="modal-content">
@@ -66,8 +75,8 @@
     <div id="d-photobox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label-photo" aria-hidden="true"><div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 id="label-photo" class="modal-title">The Game</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 id="label-photo" class="modal-title"></h4>
             </div>
             <div class="modal-body">
                 <div class="d-photo">
@@ -84,8 +93,6 @@
     </div><!-- /.modal-dialog -->
     </div>
 
-    <div id="map" class="map"></div>
-
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -97,9 +104,12 @@
 
     <!-- build:js scripts/main.js -->
     <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/backbone/backbone-min.js"></script>
+    <!-- endbuild -->
+
     <script src="scripts/wms-custom-proj.js"></script>
     <script src="scripts/main.js"></script>
-    <!-- endbuild -->
 
     <!-- build:js scripts/vendor/bootstrap.js -->
     <script src="bower_components/bootstrap/js/affix.js"></script>
