@@ -15,10 +15,20 @@ $.getJSON('data/base.json', function(json) {
 });
 
 function loadImage(metadata) {
-	$('#d-photo p').html(metadata[lang]);
-	var imgsrc = config.dataPrefix + metadata.id + config.dataSuffix;
-		$('#d-photo img').attr('src', imgsrc);
+	$('#d-photobox p').html(metadata[lang]);
+	var imgsrc = 
+		config.dataPrefix + 
+		metadata.id + 
+		config.dataSuffix;
+	$('#d-photobox img').attr('src', imgsrc);
 }
+
+$('.d-photo').click(function() {
+	if ($(this).hasClass('fullscreen')) {
+		$(this).removeClass('fullscreen');
+	} else {
+		$(this).addClass('fullscreen');
+	} });
 
 $('#btn-guess').click(function() {
 	if (++currentIndex == collection.length) 
