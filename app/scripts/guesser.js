@@ -30,7 +30,6 @@ var guesser = {
 	domResults: 	$('#d-result'),
 	domLocator: 	$('#d-locator'),
 	domBtnNext: 	$('#btn-continue'),
-	domBtnGuess: 	$('#btn-guess'), 
 	domBtnStart: 	$('#btn-start'), 
 	domStartBox: 	$('#d-start'),
 	domPhotoBox: 	$('#d-photobox'), 
@@ -61,13 +60,6 @@ var guesser = {
 			$('.modal-backdrop.in').css('opacity', 1);
 		}).on('hidden.bs.modal', function () {
 			$('.modal-backdrop.in').remove();
-		});
-
-		// Make a guess
-		this.domBtnGuess.click(function(evt) {
-			evt.preventDefault(); 
-			guesser.guess();
-			return false;
 		});
 
 		// Start the game (open dialog)
@@ -170,6 +162,14 @@ var guesser = {
 				'content': this.html })
 			.popover('show');
 
+		// Link button action
+		// NB: this button gets recreated for each overlay
+		$('#btn-guess').click(function(evt) {
+			evt.preventDefault(); 
+			guesser.guess();
+			return false;
+		});
+
 	}, // -- place
 
 	// ### Submit a guess
@@ -208,7 +208,7 @@ var guesser = {
 
 		// Calculate score
 		var score = parseInt(Math.abs(180000-dist)/10000)*100;
-		user.score += score;
+		this.user.score += score;
 
 		// Hide the overlays
 		this.domOverlay.popover('hide');
@@ -216,7 +216,7 @@ var guesser = {
 
 		// Update dialog with score results
 		this.domResults.find('.score').html(score);
-		this.domResults.find('.total').html(user.score);
+		this.domResults.find('.total').html(this.user.score);
 		this.domResults.find('.comment').html('Well done!');
 
 		// Show dialog and continue the game
