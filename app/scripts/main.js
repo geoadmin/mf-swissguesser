@@ -56,7 +56,10 @@ var guess = {
 		// Populate components
 		$('img',imgbox).attr('src', imgsrc);
 		$('p', 	imgbox).html(metadata[lang]);
-		$('h4', imgbox).html(metadata.id);
+
+		$('h4', imgbox).attr('title', metadata.id);
+		$('.image-count', imgbox).html(this.currentIndex+1);
+		$('.image-total', imgbox).html(this.collection.length+1);
 
 		// Start guesser
 		$('.btn-primary').one('click', function() {
@@ -150,9 +153,9 @@ var guess = {
 	guess: function() {
 		
 		this.active = false;
-		console.log('Making a guess: ', this.position, this.answer);
+		//console.log('Making a guess: ', this.position, this.answer);
 
-		/* Create overlay vector */
+		// Create overlay vector
 		var vectorFeatures = this.paint(
 				this.currentIndex + 1, this.position, this.answer
 			);
@@ -170,7 +173,7 @@ var guess = {
 
 		this.layers.push(map.addLayer(vectorGuess));
 
-		/* Calculate score */
+		// Calculate score
 		var dist = 
 			Math.sqrt(
 				Math.pow(Math.abs(this.position[0] - this.answer[0]), 2) +

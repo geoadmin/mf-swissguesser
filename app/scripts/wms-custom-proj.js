@@ -43,6 +43,7 @@ var map = new ol.Map({
   ]),
   layers: layers,
   renderers: ol.RendererHints.createFromQueryData(),
+  //renderer: ol.RendererHint.CANVAS,
   target: 'map',
   view: new ol.View2D({
     projection: swissProjection,
