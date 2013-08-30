@@ -7,6 +7,8 @@ app/fonts/
 app/styles/*.css
 libpeerconnection.log
 
+*.sublime-workspace
 .~lock*
+
 app/data/*.xlsx
 app/data/photos
