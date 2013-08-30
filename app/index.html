@@ -6,10 +6,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SwissGuessr</title>
+    <title>SwissGuesser</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://ol3js.org/en/r3.0.0-alpha.4/build/ol.css" type="text/css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.6.1/bootstrap-lightbox.min.css" type="text/css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
@@ -18,7 +19,7 @@
   <body>
     <div id="header" class="navbar navbar-fixed-top">
       <div class="container logo">
-        <div class="title">Story Map 5</div>
+        <div class="title">SwissGuesser</div>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -47,7 +48,7 @@
     <div id="map" class="map"></div>
 
     <div id="map-overlay" class="hidden">
-       <a id="btn-guess" href="?" class="btn btn-default">Make a guess</a>
+       <a id="btn-guess" href="?" class="btn btn-default">Make guess</a>
     </div>
 
     <div id="d-locator" class="overlay hidden alert alert-info">
@@ -61,7 +62,7 @@
       <a id="btn-continue" data-toggle="modal" href="#d-photobox" class="btn btn-primary btn-large">Continue</a>
     </div>
 
-    <div id="d-start" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label-intro" aria-hidden="true"><div class="modal-dialog">
+    <div id="d-start" class="modal" tabindex="-1" role="dialog" aria-labelledby="label-intro" aria-hidden="true"><div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -89,17 +90,28 @@
             </div>
             <div class="modal-body">
                 <div class="d-photo">
-                    <span class="glyphicon glyphicon-fullscreen"></span>
-                    <img width="100%">
+                    <a data-toggle="lightbox" data-dismiss="modal" href="#d-lightbox">
+                        <img draggable="false" width="100%" />
+                        <span class="glyphicon glyphicon-fullscreen"></span>
+                    </a>
                 </div>
-                <p class="description"></p>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-cancel" onClick="location.reload()">Restart</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-search"></span> Make a guess ...</button>
+                <p>
+                    Look at the picture and think about where it was taken. Then click anywhere on the map to place your guess!
+                </p>
+                <button type="button" class="btn btn-cancel" onClick="location.reload()">Restart</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-search"></span> Make guess ...</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
+    </div>
+
+    <div id="d-lightbox" class="lightbox modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="lightbox-content">
+            <button type="button" class="close" data-dismiss="lightbox" data-toggle="modal" href="#d-photobox" aria-hidden="true">&times;</button>
+            <img draggable="false" width="100%" />
+        </div>
     </div>
 
     <link rel="stylesheet" href="http://simonwhitaker.github.io/github-fork-ribbon-css/gh-fork-ribbon.css">
@@ -123,11 +135,8 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js" type="text/javascript"></script>
 
-    <!-- build:js scripts/main.js -->
-    <script src="bower_components/jquery/jquery.js"></script>
-    <!-- endbuild -->
-
     <!-- build:js scripts/vendor/bootstrap.js -->
+    <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/bootstrap/js/affix.js"></script>
     <script src="bower_components/bootstrap/js/alert.js"></script>
     <script src="bower_components/bootstrap/js/dropdown.js"></script>
@@ -142,8 +151,10 @@
     <script src="bower_components/bootstrap/js/tab.js"></script>
     <!-- endbuild -->
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.6.1/bootstrap-lightbox.js"></script>
+
     <script src="scripts/wms-custom-proj.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/guesser.js"></script>
 
 </body>
 </html>

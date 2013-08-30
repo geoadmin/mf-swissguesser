@@ -96,13 +96,24 @@ body #map {
 
 		div {
 			height: 260px;
-			overflow-y: scroll;
+			overflow: hidden;
 		}
 
 		p {
 			margin-top: 0.5em;
 			height: auto;
 		}
+
+		img {
+			-webkit-user-drag: none;
+			-webkit-touch-callout: none;
+	    -webkit-user-select: none;
+	    -khtml-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	    width: 100%;
+	  }
 	}
 
 	.glyphicon-fullscreen {
@@ -123,3 +134,21 @@ body #map {
 		.glyphicon-fullscreen { display: none; }
 	}
 }
+
+.panel {
+	bottom: 50%;
+	position: absolute;
+	width: 30em;
+	left: 50%;
+	margin-left: -15em;
+	margin-bottom: -24%;
+}
+
+.lightbox-content {
+	padding: 0;
+	border: none;
+	button { padding-right: 5px; }
+}
+.modal-backdrop.in { opacity: 0; }
+.modal-dialog { margin-top:7%; }
+.modal-footer p { text-align: left; }

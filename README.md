@@ -1,5 +1,5 @@
-SwissGuessr
-===========
+SwissGuesser
+============
 
 (Story Map 5)
 
@@ -9,7 +9,7 @@ This project is in a pre-alpha stage.
 
 # Documentation
 
-See [main](app/scripts/main.html) and [wms-custom-proj](app/scripts/wms-custom-proj.html).
+See [guesser](app/scripts/guesser.html) and [wms-custom-proj](app/scripts/wms-custom-proj.html).
 
 ## Dependencies
 
