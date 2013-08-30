@@ -153,14 +153,17 @@ var guess = {
 		console.log('Making a guess: ', this.position, this.answer);
 
 		/* Create overlay vector */
+		var vectorFeatures = this.paint(
+				this.currentIndex + 1, this.position, this.answer
+			);
 		var vectorGuess = new ol.layer.Vector({
-			style: new ol.style.Style({ rules: this.rules() }),
+			style: new ol.style.Style({ rules: this.rules }),
 			source: new ol.source.Vector({
 				projection: map.getView().getProjection(),
 				parser: new ol.parser.GeoJSON(),
 				data: {
 					type: 'FeatureCollection',
-					features: this.paint(this.currentIndex + 1, this.position, this.answer)
+					features: vectorFeatures
 				}
 			})
 		}); // -- ol.layer.Vector
@@ -185,13 +188,12 @@ var guess = {
 		this.domResults.removeClass('hidden');
 
 		this.domBtnNext.removeClass('hidden');
-		nextImage(); // continue the game
+		this.next(); // continue the game
 
 	}, // -- guess
 
 	paint: function(label, from, to) {
-		var geoJSON = 
-			[
+		return [
 				{
 					type: 'Feature',
 					properties: { color: '#fff' },
@@ -211,59 +213,53 @@ var guess = {
 						type: 'Point', coordinates: to }
 				}
 			];
-		return geoJSON;
 	}, // -- paint
 
-	rules: function() {
-		var ruleSet = 
-			[
-			  new ol.style.Rule({
-			  	filter: 'geometryType("linestring")',
-			    symbolizers: [
-			      new ol.style.Line({
-			        strokeColor: ol.expr.parse('color'),
-			        strokeWidth: 2,
-			        strokeOpacity: 0.4
-			      })
-			    ]
-			  }),
-			  new ol.style.Rule({
-			    filter: 'geometryType("point")',
-			    symbolizers: [
-			      new ol.style.Shape({
-			        size: 40,
-			        fillColor: '#aa0',
-			        fillOpacity: 0.8,
-			        strokeOpacity: 1
-			      }),
-			      new ol.style.Text({
-			        color: '#bada55',
-			        text: ol.expr.parse('label'),
-			        fontFamily: 'Calibri,sans-serif',
-			        fontSize: 14
-			      })
-			    ]
-			  }),
-			  new ol.style.Rule({
-			    filter: 'geometryType("point") && which == "answer"',
-			    symbolizers: [
-			      new ol.style.Shape({
-			        size: 40,
-			        fillColor: '#0e0',
-			        fillOpacity: 0.8,
-			        strokeOpacity: 1
-			      }),
-			      new ol.style.Text({
-			        color: '#bada55',
-			        text: ol.expr.parse('label'),
-			        fontFamily: 'Calibri,sans-serif',
-			        fontSize: 14
-			      })
-			    ]
-			  })
-			];
-		return ruleSet;
-	} // -- rules
+	rules: [
+	  new ol.style.Rule({
+	  	filter: 'geometryType("linestring")',
+	    symbolizers: [
+	      new ol.style.Line({
+	        color: ol.expr.parse('color'),
+	        width: 2,
+	        opacity: 0.4
+	      })
+	    ]
+	  }),
+	  new ol.style.Rule({
+	    filter: 'geometryType("point")',
+	    symbolizers: [
+	      new ol.style.Shape({
+	        size: 40,
+	        fillColor: '#aa0', 
+	        fillOpacity: 0.8
+	      }),
+	      new ol.style.Text({
+	        color: '#bada55',
+	        text: ol.expr.parse('label'),
+	        fontFamily: 'Calibri,sans-serif',
+	        fontSize: 14
+	      })
+	    ]
+	  }),
+	  new ol.style.Rule({
+	    filter: 'geometryType("point") && which == "answer"',
+	    symbolizers: [
+	      new ol.style.Shape({
+	        size: 40,
+	        fillColor: '#0e0',
+	        fillOpacity: 0.8,
+	        strokeOpacity: 1
+	      }),
+	      new ol.style.Text({
+	        color: '#bada55',
+	        text: ol.expr.parse('label'),
+	        fontFamily: 'Calibri,sans-serif',
+	        fontSize: 14
+	      })
+	    ]
+	  })
+	] // -- rules
 };
 
 // Load data and start game
