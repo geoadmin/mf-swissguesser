@@ -1,11 +1,17 @@
-var swissExtent = [420000, 900000, 30000, 350000];
-  // [485869.5728, 837076.5648, 76443.1884, 299941.7864]
+// # GeoAdmin.ch for OpenLayers 3
+// https://github.com/geoadmin/web-storymaps
 
+// Swiss map extents
+var swissExtent = [420000, 900000, 30000, 350000];
+  /// [485869.5728, 837076.5648, 76443.1884, 299941.7864]
+
+// Swiss geographic projection
 var swissProjection = ol.proj.configureProj4jsProjection({
   code: 'EPSG:21781', extent: swissExtent
 });
 
 var layers = [
+  // Load pixel base map from GeoAdmin WMS server 
   new ol.layer.TileLayer({
     source: new ol.source.TiledWMS({
       url: 'http://wms.geo.admin.ch/',
@@ -21,6 +27,7 @@ var layers = [
       extent: swissExtent
     })
   })/*,
+  // Add an additional GeoAdmin tile layer (optional)
   new ol.layer.TileLayer({
     source: new ol.source.TiledWMS({
       url: 'http://wms.geo.admin.ch/',
@@ -35,6 +42,7 @@ var layers = [
   })*/
 ];
 
+// Initialise map
 var map = new ol.Map({
   controls: ol.control.defaults({}, [
     new ol.control.ScaleLine({

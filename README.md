@@ -1,5 +1,6 @@
 SwissGuessr
 ===========
+
 (Story Map 5)
 
 # Release notes
@@ -7,6 +8,8 @@ SwissGuessr
 This project is in a pre-alpha stage.
 
 # Documentation
+
+See [main](app/scripts/main.html) and [wms-custom-proj](app/scripts/wms-custom-proj.html).
 
 ## Dependencies
 

@@ -33,6 +33,10 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
         tasks: ['recess']
       },
+      groc: {
+        files: ['*.md', '<%= yeoman.app %>/scripts/{,*/}*.js'],
+        tasks: ['groc']
+      },
       livereload: {
         files: [
           '<%= yeoman.app %>/*.html',
@@ -136,6 +140,14 @@ module.exports = function (grunt) {
         files: {
           '<%= yeoman.app %>/styles/main.css': ['<%= yeoman.app %>/styles/main.less']
         }
+      }
+    },
+    groc: {
+      javascript: [
+        "<%= yeoman.app %>/scripts/{,*/}*.js", "README.md"
+      ],
+      options: {
+        "out": "docs/"
       }
     },
     // not used since Uglify task does concat,
@@ -255,6 +267,7 @@ module.exports = function (grunt) {
       dist: [
         'coffee',
         'recess',
+        'groc',
         'imagemin',
         'svgmin',
         'htmlmin'
@@ -273,6 +286,7 @@ module.exports = function (grunt) {
       'clean:server',
       'coffee',
       'recess',
+      'groc',
       'copy:server',
       'livereload-start',
       'connect:livereload',
@@ -285,6 +299,7 @@ module.exports = function (grunt) {
     'clean:server',
     'coffee',
     'recess',
+    'groc',
     'copy:server',
     'connect:test',
     'mocha'
