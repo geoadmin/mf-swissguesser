@@ -1,8 +1,6 @@
 var lang = 'DE';
 
-var user = {
-			score: 0
-		};
+var user = { score: 0	};
 
 /* Setup UI components */
 
@@ -25,40 +23,10 @@ $('.d-photo').click(function() {
 	} });
 */
 
-/* Load image data */
-
-var collection, config, currentIndex = 0;
-
-$.getJSON('data/base.json', function(json) {
-	config = json.conf;
-	collection = json.data;
-	loadImage( collection[0] );
-});
-
-function loadImage(metadata) {
-	var imgbox = $('#d-photobox');
-	var imgsrc = 
-		config.dataPrefix + 
-		metadata.id + 
-		config.dataSuffix;
-	$('img',imgbox).attr('src', imgsrc);
-	$('p', 	imgbox).html(metadata[lang]);
-	$('h4', imgbox).html(metadata.id);
-	$('.btn-primary').one('click', function() {
-		$('.btn.overlay').addClass('hidden');
-		
-		// Set up guesser component
-		guess.init(map, [metadata.y, metadata.x]);
-	});
-}
-
-function nextImage() {
-	if (++currentIndex == collection.length) 
-		currentIndex = 0;
-	loadImage( collection[currentIndex] );
-}
-
 var guess = {
+
+	collection: null, config: null, 
+	currentIndex: 0,
 
 	overlay: null, answer: null, 
 	layers: [], active: false,
@@ -68,6 +36,43 @@ var guess = {
 	domLocator: $('#d-locator'),
 	domBtnNext: $('#btn-continue'),
 
+	configure: function(json) {
+
+		this.config = json.conf;
+		this.collection = json.data;
+		this.loader( this.collection[0] );
+		$('#d-start').modal('show');
+
+	},
+
+	loader: function(metadata) {
+
+		// Get image data
+		var imgbox = $('#d-photobox');
+		var imgsrc = 
+			this.config.dataPrefix + metadata.id + 
+			this.config.dataSuffix;
+
+		// Populate components
+		$('img',imgbox).attr('src', imgsrc);
+		$('p', 	imgbox).html(metadata[lang]);
+		$('h4', imgbox).html(metadata.id);
+
+		// Start guesser
+		$('.btn-primary').one('click', function() {
+			guess.init(map, [metadata.y, metadata.x]);
+		});
+	
+	},
+
+	next: function() {
+
+		if (++this.currentIndex == this.collection.length) 
+		this.currentIndex = 0;
+		this.loader( this.collection[this.currentIndex] );
+
+	},
+
 	init: function(olMap, coordinates) {
 
 		// Save the correct answer
@@ -75,6 +80,9 @@ var guess = {
 		
 		this.clear();
 		this.active = true;
+
+		// Hide buttons when guessing
+		$('.btn.overlay').addClass('hidden');
 
 		// On re-init, clear map
 		if (this.overlay != null) {
@@ -152,7 +160,7 @@ var guess = {
 				parser: new ol.parser.GeoJSON(),
 				data: {
 					type: 'FeatureCollection',
-					features: this.paint(currentIndex + 1, this.position, this.answer)
+					features: this.paint(this.currentIndex + 1, this.position, this.answer)
 				}
 			})
 		}); // -- ol.layer.Vector
@@ -257,3 +265,7 @@ var guess = {
 		return ruleSet;
 	} // -- rules
 };
+
+// Load data and start game
+
+$.getJSON('data/base.json', function(d) { guess.configure(d); });
