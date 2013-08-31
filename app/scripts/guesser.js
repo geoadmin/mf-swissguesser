@@ -179,26 +179,12 @@ var guesser = {
 		this.active = false;
 		//console.log('Making a guess: ', this.position, this.currentAnswer);
 
-		// Create overlay features
-		var vectorFeatures = this.paint(
-				this.currentIndex + 1, this.position, this.currentAnswer
-			);
-
 		// Sets up a new vector layer
-		var vectorGuess = new ol.layer.Vector({
-			style: new ol.style.Style({ rules: this.rules }),
-			source: new ol.source.Vector({
-				projection: map.getView().getProjection(),
-				parser: new ol.parser.GeoJSON(),
-				data: {
-					type: 'FeatureCollection',
-					features: vectorFeatures
-				}
-			})
-		}); // -- ol.layer.Vector
+		var vectorGuess = this.getVector(
+			this.currentIndex + 1, this.position, this.currentAnswer);
 
 		// Add layer to the map
-		//this.layers.push(map.addLayer(vectorGuess));
+		map.addLayer(vectorGuess);
 
 		// Calculate distance to answer
 		var dist = 
@@ -226,9 +212,59 @@ var guesser = {
 
 	}, // -- guess
 
-	// ### Draw guess on map
-	paint: function(label, from, to) {
-		return [
+	// ### Creates vector feature for a guess
+	getVector: function(label, from, to) {
+		var style = new ol.style.Style({ 
+			rules: [
+				// Lines
+			  new ol.style.Rule({
+			  	filter: 'geometryType("linestring")',
+			    symbolizers: [
+			      new ol.style.Line({
+			        color: ol.expr.parse('color'),
+			        width: 2,
+			        opacity: 0.4
+			      })
+			    ]
+			  }),
+			  // Starting point
+			  new ol.style.Rule({
+			    filter: 'geometryType("point")',
+			    symbolizers: [
+			      new ol.style.Shape({
+			        size: 40,
+			        fillColor: '#aa0', 
+			        fillOpacity: 0.8
+			      }),
+			      new ol.style.Text({
+			        color: '#bada55',
+			        text: ol.expr.parse('label'),
+			        fontFamily: 'Calibri,sans-serif',
+			        fontSize: 14
+			      })
+			    ]
+			  }),
+			  // Ending point
+			  new ol.style.Rule({
+			    filter: 'geometryType("point") && which == "answer"',
+			    symbolizers: [
+			      new ol.style.Shape({
+			        size: 40,
+			        fillColor: '#0e0',
+			        fillOpacity: 0.8,
+			        strokeOpacity: 1
+			      }),
+			      new ol.style.Text({
+			        color: '#bada55',
+			        text: ol.expr.parse('label'),
+			        fontFamily: 'Calibri,sans-serif',
+			        fontSize: 14
+			      })
+			    ]
+			  })
+			] }); // -- style
+		
+		var features = [
 				{
 					// Line from A to B
 					type: 'Feature',
@@ -251,55 +287,15 @@ var guesser = {
 						type: 'Point', coordinates: to }
 				}
 			];
-	}, // -- paint
 
-	// ### Vector stylesheet
-	rules: [
-		// Lines
-	  new ol.style.Rule({
-	  	filter: 'geometryType("linestring")',
-	    symbolizers: [
-	      new ol.style.Line({
-	        color: ol.expr.parse('color'),
-	        width: 2,
-	        opacity: 0.4
-	      })
-	    ]
-	  }),
-	  // Starting point
-	  new ol.style.Rule({
-	    filter: 'geometryType("point")',
-	    symbolizers: [
-	      new ol.style.Shape({
-	        size: 40,
-	        fillColor: '#aa0', 
-	        fillOpacity: 0.8
-	      }),
-	      new ol.style.Text({
-	        color: '#bada55',
-	        text: ol.expr.parse('label'),
-	        fontFamily: 'Calibri,sans-serif',
-	        fontSize: 14
-	      })
-	    ]
-	  }),
-	  // Ending point
-	  new ol.style.Rule({
-	    filter: 'geometryType("point") && which == "answer"',
-	    symbolizers: [
-	      new ol.style.Shape({
-	        size: 40,
-	        fillColor: '#0e0',
-	        fillOpacity: 0.8,
-	        strokeOpacity: 1
-	      }),
-	      new ol.style.Text({
-	        color: '#bada55',
-	        text: ol.expr.parse('label'),
-	        fontFamily: 'Calibri,sans-serif',
-	        fontSize: 14
-	      })
-	    ]
-	  })
-	] // -- rules
+		return new ol.layer.Vector({
+				style: style,
+				source: new ol.source.Vector({
+				 projection: map.getView().getProjection(),
+				 parser: new ol.parser.GeoJSON(),
+				 data: { type: 'FeatureCollection',
+				         features: features }
+				})
+	 		});
+	} // -- getVector
 };
