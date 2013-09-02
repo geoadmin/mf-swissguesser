@@ -52,11 +52,7 @@ Now you can build this project's distribution folder.
 
 storymap5$ grunt build
 
-Note: as in [Preparing data](#Preparing data), above, you need to copy photos manually to the `/data/photos/` folder:
-
-storymap5$ cp -r app/data/photos dist/data/
-
-Afterwards, zip up the dist folder and deploy it to the target host.
+Finally, zip up the dist folder and deploy it to the target host.
 
 # Technical documentation
 
