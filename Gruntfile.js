@@ -150,17 +150,6 @@ module.exports = function (grunt) {
         "out": "docs/"
       }
     },
-    // not used since Uglify task does concat,
-    // but still available if needed
-    /*concat: {
-      dist: {}
-    },*/
-    // not enabled since usemin task does concat and uglify
-    // check index.html to edit your build targets
-    // enable this task if you prefer defining your build targets here
-    /*uglify: {
-      dist: {}
-    },*/
     rev: {
       dist: {
         files: {
@@ -168,8 +157,7 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-            '<%= yeoman.dist %>/fonts/*',
-            '<%= yeoman.dist %>/data/{,*/}*'
+            '<%= yeoman.dist %>/fonts/*'
           ]
         }
       }
@@ -246,9 +234,15 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>',
           src: [
-            '*.{ico,png,txt}',
+            '*.{ico,png,txt,json}',
             '.htaccess',
-            'images/{,*/}*.{webp,gif}'
+            'images/{,*/}*.{webp,gif}',
+            'bower_components/modernizr/modernizr.min.js',
+            'bower_components/jquery/jquery.min.*',
+            'bower_components/bootstrap/dist/{,*/}*',
+            'fonts/{,*/}*',
+            'data/*.json',
+            'data/photos/{,*/}*'
           ]
         }]
       },
@@ -316,6 +310,10 @@ module.exports = function (grunt) {
     'copy',
     'rev',
     'usemin'
+  ]);
+
+  grunt.registerTask('docs', [
+    'groc'
   ]);
 
   grunt.registerTask('default', [
