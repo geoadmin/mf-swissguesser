@@ -20,8 +20,9 @@
 	.title { 
 		position: fixed;
 		font-size: 24pt;
+		font-weight: bold;
 		left: 50%; 
-		margin-left: -2.7em;
+		margin-left: -3.5em;
 		margin-top: 1em;
 	}
 	.logo {
@@ -89,6 +90,20 @@ body #map {
 
 .modal { overflow: hidden; }
 
+/* Fix weird margin issue */
+.modal-open .navbar-fixed-top {
+	margin-right: 0 !important;
+}
+
+/* Floating help alert */
+#d-locator {
+	img {
+		height: 4.2em;
+		margin-right: 1em;
+	}
+}
+
+/* Main photo container */
 #d-photobox {
 
 	.modal-body {
@@ -96,7 +111,8 @@ body #map {
 
 		div {
 			height: 260px;
-			overflow: hidden;
+			/* How to flow the photo */
+			overflow: auto;
 		}
 
 		p {
@@ -133,6 +149,8 @@ body #map {
 
 		.glyphicon-fullscreen { display: none; }
 	}
+
+	.btn-cancel { float: left; }
 }
 
 .panel {
@@ -152,3 +170,55 @@ body #map {
 .modal-backdrop.in { opacity: 0; }
 .modal-dialog { margin-top:7%; }
 .modal-footer p { text-align: left; }
+
+#d-result {
+	width: 38em;
+	margin-left: -19em;
+	background: #fffff0 url(../images/map-cut.png) no-repeat top right;
+
+	.total {
+		font-weight: bold;
+		color: #f99;
+		font-size: 200%;
+	}
+
+	.btn-cancel {
+		float: left;
+		clear: both;
+		margin-top: 2em;
+	}
+
+	#v-finish {
+		margin: 1em 0;
+		padding: 1em 0;
+		border: 1px solid #dd9;
+		border-left: none;
+		border-right: none;
+	}
+
+	.sharebox {
+		margin-top: 1em;
+
+		.shareicon {
+			float: left;
+			width: 140px;
+			overflow: hidden;
+		}
+
+		.fb-like {
+			display: inline-block;
+			width: 140px;
+			height: 30px;
+		}
+
+		.shareicon-email {
+			display: inline-block;
+			text-indent: -9999px;
+			color: transparent;
+			background: url('../images/share-email.png') no-repeat;
+			background-size: 100%;
+			width: 71px;
+			height: 25px;
+		}
+	}
+}

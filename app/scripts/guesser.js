@@ -42,18 +42,16 @@ var guesser = {
 		this.collection = json.data;
 		this.loader( this.collection[0] );
 
-		// Bootstrap UI components
-		/*
-		$('.modal.fade').on('shown.bs.modal', function () {
-			this.domBtnStart.fadeOut();
+		// Customize image dialog
+		$('#d-photobox').on('shown.bs.modal', function () {
+			//this.domBtnStart.fadeOut();
 		}).on('hidden.bs.modal', function () {
-			this.domBtnStart.fadeIn('slow');
+			guesser.domBtnStart.fadeIn('slow');
 			// Start the game if the dialog was deactivated
-			if (this.active) { 
-				this.domLocator.removeClass('hidden');
+			if (guesser.active) { 
+				guesser.domLocator.removeClass('hidden');
 			}
 		});
-		*/
 
 		// Fullscreen
 		$('.lightbox').on('shown.bs.modal', function () {
@@ -76,12 +74,15 @@ var guesser = {
 					this.config.dataPrefix + metadata.id + 
 					this.config.dataSuffix;
 
+		// Load images
+		$('img').attr('src', imgsrc);
+		//$('img', imgbox).attr('src', imgsrc);
+		//$('img', this.domLightBox).attr('src', imgsrc);
+
 		// Populate components
-		$('img', imgbox).attr('src', imgsrc);
-		$('img', this.domLightBox).attr('src', imgsrc);
 		$('h4', imgbox).attr('title', metadata.id);
 		$('.image-count', imgbox).html(this.currentIndex+1);
-		$('.image-total', imgbox).html(this.collection.length+1);
+		$('.image-total', imgbox).html(this.collection.length);
 
 		// Start guesser
 		$('.btn-primary').one('click', function() {
@@ -93,9 +94,35 @@ var guesser = {
 	// ### Continue to next image
 	next: function() {
 
-		if (++this.currentIndex == this.collection.length) 
-		this.currentIndex = 0;
+		if (++this.currentIndex == this.collection.length) {
+			return this.finish();
+		}
+
+		// Continue to next image
 		this.loader( this.collection[this.currentIndex] );
+
+	},
+
+	// ### Game over
+	finish: function() {
+
+		var msg = "I just scored " + this.user.score + " on #SwissGuesser! Beat that :)";
+
+		$('.sharebox').append('<a href="mailto:?subject=' 
+				+ msg + '&body=' + document.location.href + 
+				'" class="shareicon-email">E-mail</a>');
+		
+		$('.twitter-hashtag-button').attr('href', 
+			'https://twitter.com/intent/tweet?button_hashtag=SwissGuesser&text='
+			+ msg);
+
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+		$('#btn-continue').addClass('hidden');
+		$('#v-finish').removeClass('hidden');
+
+		//this.currentIndex = -1;
+		//this.next();
 
 	},
 
@@ -229,15 +256,18 @@ var guesser = {
 			  }),
 			  // Starting point
 			  new ol.style.Rule({
-			    filter: 'geometryType("point")',
+			    filter: 'geometryType("point") && which == "guess"',
 			    symbolizers: [
 			      new ol.style.Shape({
 			        size: 40,
-			        fillColor: '#aa0', 
-			        fillOpacity: 0.8
+			        fillColor: '#fff',
+			        fillOpacity: 0.5,
+			        strokeColor: '#fc0',
+			        strokeOpacity: 1,
+			        strokeWidth: 3
 			      }),
 			      new ol.style.Text({
-			        color: '#bada55',
+			        color: '#000',
 			        text: ol.expr.parse('label'),
 			        fontFamily: 'Calibri,sans-serif',
 			        fontSize: 14
@@ -250,15 +280,11 @@ var guesser = {
 			    symbolizers: [
 			      new ol.style.Shape({
 			        size: 40,
-			        fillColor: '#0e0',
-			        fillOpacity: 0.8,
-			        strokeOpacity: 1
-			      }),
-			      new ol.style.Text({
-			        color: '#bada55',
-			        text: ol.expr.parse('label'),
-			        fontFamily: 'Calibri,sans-serif',
-			        fontSize: 14
+			        fillColor: '#0f0',
+			        fillOpacity: 0.5,
+			        strokeColor: '#393',
+			        strokeOpacity: 1,
+			        strokeWidth: 2
 			      })
 			    ]
 			  })
@@ -275,7 +301,7 @@ var guesser = {
 					// Starting point (the guess)
 					type: 'Feature',
 					properties: { 
-						label: label },
+						label: label, which: 'guess' },
 					geometry: {
 						type: 'Point', coordinates: from }
 				},{

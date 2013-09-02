@@ -48,18 +48,7 @@
     <div id="map" class="map"></div>
 
     <div id="map-overlay" class="hidden">
-       <a id="btn-guess" href="?" class="btn btn-default">Make guess</a>
-    </div>
-
-    <div id="d-locator" class="overlay hidden alert alert-info">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#d-photobox">Go back</button>
-      <p>Where would you say the photo you just saw was taken? Click anywhere on the map.</p>
-    </div>
-
-    <div id="d-result" class="overlay hidden alert alert-warning">
-      <p>You scored <span class="score"></span>. <span class="comment"></span></p>
-      <p>Total: <span class="total"></span></p>
-      <a id="btn-continue" data-toggle="modal" href="#d-photobox" class="btn btn-primary btn-large">Continue</a>
+       <a id="btn-guess" href="?" class="btn btn-default">It was here!</a>
     </div>
 
     <div id="d-start" class="modal" tabindex="-1" role="dialog" aria-labelledby="label-intro" aria-hidden="true"><div class="modal-dialog">
@@ -69,7 +58,9 @@
                 <h4 id="label-intro" class="modal-title">Welcome message</h4>
             </div>
             <div class="modal-body">
-                <p>Quisque eu orci malesuada, viverra lorem ut, placerat mauris. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dignissim, tellus at pretium vulputate, dui dolor sagittis tellus, a dictum ante ante vitae dolor. Sed et mauris a nunc interdum bibendum. Fusce viverra, mi quis condimentum malesuada, velit odio pulvinar ligula, non malesuada urna felis quis nisi. Donec magna purus, tincidunt nec lacus sed, adipiscing ultricies turpis. Donec vel nulla non justo convallis sagittis. Vivamus pulvinar massa eros, a suscipit orci pharetra a.</p>
+                <p>Welcome to SwissGuesser, the game that takes you on a historical trip through the country.</p>
+                <p>First we will show you a photograph from the <a href="http://www.swiss-archives.ch" target="_blank">Swiss Federal Archives</a>, dating from at least 50 years ago, taken somewhere in Switzerland. Look at the picture (click to zoom full screen), and think about where it was taken. Then click anywhere on the map to place your guess.</p>
+                <p>The closer you are to the actual location, the more points you'll get.</p>
             </div>
             <div class="modal-footer">
             <!--<button type="button" class="btn btn-default" data-dismiss="modal">Explore the map</button>-->
@@ -97,11 +88,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <p>
-                    Look at the picture and think about where it was taken. Then click anywhere on the map to place your guess!
-                </p>
-                <button type="button" class="btn btn-cancel" onClick="location.reload()">Restart</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-search"></span> Make guess ...</button>
+                <button type="button" class="btn btn-cancel" onClick="location.reload()">Restart game</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-search"></span> Take a guess ...</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -109,10 +97,47 @@
 
     <div id="d-lightbox" class="lightbox modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="lightbox-content">
-            <button type="button" class="close" data-dismiss="lightbox" data-toggle="modal" href="#d-photobox" aria-hidden="true">&times;</button>
+            <button type="button" class="close" data-dismiss="lightbox" data-toggle="modal" aria-hidden="true">&times;</button>
             <img draggable="false" width="100%" />
         </div>
     </div>
+
+    <div id="d-locator" class="overlay hidden alert alert-info">
+        <a data-toggle="lightbox" href="#d-lightbox"><img height="100%" align="left"></a>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#d-photobox">Back</button>
+      <p>Where would you say the photo you just saw was taken? Click anywhere on the map.</p>
+    </div>
+
+    <div id="d-result" class="overlay hidden alert alert-warning">
+      <p>You scored <span class="score"></span>. <span class="comment"></span></p>
+      <p>Total score: <span class="total"></span></p>
+
+      <a id="btn-continue" data-toggle="modal" href="#d-photobox" class="btn btn-primary btn-large">Continue</a>
+
+        <div id="v-finish" class="hidden">
+            
+            Thanks for playing!
+            Share your result with friends?
+
+            <div class="sharebox">
+                <div class="shareicon">
+                    <a href="#" class="twitter-hashtag-button" data-lang="de" data-size="small" data-related="swiss_geoportal" data-url="http://storymaps.geo.admin.ch/storymaps/storymap5" data-dnt="true">Tweet #SwissGuesser</a>
+                </div>
+
+                <div class="shareicon">
+                    <div class="g-plusone" data-size="medium"></div>
+                </div>
+                
+                <div class="shareicon" style="margin-top:1px; width:100px; height:30px">
+                    <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-height="30" data-show-faces="false"></div>
+                </div>
+            </div><!-- /sharebox -->
+
+            <button type="button" class="btn btn-cancel" onClick="location.reload()">New Game</button>
+
+        </div><!-- /v-finish -->
+
+    </div><!-- /d-result -->
 
     <link rel="stylesheet" href="http://simonwhitaker.github.io/github-fork-ribbon-css/gh-fork-ribbon.css">
     <div class="github-fork-ribbon-wrapper left-bottom" style="z-index:2000">
