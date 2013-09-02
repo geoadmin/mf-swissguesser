@@ -9,15 +9,21 @@
   padding: 0.2em 0; 
 }
 
-.jumbotron {
-  margin: 50px auto 0 auto;
-}
+/* Customize bootstrap */
+.jumbotron { margin: 50px auto 0 auto; }
+
+.navbar-toggle .icon-bar { background-color: #777; }
+
+.navbar-toggle { background-color: #ddd; } 
+
+/* Application layout */
 
 #header {
-	opacity:0.8; 
+	opacity: 0.8; 
 	background: #fff;
 
-	.title { 
+	.navbar-brand { 
+		color: #333;
 		position: fixed;
 		font-size: 24pt;
 		font-weight: bold;
@@ -27,7 +33,12 @@
 	}
 	.logo {
 	  background: url(../images/logo.ch.jpeg) no-repeat top left;
-	  min-height: 88px;
+	  min-width: 300px; min-height: 88px;
+	}
+	.navbar-nav a { color: #333; }
+	.nav .caret { 
+		border-top-color: #333;
+		border-bottom-color:#333; 
 	}
 }
 
@@ -58,7 +69,7 @@ body { background:grey; }
 @media screen and (max-width: 768px) { 
 
 	#header {
-		.title { 
+		.navbar-brand	 { 
 			position: relative;
 			margin: 0.1em 0 0;
 			left: 1%;
