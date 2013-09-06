@@ -18,7 +18,15 @@ The project is built with OpenLayers 3, jQuery 2 and the Twitter Bootstrap 3 fra
 
 storymap5$ npm install
 
-This will install Grunt and Bower automatically.
+This will install Grunt and Bower automatically. However, it is recommended that they are installed globally:
+
+# npm install -g grunt-cli bower
+
+Run this command as root to use system-wide, or use the [nave.sh](https://github.com/isaacs/nave) utility for your local user.
+
+For generating documentation, the [Pygments](http://pygments.org/) utility is required, which can be installed as indicated [on the website](http://pygments.org/download/) or on Ubuntu/Debian systems as follows:
+
+# sudo apt-get install python-pygments
 
 ## Preparing data
 

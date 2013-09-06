@@ -4,9 +4,6 @@
 // 
 // A game to look for historical pictures on a map.
 
-// Load data and start game
-$.getJSON('data/base.json', function(d) { guesser.configure(d); });
-
 // Main closure
 var guesser = {
 
@@ -38,31 +35,40 @@ var guesser = {
 	// ### Initial setup
 	configure: function(json) {
 
-		this.config = json.conf;
-		this.collection = json.data;
-		this.loader( this.collection[0] );
-
-		// Customize image dialog
-		$('#d-photobox').on('shown.bs.modal', function () {
-			//this.domBtnStart.fadeOut();
-		}).on('hidden.bs.modal', function () {
-			guesser.domBtnStart.fadeIn('slow');
-			// Start the game if the dialog was deactivated
-			if (guesser.active) { 
-				guesser.domLocator.removeClass('hidden');
-			}
-		});
+		var self = this;
+		self.config = json.conf;
+		self.collection = json.data;
 
 		// Fullscreen
 		$('.lightbox').on('shown.bs.modal', function () {
 			$('.modal-backdrop.in').css('opacity', 1);
 		}).on('hidden.bs.modal', function () {
+			// Clear backdrops properly (bug?)
 			$('.modal-backdrop.in').remove();
 		});
 
 		// Start the game (open dialog)
-		this.domStartBox.modal('show');
+		//this.domStartBox.modal('show');
+		self.resize();
+		$(window).on('resize', function() { self.resize(); });
 
+		// Load the map
+		initGeoAdmin();
+
+		// Bind challenge start
+		self.domBtnStart.click(function() {
+			self.loader( self.collection[0] );
+		});
+
+	},
+
+	// ### Position the map container
+	resize: function() {
+		var frameheight = $(window).height() - 90;
+		$('.container-main').css('height', frameheight + 'px');
+		$('.d-photo').css('height', (frameheight - 90) + 'px');
+		//$('#map').css('width', parseInt($(window).width()/2) + 'px');
+		if (map) map.updateSize();
 	},
 
 	// ### Load image data
@@ -83,12 +89,10 @@ var guesser = {
 		$('h4', imgbox).attr('title', metadata.id);
 		$('.image-count', imgbox).html(this.currentIndex+1);
 		$('.image-total', imgbox).html(this.collection.length);
-
-		// Start guesser
-		$('.btn-primary').one('click', function() {
-			guesser.challenge(map, [metadata.y, metadata.x]);
-		});
 	
+		// Start the challenge
+		guesser.challenge(map, [metadata.y, metadata.x]);
+
 	},
 
 	// ### Continue to next image
@@ -108,17 +112,22 @@ var guesser = {
 
 		var msg = "I just scored " + this.user.score + " on #SwissGuesser! Beat that :)";
 
-		$('.sharebox').append('<a href="mailto:?subject=' 
-				+ msg + '&body=' + document.location.href + 
-				'" class="shareicon-email">E-mail</a>');
+		var sharebox = $('.sharebox');
+
+		$('.btn-email', sharebox).click(function() {
+				location.href = 
+					'mailto:?subject=' 
+					+ msg + '&body=' + document.location.href;
+			});
 		
-		$('.twitter-hashtag-button').attr('href', 
+		$('.btn-twitter', sharebox).click(function() {
+				location.href =  
 			'https://twitter.com/intent/tweet?button_hashtag=SwissGuesser&text='
-			+ msg);
+				+ msg;
+			//https://twitter.com/intent/tweet?hashtags=SwissGuesser%2C&original_referer=http%3A%2F%2Fxublet%2Fgeo%2Fweb-storymaps%2Fstorymap5%2Fapp%2F&related=swiss_geoportal&text=I%20just%20scored%202300%20on%20%23SwissGuesser!%20Beat%20that%20%3A%29&tw_p=tweetbutton&url=http%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5
+			});
 
-		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
-		$('#btn-continue').addClass('hidden');
+		$('#btn-continue').hide();
 		$('#v-finish').removeClass('hidden');
 
 		//this.currentIndex = -1;
@@ -154,8 +163,7 @@ var guesser = {
 			});
 
 		// Bind click event to map
-		var self = this;
-		olMap.on('click', function(evt) { self.place(evt); });
+		olMap.on('click', function(evt) { guesser.place(evt); });
 
 	}, // -- challenge
 
@@ -232,10 +240,11 @@ var guesser = {
 		this.domResults.find('.total').html(this.user.score);
 		this.domResults.find('.comment').html('Well done!');
 
-		// Show dialog and continue the game
+		// Show dialog and get ready to continue the game
 		this.domResults.removeClass('hidden');
-		this.domBtnNext.removeClass('hidden');
-		this.next();
+		this.domBtnNext.removeClass('hidden').click(function() {
+			guesser.next();
+		});
 
 	}, // -- guess
 
@@ -325,3 +334,6 @@ var guesser = {
 	 		});
 	} // -- getVector
 };
+
+// Load data and start game
+$.getJSON('data/base.json', function(d) { guesser.configure(d); });
