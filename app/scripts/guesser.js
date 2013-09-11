@@ -60,6 +60,16 @@ var guesser = {
 			self.loader( self.collection[0] );
 		});
 
+		// Bind switcher buttons
+		$('.mobile-switch button').click(function() {
+			var tgt = $($(this).attr('data-target'));
+			$('.container-main > div.on').removeClass('on');
+			tgt.addClass('on');
+			$(this).parent().find('.active').removeClass('active');
+			$(this).addClass('active');
+		});
+		$('.container-main > div.on:last').removeClass('on');
+
 	},
 
 	// ### Position the map container
@@ -81,9 +91,8 @@ var guesser = {
 					this.config.dataSuffix;
 
 		// Load images
-		$('img').attr('src', imgsrc);
-		//$('img', imgbox).attr('src', imgsrc);
-		//$('img', this.domLightBox).attr('src', imgsrc);
+		$('.d-photo').css('background-image', 'url(' + imgsrc + ')');
+		$('img', this.domLightBox).attr('src', imgsrc);
 
 		// Populate components
 		$('h4', imgbox).attr('title', metadata.id);
@@ -104,6 +113,9 @@ var guesser = {
 
 		// Continue to next image
 		this.loader( this.collection[this.currentIndex] );
+
+		// On mobile, switch tabs
+		$('.mobile-switch button:first').click();
 
 	},
 

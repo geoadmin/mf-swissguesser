@@ -28,11 +28,15 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+				<div class="navbar-toggle mobile-switch">
+					<button class="btn btn-default active" type="button" data-target="#column-info">Photo</button>
+					<button class="btn btn-default" type="button" data-target="#column-map">Map</button>
+				</div>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar-main">
 				<ul class="nav navbar-nav pull-right">
 					<li>
-							<a href="?">About</a>
+							<a href="#" data-target="#d-start" data-toggle="tab" data-dismiss="navbar-nav">About</a>
 					</li>
 					<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language">
@@ -46,7 +50,7 @@
 </div></nav>
 
 <div class="container container-main">
-<div class="col-md-5 column-info tab-content">
+<div class="col-md-5 tab-content on" id="column-info">
 
 	<ul class="nav nav-tabs hidden">
 	  <li class="active"><a href="#d-start">Home</a></li>
@@ -55,7 +59,7 @@
 
 	<div id="d-start" class="panel tab-pane active" aria-labelledby="label-intro" aria-hidden="true" tabindex="-1">
 		<div class="panel-body">
-				<p>Welcome to SwissGuesser, the game that takes you on a historical trip through the country.</p>
+				<p>Welcome to <b>SwissGuesser</b>, the game that takes you on a historical trip through the country.</p>
 				<p>First we will show you a photograph from the <a href="http://www.swiss-archives.ch" target="_blank">Swiss Federal Archives</a>, dating from at least 50 years ago, taken somewhere in Switzerland. Look at the picture (click to zoom full screen), and think about where it was taken. Then click anywhere on the map to place your guess.</p>
 				<p>The closer you are to the actual location, the more points you'll get.</p>
 		</div>
@@ -69,7 +73,6 @@
 		<div class="panel-body">
 				<div class="d-photo">
 						<a data-toggle="lightbox" href="#d-lightbox">
-								<img draggable="false" width="100%" />
 								<span class="glyphicon glyphicon-fullscreen"></span>
 						</a>
 				</div>
@@ -85,7 +88,7 @@
 	</div><!-- /.panel -->
 
 </div>
-<div class="col-md-7 column-map">
+<div class="col-md-7 on" id="column-map">
 
 	<div id="map" class="map"></div>
 
@@ -96,48 +99,48 @@
 </div>
 </div><!-- /container -->
 
-	<div id="d-lightbox" class="lightbox modal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="lightbox-content">
-					<button type="button" class="close" data-dismiss="lightbox" data-toggle="modal" aria-hidden="true">&times;</button>
-					<a data-dismiss="lightbox" data-toggle="modal"><img draggable="false" width="100%" /></a>
-			</div>
-	</div>
+<div id="d-lightbox" class="lightbox modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="lightbox-content">
+				<button type="button" class="close" data-dismiss="lightbox" data-toggle="modal" aria-hidden="true">&times;</button>
+				<a data-dismiss="lightbox" data-toggle="modal"><img draggable="false" width="100%" /></a>
+		</div>
+</div>
 
-	<div id="d-result" class="overlay hidden alert alert-warning">
-		<p>You scored <span class="score"></span>. <span class="comment"></span></p>
-		<p>Total score: <span class="total"></span></p>
+<div id="d-result" class="overlay hidden alert alert-warning">
+	<p>You scored <span class="score"></span>. <span class="comment"></span></p>
+	<p>Total score: <span class="total"></span></p>
 
-		<a id="btn-continue" data-dismiss="modal" class="btn btn-primary btn-large">Continue</a>
+	<a id="btn-continue" data-dismiss="modal" class="btn btn-primary btn-large">Continue</a>
 
-		<div id="v-finish" class="hidden">
-				
-				Thanks for playing!
-				Share your result with friends?
+	<div id="v-finish" class="hidden">
+			
+			Thanks for playing!
+			Share your result with friends?
 
-				<div class="sharebox">
-						<div class="shareicon">
-							<button type="button" class="btn btn-sm btn-twitter">
-								<span class="icon-twitter"></span>
-								Tweet</button>
-						</div>
+			<div class="sharebox">
+					<div class="shareicon">
+						<button type="button" class="btn btn-sm btn-twitter">
+							<span class="icon-twitter"></span>
+							Tweet</button>
+					</div>
 
-						<div class="shareicon">
-							<button type="button" class="btn btn-sm btn-facebook">
-								<span class="glyphicon glyphicon-thumbs-up"></span>
-								Like</button>
-						</div>
+					<div class="shareicon">
+						<button type="button" class="btn btn-sm btn-facebook">
+							<span class="glyphicon glyphicon-thumbs-up"></span>
+							Like</button>
+					</div>
 
-						<div class="shareicon">
-							<button type="button" class="btn btn-sm btn-email">
-								<span class="glyphicon glyphicon-envelope"></span> 
-								E-mail</button>
-						</div>
-				</div><!-- /sharebox -->
+					<div class="shareicon">
+						<button type="button" class="btn btn-sm btn-email">
+							<span class="glyphicon glyphicon-envelope"></span> 
+							E-mail</button>
+					</div>
+			</div><!-- /sharebox -->
 
-				<button type="button" class="btn btn-cancel" onClick="location.reload()">New Game</button>
+			<button type="button" class="btn btn-cancel" onClick="location.reload()">New Game</button>
 
-		</div><!-- /v-finish -->
-	</div><!-- /d-result -->
+	</div><!-- /v-finish -->
+</div><!-- /d-result -->
 
 <!--[if lt IE 7]>
 	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
