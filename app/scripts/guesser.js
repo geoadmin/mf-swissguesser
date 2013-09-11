@@ -39,6 +39,11 @@ var guesser = {
 		self.config = json.conf;
 		self.collection = json.data;
 
+		// Check for anchor and clear it
+		if (location.href.indexOf('#')>0) 
+			  location.href = location.href.substring(0, 
+			  	location.href.lastIndexOf('/'));
+
 		// Fullscreen
 		$('.lightbox').on('shown.bs.modal', function () {
 			$('.modal-backdrop.in').css('opacity', 1);
@@ -47,8 +52,7 @@ var guesser = {
 			$('.modal-backdrop.in').remove();
 		});
 
-		// Start the game (open dialog)
-		//this.domStartBox.modal('show');
+		// Init resizing
 		self.resize();
 		$(window).on('resize', function() { self.resize(); });
 
@@ -76,7 +80,7 @@ var guesser = {
 	resize: function() {
 		var frameheight = $(window).height() - 92;
 		$('.container-main').css('height', frameheight + 'px');
-		$('.d-photo').css('height', (frameheight - 90) + 'px');
+		$('.d-photo').css('height', (frameheight - 90 - 21) + 'px');
 		//$('#map').css('width', parseInt($(window).width()/2) + 'px');
 		if (map) map.updateSize();
 	},

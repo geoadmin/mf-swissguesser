@@ -76,7 +76,13 @@
 								<span class="glyphicon glyphicon-fullscreen"></span>
 						</a>
 				</div>
-				<p>Where do you think this is? Click anywhere on the map.</p>
+				<div class="d-copyright">
+					&copy;
+					<a href="http://www.swiss-archives.ch" target="_blank">
+						Swiss Federal Archives
+					</a>
+				</div>
+				<p>Where do you think this is? Click anywhere <a href="#map">on the map</a>.</p>
 		</div>
 		<div class="panel-footer">
 			<button type="button" class="btn btn-cancel" onClick="location.reload()">Restart game</button>
@@ -93,7 +99,7 @@
 	<div id="map" class="map"></div>
 
 	<div id="map-overlay" class="hidden">
-		 <a id="btn-guess" href="?" class="btn btn-default">Confirm guess</a>
+		 <a id="btn-guess" href="#" class="btn btn-default">Confirm guess</a>
 	</div>
 
 </div>
@@ -113,7 +119,7 @@
 	<p>You scored <span class="score"></span>. <span class="comment"></span></p>
 	<p>Total score: <span class="total"></span></p>
 
-	<a id="btn-continue" data-dismiss="modal" class="btn btn-primary btn-large">Continue</a>
+	<a id="btn-continue" href="#d-photobox" data-dismiss="modal" class="btn btn-primary btn-large">Continue</a>
 
 	<div id="v-finish" class="hidden">
 			
