@@ -64,7 +64,7 @@ var guesser = {
 
 	// ### Position the map container
 	resize: function() {
-		var frameheight = $(window).height() - 90;
+		var frameheight = $(window).height() - 92;
 		$('.container-main').css('height', frameheight + 'px');
 		$('.d-photo').css('height', (frameheight - 90) + 'px');
 		//$('#map').css('width', parseInt($(window).width()/2) + 'px');
