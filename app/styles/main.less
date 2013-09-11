@@ -65,14 +65,22 @@ body { background:grey; }
 }
 
 div.overlay {
-	top: 100px;
-	.btn { float: right; }
+	bottom: 0px;
+	.btn { 
+		float: right; 
+	}
 }
 
 .btn.overlay {
 	width: 10em;
 	bottom: 20px;
 	margin-left: -5em;
+}
+
+#btn-continue {
+  position: relative;
+	margin-bottom: -3em;
+  top: -3em;
 }
 
 .popover-content { background-color: yellow; }
@@ -204,13 +212,28 @@ body #map {
 	margin-left: -19em;
 	background: #fffff0 url(../images/map-cut.png) no-repeat top right;
 
+	img { 
+		float: left;
+		max-height: 5em;
+		max-width: 5em;
+		margin-right: 1em;
+	}
+
+	.info {
+		width: 80%;
+		color: #555;
+		border-bottom: 1px solid #ea8;
+		padding-bottom: 0.5em;
+		margin-bottom: 0.5em;
+	}
+
 	.total {
 		font-weight: bold;
 		color: #f99;
 		font-size: 200%;
 	}
 
-	.btn-cancel {
+	.btn-primary {
 		float: left;
 		clear: both;
 		margin-top: 2em;

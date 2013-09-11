@@ -93,11 +93,15 @@ var guesser = {
 		// Load images
 		$('.d-photo').css('background-image', 'url(' + imgsrc + ')');
 		$('img', this.domLightBox).attr('src', imgsrc);
+		$('img', this.domResults).attr('src', imgsrc);
 
 		// Populate components
 		$('h4', imgbox).attr('title', metadata.id);
 		$('.image-count', imgbox).html(this.currentIndex+1);
 		$('.image-total', imgbox).html(this.collection.length);
+
+		// Result box description
+		this.domResults.find('.info').html(metadata[this.lang]);
 	
 		// Start the challenge
 		guesser.challenge(map, [metadata.y, metadata.x]);
