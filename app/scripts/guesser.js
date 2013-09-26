@@ -265,7 +265,13 @@ var guesser = {
 		// Update dialog with score results
 		this.domResults.find('.score').html(score);
 		this.domResults.find('.total').html(this.user.score);
-		this.domResults.find('.comment').html('Well done!');
+		this.domResults.find('.distance').html(parseInt(dist)); //TODO: format
+		
+		// Generate a comment
+		var comment = (score < 1000) ? "Better luck next time..." :
+		              (score < 2000) ? "Well done." : 
+		                               "Excellent!";
+		this.domResults.find('.comment').html(comment); //TODO: i18n
 
 		// Show dialog and get ready to continue the game
 		this.domResults.removeClass('hidden');
@@ -283,9 +289,9 @@ var guesser = {
 			  new ol.style.Rule({
 			  	filter: 'geometryType("linestring")',
 			    symbolizers: [
-			      new ol.style.Line({
-			        color: ol.expr.parse('color'),
-			        width: 2,
+			      new ol.style.Stroke({
+			        color: '#a00',
+			        width: 3,
 			        opacity: 0.4
 			      })
 			    ]
@@ -295,18 +301,21 @@ var guesser = {
 			    filter: 'geometryType("point") && which == "guess"',
 			    symbolizers: [
 			      new ol.style.Shape({
-			        size: 40,
-			        fillColor: '#fff',
-			        fillOpacity: 0.5,
-			        strokeColor: '#fc0',
-			        strokeOpacity: 1,
-			        strokeWidth: 3
+			        size: 30,
+			        fill: new ol.style.Fill({color: '#fff'}),
+			        opacity: 1,
+			        stroke: new ol.style.Stroke({
+			          color: '#a00',
+			          width: 2,
+			          opacity: 1
+			        })
 			      }),
 			      new ol.style.Text({
 			        color: '#000',
 			        text: ol.expr.parse('label'),
-			        fontFamily: 'Calibri,sans-serif',
-			        fontSize: 14
+			        fontFamily: 'Arial Black,Calibri,sans-serif',
+			        fontSize: 18,
+			        opacity: 1
 			      })
 			    ]
 			  }),
@@ -315,12 +324,14 @@ var guesser = {
 			    filter: 'geometryType("point") && which == "answer"',
 			    symbolizers: [
 			      new ol.style.Shape({
-			        size: 40,
-			        fillColor: '#0f0',
-			        fillOpacity: 0.5,
-			        strokeColor: '#393',
-			        strokeOpacity: 1,
-			        strokeWidth: 2
+			        size: 20,
+			        fill: new ol.style.Fill({color: '#9d9', opacity:1}),
+			        opacity: 1,
+			        stroke: new ol.style.Stroke({
+			          color: '#3f3',
+			          width: 2,
+			          opacity: 1
+			        })
 			      })
 			    ]
 			  })
@@ -328,12 +339,6 @@ var guesser = {
 		
 		var features = [
 				{
-					// Line from A to B
-					type: 'Feature',
-					properties: { color: '#fff' },
-					geometry: {
-						type: 'LineString', coordinates: [from, to] }
-				},{
 					// Starting point (the guess)
 					type: 'Feature',
 					properties: { 
@@ -347,6 +352,12 @@ var guesser = {
 						label: label, which: 'answer' },
 					geometry: {
 						type: 'Point', coordinates: to }
+				},{
+					// Line from A to B
+					type: 'Feature',
+					properties: { color: '#fff' },
+					geometry: {
+						type: 'LineString', coordinates: [from, to] }
 				}
 			];
 

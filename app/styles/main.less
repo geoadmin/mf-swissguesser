@@ -77,7 +77,8 @@ div.overlay {
 	margin-left: -5em;
 }
 
-.popover-content { background-color: yellow; }
+/* Overlay dialog */
+.popover-content { background-color: #7c7; }
 
 @media screen and (max-width: 768px) { 
 
@@ -217,6 +218,18 @@ body #map {
 .modal-dialog { margin-top:7%; }
 .modal-footer p { text-align: left; }
 
+/* #btn-start, #btn-continue */
+.btn-primary { 
+  background-color:#c33; 
+  border:2px solid black; 
+  width:100%;
+}
+.btn-primary:hover {
+  background-color:#e55;
+  border:2px solid #fff;  
+}
+
+/* Text box result */
 #d-result {
 	width: 38em;
 	margin-left: -19em;
@@ -255,8 +268,12 @@ body #map {
 
 	.sharebox {	
 		margin-top: 1em; 
-		margin-bottom: 3em;
+		margin-bottom: 5em;
 		text-align: center;
+	}
+	
+	.shareicon button {
+	  margin-right:1em;
 	}
 
 	.icon-twitter {
