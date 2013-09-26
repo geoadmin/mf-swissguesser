@@ -14,8 +14,8 @@ function initGeoAdmin() {
 
   var layers = [
     // Load pixel base map from GeoAdmin WMS server 
-    new ol.layer.TileLayer({
-      source: new ol.source.TiledWMS({
+    new ol.layer.Tile({
+      source: new ol.source.TileWMS({
         url: 'http://wms.geo.admin.ch/',
         crossOrigin: 'anonymous',
         attributions: [new ol.Attribution(

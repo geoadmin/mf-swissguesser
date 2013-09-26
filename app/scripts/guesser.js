@@ -358,7 +358,7 @@ var guesser = {
 // Load translation (i18next)
 i18n.init({ 
   detectLngQS: 'lang', 
-  fallbackLng: 'de',
+  fallbackLng: 'en',
   resGetPath: 'data/locale/__lng__/__ns__.json',
   //useLocalStorage: true, localStorageExpirationTime: 86400000
 }, function(t) { $("*[data-i18n]").i18n(); });
