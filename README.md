@@ -32,9 +32,15 @@ For generating documentation, the [Pygments](http://pygments.org/) utility is re
 
 The metadata for this project is provided in the form of a spreadsheet. Export this file to CSV then use the converter tool:
 
-storymap5$ node convertCSV.js
+storymap5$ node util/convertCSV.js
 
 Due to licensing restrictions, the photo archive JPEGs must be copied manually to the `/app/data/photos/` folder. Their filenames will correspond to the images defined in `base.json`, e.g. `14093_0799_A1.jpg`.
+
+## Preparing translations
+
+With a similar process, translations for this app are in a spreadsheet. Export to CSV and save the resulting file under `/app/data/i18n/translation.csv'. Then run:
+
+storymap5$ node util/translationCSV.js
 
 ## Compiling resources
 
