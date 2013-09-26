@@ -16,6 +16,7 @@ var guesser = {
 	// State variables
 	config: null, 
 	overlay: null, 
+	overlayhtml: null,
 	collection: null, 
 	currentIndex: 0,
 	currentAnswer: null, 
@@ -171,16 +172,17 @@ var guesser = {
 		if (this.overlay != null) {
 			return;
 		}
-
-		// Get current template
-		this.html = this.domOverlay.html();
-		this.domOverlay.html(''); // and clear
+		
+		// Save overlay content and clear
+		this.overlayhtml = this.domOverlay.html();
+		this.domOverlay.html('');
 
 		// Create an Overlay
 		this.overlay =
 			new ol.Overlay({
-				map: olMap, element: this.domOverlay[0]
+				element: this.domOverlay[0]
 			});
+		olMap.addOverlay(this.overlay);
 
 		// Bind click event to map
 		olMap.on('click', function(evt) { guesser.place(evt); });
@@ -205,18 +207,23 @@ var guesser = {
 		if (!self.active) return;
 
 		// Update placement
+		var element = this.overlay.getElement();
 		this.position = evt.getCoordinate();
-		this.overlay.setPosition(this.position);
 		//console.log(this.position);
+		
+		$(element).popover('destroy');
+		this.overlay.setPosition(this.position);
 
 		// Show the overlay
-		this.domOverlay
-			.removeClass('hidden')
-			.popover({ 
-				'placement': 'top', 'html': true, 
-				'content': this.html })
-			.popover('show');
-
+		$(element).popover({ 
+			'placement': 'top',
+			'animation': false, 
+			'html': true, 
+			'content': this.overlayhtml
+		});
+		$(element).popover('show');
+		//console.log(element);
+    
 		// Link button action
 		// NB: this button gets recreated for each overlay
 		$('#btn-guess').click(function(evt) {
