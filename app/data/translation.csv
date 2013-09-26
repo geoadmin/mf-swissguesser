@@ -1,12 +1,12 @@
-id,DE,FR,IT,EN
+id,de,fr,it,en
 App-Title,,,,SwissGuesser
 App-Menu,,,,Menu
 App-About,,,,About
 App-Lang,,,,Language
 Toggle-Map,,,,Map
 Toggle-Photo,,,,Photo
-Start-Title,"Swissguesser: Fotosammlung
-Erster Weltkrieg",,,"Swissguesser: photo collection
+Start-Title,"SwissGuesser: Fotosammlung
+Erster Weltkrieg",,,"SwissGuesser: photo collection from
 World War I"
 Start-Text,"Eine der grössten Fotosammlung des Schweizerischen Bundesarchivs ist die
 Fotosammlung Erster Weltkrieg, die 5'125 digitalisierte Glasplattennegative zum
@@ -61,13 +61,13 @@ Bundesarchivs -> https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228
 
 
 "
-Game-Start,Start,,,Start
+Game-Start,,,,Start
 Game-Confirm,,,,Confirm guess
 Photo-Copyright,,,,Swiss Federal Archives
 Photo-Text,,,,Where do you think this is? Click anywhere on the map.
 Photo-Restart,,,,Restart game
-Photo-Counter,,,,Image {0} of {1}
-Result-Score,,,,You scored {0}
+Photo-Counter,,,,Image
+Result-Score,,,,You scored
 Result-Total,,,,Total score:
 Result-Continue,,,,Continue
 Finish-Text,,,,Thanks for playing! Share your result with friends?

@@ -10,7 +10,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="http://ol3js.org/en/r3.0.0-alpha.4/build/ol.css" type="text/css">
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.6.1/bootstrap-lightbox.min.css" type="text/css">
 	<link rel="stylesheet" href="styles/main.css">
 	<!-- build:js scripts/vendor/modernizr.js -->
@@ -21,28 +20,31 @@
 
 <nav id="header" class="navbar navbar-fixed-top" role="navigation"><div class="container">
 		<div class="navbar-header logo">
-				<a class="navbar-brand" href="#">SwissGuesser</a>
+				<a class="navbar-brand" href="#" data-i18n="App-Title">SwissGuesser</a>
 				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-					<span class="sr-only">Menu</span>
+					<span class="sr-only" data-i18n="App-Menu">Menu</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
 				<div class="navbar-toggle mobile-switch">
-					<button class="btn btn-default active" type="button" data-target="#column-info">Photo</button>
-					<button class="btn btn-default" type="button" data-target="#column-map">Map</button>
+					<button class="btn btn-default active" type="button" data-target="#column-info" data-i18n="Toggle-Photo">Photo</button>
+					<button class="btn btn-default" type="button" data-target="#column-map" data-i18n="Toggle-Map">Map</button>
 				</div>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar-main">
 				<ul class="nav navbar-nav pull-right">
 					<li>
-							<a href="#" data-target="#d-start" data-toggle="tab" data-dismiss="navbar-nav">About</a>
+							<a href="#" data-target="#d-start" data-toggle="tab" data-dismiss="navbar-nav" data-i18n="App-About">About</a>
 					</li>
 					<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language">
-									Language <span class="caret"></span></a>
+									<span data-i18n="App-Lang">Language <span class="caret"></span></a>
 							<ul class="dropdown-menu" aria-labelledby="language">
-									<li><a tabindex="-1" href="?">English</a></li>
+							    <li><a tabindex="-1" href="?lang=DE">Deutsch</a></li>
+							    <li><a tabindex="-1" href="?lang=FR">Français</a></li>
+							    <li><a tabindex="-1" href="?lang=IT">Italiano</a></li>
+									<li><a tabindex="-1" href="?lang=EN">English</a></li>
 							</ul>
 					</li>
 				</ul>
@@ -52,20 +54,11 @@
 <div class="container container-main">
 <div class="col-md-5 tab-content on" id="column-info">
 
-	<ul class="nav nav-tabs hidden">
-	  <li class="active"><a href="#d-start">Home</a></li>
-	  <li><a href="#d-photobox">Profile</a></li>
-	</ul>
-
 	<div id="d-start" class="panel tab-pane active" aria-labelledby="label-intro" aria-hidden="true" tabindex="-1">
-		<div class="panel-body">
-				<p>Welcome to <b>SwissGuesser</b>, the game that takes you on a historical trip through the country.</p>
-				<p>First we will show you a photograph from the <a href="http://www.swiss-archives.ch" target="_blank">Swiss Federal Archives</a>, dating from at least 50 years ago, taken somewhere in Switzerland. Look at the picture (click to zoom full screen), and think about where it was taken. Then click anywhere on the map to place your guess.</p>
-				<p>The closer you are to the actual location, the more points you'll get.</p>
-		</div>
+		<div class="panel-header" data-i18n="Start-Title">SwissGuesser</div>
+		<div class="panel-body" data-i18n="Start-Text"></div>
 		<div class="panel-footer">
-			<!--<button type="button" class="btn btn-default" data-dismiss="modal">Explore the map</button>-->
-			<button id="btn-start" type="button" class="btn btn-primary" href="#d-photobox" data-toggle="tab">Start game!</button>
+			<button id="btn-start" type="button" class="btn btn-primary" href="#d-photobox" data-toggle="tab" data-i18n="Game-Start">Start</button>
 		</div>
 	</div><!-- /.panel -->
 
@@ -78,17 +71,15 @@
 				</div>
 				<div class="d-copyright">
 					&copy;
-					<a href="http://www.swiss-archives.ch" target="_blank">
-						Swiss Federal Archives
-					</a>
+					<a href="http://www.swiss-archives.ch" target="_blank" data-i18n="Photo-Copyright"></a>
 				</div>
-				<p>Where do you think this is? Click anywhere <a href="#map">on the map</a>.</p>
+				<p><a href="#map" data-i18n="Photo-Text"></a></p>
 		</div>
 		<div class="panel-footer">
-			<button type="button" class="btn btn-cancel" onClick="location.reload()">Restart game</button>
+			<button type="button" class="btn btn-cancel" onClick="location.reload()" data-i18n="Photo-Restart"></button>
 			<h4 id="label-photo" class="panel-title">
-					Image <span class="image-count"></span>
-					of <span class="image-total"></span>
+					<span data-i18n="Photo-Counter"></span> <span class="image-count"></span>
+					/ <span class="image-total"></span>
 			</h4>
 		</div>
 	</div><!-- /.panel -->
@@ -99,7 +90,9 @@
 	<div id="map" class="map"></div>
 
 	<div id="map-overlay" class="hidden">
-		 <a id="btn-guess" href="#" class="btn btn-default">Confirm guess</a>
+		 <a id="btn-guess" href="#" class="btn btn-default">
+		 	<span data-i18n="Game.Confirm">
+		 </a>
 	</div>
 
 </div>
@@ -116,15 +109,14 @@
 	<img>
 	<p class="info"></p>
 
-	<p>You scored <span class="score"></span>. <span class="comment"></span></p>
-	<p>Total score: <span class="total"></span></p>
+	<p data-i18n="Result.Score"> <span class="score"></span>. <span class="comment"></span></p>
+	<p data-i18n="Result.Total"> <span class="total"></span></p>
 
-	<a id="btn-continue" href="#d-photobox" data-dismiss="modal" class="btn btn-primary btn-large">Continue</a>
+	<a id="btn-continue" href="#d-photobox" data-dismiss="modal" class="btn btn-primary btn-large" data-i18n="Result.Continue"></a>
 
 	<div id="v-finish" class="hidden">
 			
-			Thanks for playing!
-			Share your result with friends?
+			<span data-i18n="Finish.Text">
 
 			<div class="sharebox">
 					<div class="shareicon">
@@ -146,7 +138,7 @@
 					</div>
 			</div><!-- /sharebox -->
 
-			<button type="button" class="btn btn-primary" onClick="location.reload()">New Game</button>
+			<button type="button" class="btn btn-primary" onClick="location.reload()" data-i18n="Finish.Restart"></button>
 
 	</div><!-- /v-finish -->
 </div><!-- /d-result -->
@@ -156,7 +148,7 @@
 <![endif]-->
 
 <!-- OpenLayers 3 and extensions -->
-<script src="http://ol3js.org/en/r3.0.0-alpha.4/build/ol.js"></script>
+<script src="http://ol3js.org/en/master/build/ol.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js" type="text/javascript"></script>
 
@@ -175,14 +167,14 @@
 <script src="bower_components/bootstrap/js/collapse.js"></script>
 <script src="bower_components/bootstrap/js/tab.js"></script>
 <!-- endbuild -->
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.6.1/bootstrap-lightbox.js"></script>
 
-<!-- build:js scripts/wms-custom-proj.js -->
-<script src="scripts/wms-custom-proj.js"></script>
+<!-- build:js scripts/i18next.js -->
+<script src="bower_components/i18next/release/i18next-1.7.1.min.js"></script>
 <!-- endbuild -->
 
-<!-- build:js scripts/guesser.js -->
+<!-- build:js scripts/swissguesser.js -->
+<script src="scripts/wms-custom-proj.js"></script>
 <script src="scripts/guesser.js"></script>
 <!-- endbuild -->
 

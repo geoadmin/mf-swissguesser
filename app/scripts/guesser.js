@@ -355,5 +355,13 @@ var guesser = {
 	} // -- getVector
 };
 
+// Load translation (i18next)
+i18n.init({ 
+  detectLngQS: 'lang', 
+  fallbackLng: 'de',
+  resGetPath: 'data/locale/__lng__/__ns__.json',
+  //useLocalStorage: true, localStorageExpirationTime: 86400000
+}, function(t) { $("*[data-i18n]").i18n(); });
+
 // Load data and start game
 $.getJSON('data/base.json', function(d) { guesser.configure(d); });

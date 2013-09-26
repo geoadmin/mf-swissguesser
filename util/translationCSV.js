@@ -1,9 +1,9 @@
 var config = {
-  basePath:     'app/data/i18n/',
+  basePath:     'app/data/',
 	csvFileName: 	'translation.csv',
-	dataPrefix: 	'locales/',
+	dataPrefix: 	'locale/',
 	dataSuffix: 	'/translation.json',
-	languages:    ['DE','FR','IT','EN']
+	languages:    ['de','fr','it','en']
 }
 var csvData = {};
 config.languages.forEach(function(l) {
@@ -21,10 +21,7 @@ csvConverter.on("end_parsed",function(jsonObj){
 	  /* Prepare languages */
     config.languages.forEach(function(l) {
       var id = item['id'];
-      if (!item[l]) { 
-        /* Take English default */
-        csvData[l][id] = item['EN']; 
-      } else {
+      if (item[l]) {
         csvData[l][id] = item[l];
       }
     });
