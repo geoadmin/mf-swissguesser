@@ -242,6 +242,7 @@ module.exports = function (grunt) {
             'bower_components/bootstrap/dist/{,*/}*',
             'fonts/{,*/}*',
             'data/*.json',
+            'data/locale/{,*/}*',
             'data/photos/{,*/}*'
           ]
         }]
