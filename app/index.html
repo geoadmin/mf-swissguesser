@@ -87,37 +87,37 @@
 </div></nav>
 
 <div class="container container-main">
-<div class="col-md-5" id="column-info">
+<div class="col-md-6 on" id="column-info">
 
 	<div id="d-photobox" class="panel" aria-labelledby="label-photo" aria-hidden="true" tabindex="-1">
 		<div class="panel-body">
 				<div class="d-photo">
-						<a data-toggle="lightbox" href="#d-lightbox">
-								<span class="glyphicon glyphicon-fullscreen"></span>
-						</a>
+					<a data-toggle="lightbox" href="#d-lightbox">
+					<span class="glyphicon glyphicon-fullscreen"></span>
+					</a>
 				</div>
 				<div class="d-copyright">
 					&copy;
 					<a href="http://www.swiss-archives.ch" target="_blank" data-i18n="Photo-Copyright"></a>
 				</div>
-				<p>
-				  <span data-i18n="Photo-Text"></span>
+				<p class="hidden">
+				  <span class="d-photo-text" data-i18n="Photo-Text"></span>
 				  <a href="#map"><span class="glyphicon glyphicon-map-marker"></span></a>
 				</p>
 		</div>
 		<div class="panel-footer">
 			<button type="button" class="btn btn-cancel" onClick="location.reload()" data-i18n="Photo-Restart"></button>
 			<h4 id="label-photo" class="panel-title">
-					<span data-i18n="Photo-Counter"></span> <span class="image-count"></span>
-					/ <span class="image-total"></span>
+				<span data-i18n="Photo-Counter"></span> <span class="image-count"></span>
+				/ <span class="image-total"></span>
 			</h4>
 		</div>
 	</div><!-- /.panel -->
 
 </div>
-<div class="col-md-7 on" id="column-map">
+<div class="col-md-6" id="column-map">
 
-	<div id="map" class="map"></div>
+  <div id="map" class="map"></div>
 
   <div style="display:none">
 	  <div id="map-overlay">

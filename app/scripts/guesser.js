@@ -61,8 +61,14 @@ var guesser = {
 		initGeoAdmin();
 
 		// Bind challenge start
-		self.domBtnStart.click(function() {
+		//self.domBtnStart.click(function() {
 			self.loader( self.collection[0] );
+		//});
+
+		$('#d-photobox .d-photo').tooltip({
+			title: $('.d-photo-text').text(),
+			placement: 'bottom',
+			container: 'body'
 		});
 
 		// Bind switcher buttons
@@ -270,7 +276,7 @@ var guesser = {
 		view.fitExtent(extent, map.getSize());
 		
 		// Calculate distance to answer
-		var dist = getDistanceGeometric(this.position, this.currentAnswer);
+		var dist = getDistanceEuclidian(this.position, this.currentAnswer);
 
 		// Calculate score
 		var score = parseInt(Math.abs(180000-dist)/10000)*100;

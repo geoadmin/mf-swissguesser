@@ -3,7 +3,7 @@
 	[
 		{
 			"follow_symlinks": true,
-			"path": "/var/www/geo/web-storymaps/storymap5",
+			"path": ".",
 			"file_exclude_patterns": ["*.css"]
 		}
 	],
