@@ -22,23 +22,96 @@ body { background:grey; }
 .navbar-toggle .icon-bar { background-color: #777; }
 .navbar-toggle { background-color: #ddd; } 
 
-/* Application layout */
-
 #header {
+	/* Corporate design */
 	background:#fff;
+
+	#webHeaderDiv {
+		font-family: arial, helvetica, verdana, sans-serif;
+		font-size: 0.92em;
+		line-height: 0;
+	}
+	#webHeaderLinks {
+ 		background:url(http://www.bar.admin.ch/images/bg_header_amt.jpg) no-repeat top right;
+		height: 103px;
+	}
+	.logo {
+		background: url(../images/logo.ch.jpeg) no-repeat top left;
+		min-width: 300px; min-height: 88px; width:100%;
+	}
+	.webBlindThis {
+		position: absolute;
+		left: -999px;
+		top: -999px;
+		width: 0px;
+		height: 0px;
+		font-size: 0px;
+		line-height: 0px;
+		margin: 0px;
+		padding: 0px;
+		overflow: hidden;
+		display: inline;
+	}
+	#webHeaderLinks {
+		width: 525px;
+		float: right;
+		text-align: right;
+	}
+	#webHeaderLinks a {
+		font-weight: bold;
+		display: block;
+		text-decoration: none;
+		color: #000000;
+		font-size: 1.2em;
+		margin: 10px 20px 0px 0px;
+	}
+	#adminch {
+		height: 20px;
+		width: 525px;
+		padding: 0px;
+		margin: 0px;
+		background-image: none;
+	}
+	#adminch a {
+		display: block;
+		margin-right: 20px;
+		padding: 0px;
+		font-size: 0.9em;
+		font-weight: bold;
+	}
+	#depart {
+		height: 20px;
+		width: 525px;
+		padding: 0px;
+		margin: 0px;
+		display: block;
+	}
+	#depart a {
+		margin: 0px 20px 0px 0px;
+		display: block;
+		color: #FFFFFF;
+		font-size: 0.9em;
+	}
+	.hiddenLabel, .hiddenText, .webTextOnlyComment {
+		display: inline;
+		left: -1000px;
+		overflow: hidden;
+		width: 0px;
+		position: absolute;
+		top: -1000px;
+		height: 0px;
+	}
+
+	/* Application layout */
 
 	.navbar-brand { 
 		color: #333;
-		position: fixed;
-		font-size: 24pt;
+		position: absolute;
+		font-size: 22pt;
 		font-weight: bold;
 		left: 50%; 
-		margin-left: -3.5em;
-		margin-top: 1em;
-	}
-	.logo {
-	  background: url(../images/logo.ch.jpeg) no-repeat top left;
-	  min-width: 300px; min-height: 88px;
+		margin-left: -5em;
+		margin-top: 1.3em;
 	}
 	.navbar-nav a { color: #333; }
 	.nav .caret { 
@@ -85,7 +158,8 @@ div.overlay {
 	#header {
 		.navbar-brand	 { 
 			position: relative;
-			margin: 0.1em 0 0;
+			padding: 0.5em 0 0; 
+			margin: 0;
 			left: 1%;
 		}
 		.logo { 
@@ -95,8 +169,8 @@ div.overlay {
 			min-height: 0px;
 			padding-left: 50px;
 		}
+		#webHeaderDiv { display: none; }
 	}
-
 	.container-main > div { display: none; }
 	.container-main > div.on { display: block; }
 	.container-main { margin-top: 72px; }

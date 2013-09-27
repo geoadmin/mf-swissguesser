@@ -9,6 +9,7 @@
 	],
 	"settings":
 	{
-		"tab_size": 2
+		"tab_size": 4,
+		"wrap_width": 80
 	}
 }
