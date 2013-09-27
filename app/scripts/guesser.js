@@ -76,6 +76,8 @@ var guesser = {
 		});
 		$('.container-main > div.on:last').removeClass('on');
 
+		// Show start game
+		$('#d-start').modal();
 	},
 
 	// ### Position the map container
@@ -268,10 +270,7 @@ var guesser = {
 		view.fitExtent(extent, map.getSize());
 		
 		// Calculate distance to answer
-		var dist = 
-			Math.sqrt(
-				Math.pow(Math.abs(this.position[0] - this.currentAnswer[0]), 2) +
-				Math.pow(Math.abs(this.position[1] - this.currentAnswer[1]), 2));
+		var dist = getDistanceGeometric(this.position, this.currentAnswer);
 
 		// Calculate score
 		var score = parseInt(Math.abs(180000-dist)/10000)*100;

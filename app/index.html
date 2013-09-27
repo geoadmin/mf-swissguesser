@@ -87,17 +87,9 @@
 </div></nav>
 
 <div class="container container-main">
-<div class="col-md-5 tab-content on" id="column-info">
+<div class="col-md-5" id="column-info">
 
-	<div id="d-start" class="panel tab-pane active" aria-labelledby="label-intro" aria-hidden="true" tabindex="-1">
-		<div class="panel-heading" data-i18n="Start-Title">SwissGuesser</div>
-		<div class="panel-body" data-i18n="Start-Text"></div>
-		<div class="panel-footer">
-			<button id="btn-start" type="button" class="btn btn-primary" href="#d-photobox" data-toggle="tab" data-i18n="Game-Start">Start</button>
-		</div>
-	</div><!-- /.panel -->
-
-	<div id="d-photobox" class="panel tab-pane" aria-labelledby="label-photo" aria-hidden="true" tabindex="-1">
+	<div id="d-photobox" class="panel" aria-labelledby="label-photo" aria-hidden="true" tabindex="-1">
 		<div class="panel-body">
 				<div class="d-photo">
 						<a data-toggle="lightbox" href="#d-lightbox">
@@ -130,13 +122,25 @@
   <div style="display:none">
 	  <div id="map-overlay">
 	   <a id="btn-guess" href="#" class="btn btn-default">
-		 	<span data-i18n="Game-Confirm">Confirm</span>
+		 	<span data-i18n="data-Game-Confirm">Confirm</span>
 		 </a>
 		</div>
   </div>
   
 </div>
 </div><!-- /container -->
+
+<div id="d-start" class="modal fade" aria-labelledby="label-intro" aria-hidden="true" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header" data-i18n="Start-Title">SwissGuesser</div>
+		<div class="modal-body" data-i18n="Start-Text"></div>
+		<div class="modal-footer">
+			<button id="btn-start" type="button" class="btn btn-primary" href="#d-photobox" data-dismiss="modal" data-i18n="Game-Start">Start</button>
+		</div>
+	</div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <div id="d-lightbox" class="lightbox modal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="lightbox-content">
@@ -215,7 +219,7 @@
 <script src="bower_components/bootstrap/js/carousel.js"></script>
 <script src="bower_components/bootstrap/js/scrollspy.js"></script>
 <script src="bower_components/bootstrap/js/collapse.js"></script>
-<script src="bower_components/bootstrap/js/tab.js"></script>
+<!--<script src="bower_components/bootstrap/js/tab.js"></script>-->
 <!-- endbuild -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.6.1/bootstrap-lightbox.js"></script>
 

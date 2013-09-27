@@ -24,3 +24,17 @@ function initGeoAdmin() {
     })
   });
 }
+
+function getDistanceEuclidian(A, B) {
+  return Math.sqrt(
+        Math.pow(Math.abs(A[0] - B[0]), 2) +
+        Math.pow(Math.abs(A[1] - B[1]), 2));
+}
+
+function getDistanceGeometric(A, B) {
+  var proj = map.getView().getProjection();
+  var merc = ol.proj.get('EPSG:900913'); // Mercator
+  var pA = new ol.geom.Point(A); //.transform(proj, merc);
+  var pB = new ol.geom.Point(B); //.transform(proj, merc);
+  return pA.distanceTo(pB); // TODO: Unsuppoted in OpenLayers3
+}
