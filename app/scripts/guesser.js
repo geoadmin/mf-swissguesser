@@ -32,6 +32,7 @@ var guesser = {
 	domStartBox: 	$('#d-start'),
 	domPhotoBox: 	$('#d-photobox'), 
 	domLightBox: 	$('#d-lightbox'), 
+	domPhotoInf: 	$('#row-info'),
 
 	// ### Initial setup
 	configure: function(json) {
@@ -65,7 +66,11 @@ var guesser = {
 			self.loader( self.collection[0] );
 		//});
 
-		$('#d-photobox .d-photo').tooltip({
+		$('#d-photobox .d-photo')
+		.click(function() {
+			self.domLightBox.modal();
+		})
+		.tooltip({
 			title: $('.d-photo-text').text(),
 			placement: 'bottom',
 			container: 'body'
@@ -88,9 +93,9 @@ var guesser = {
 
 	// ### Position the map container
 	resize: function() {
-		var frameheight = $(window).height() - 92;
+		var frameheight = $(window).height() - 92 - 50;
 		$('.container-main').css('height', frameheight + 'px');
-		$('.d-photo').css('height', (frameheight - 90 - 21) + 'px');
+		$('.d-photo').css('height', (frameheight - 25) + 'px');
 		//$('#map').css('width', parseInt($(window).width()/2) + 'px');
 		if (map) map.updateSize();
 	},
@@ -100,9 +105,10 @@ var guesser = {
 
 		// Get image data
 		var imgbox = this.domPhotoBox,
-				imgsrc = 
-					this.config.dataPrefix + metadata.id + 
-					this.config.dataSuffix;
+			infobox = this.domPhotoInf,
+			imgsrc = 
+				this.config.dataPrefix + metadata.id + 
+				this.config.dataSuffix;
 
 		// Load images
 		$('.d-photo').css('background-image', 'url(' + imgsrc + ')');
@@ -110,12 +116,13 @@ var guesser = {
 		$('img', this.domResults).attr('src', imgsrc);
 
 		// Populate components
-		$('h4', imgbox).attr('title', metadata.id);
-		$('.image-count', imgbox).html(this.currentIndex+1);
-		$('.image-total', imgbox).html(this.collection.length);
+		$('h4', infobox).attr('title', metadata.id);
+		$('.image-count', infobox).html(this.currentIndex+1);
+		$('.image-total', infobox).html(this.collection.length);
+		$('.total', infobox).html(this.user.score);
 
 		// Result box description
-		this.domResults.find('.info').html(metadata[this.lang]);
+		$('.info', this.domResults).html(metadata[this.lang]);
 	
 		// Start the challenge
 		guesser.challenge(map, [metadata.y, metadata.x]);

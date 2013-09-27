@@ -46,7 +46,7 @@
 			<span class="icon-bar"></span>
 		</button>
 		<div class="navbar-toggle mobile-switch">
-			<button class="btn btn-default active" type="button" data-target="#column-info" data-i18n="Toggle-Photo">Photo</button>
+			<button class="btn btn-default active" type="button" data-target="#column-photo" data-i18n="Toggle-Photo">Photo</button>
 			<button class="btn btn-default" type="button" data-target="#column-map" data-i18n="Toggle-Map">Map</button>
 		</div>
 	</div>
@@ -87,7 +87,7 @@
 </div></nav>
 
 <div class="container container-main">
-<div class="col-md-6 on" id="column-info">
+<div class="col-md-6 on" id="column-photo">
 
 	<div id="d-photobox" class="panel" aria-labelledby="label-photo" aria-hidden="true" tabindex="-1">
 		<div class="panel-body">
@@ -105,16 +105,9 @@
 				  <a href="#map"><span class="glyphicon glyphicon-map-marker"></span></a>
 				</p>
 		</div>
-		<div class="panel-footer">
-			<button type="button" class="btn btn-cancel" onClick="location.reload()" data-i18n="Photo-Restart"></button>
-			<h4 id="label-photo" class="panel-title">
-				<span data-i18n="Photo-Counter"></span> <span class="image-count"></span>
-				/ <span class="image-total"></span>
-			</h4>
-		</div>
 	</div><!-- /.panel -->
 
-</div>
+</div><!-- /.column-photo -->
 <div class="col-md-6" id="column-map">
 
   <div id="map" class="map"></div>
@@ -127,7 +120,19 @@
 		</div>
   </div>
   
-</div>
+</div><!-- /.column-map -->
+<div class="col-md-12" id="row-info">
+
+	<button type="button" class="btn btn-cancel" onClick="location.reload()" data-i18n="Photo-Restart"></button>
+
+	<p><span data-i18n="Result-Total"></span> <span class="total"></span></p>
+
+	<h4 id="label-photo" class="panel-title">
+		<span data-i18n="Photo-Counter"></span> <span class="image-count"></span>
+		/ <span class="image-total"></span>
+	</h4>
+
+</div><!-- /.row-info -->
 </div><!-- /container -->
 
 <div id="d-start" class="modal fade" aria-labelledby="label-intro" aria-hidden="true" tabindex="-1" role="dialog">
@@ -160,8 +165,7 @@
 	  <b class="score"></b> points. 
 	  <span class="comment"></span>
 	</p>
-	<p><span data-i18n="Result-Total"></span> <span class="total"></span></p>
-
+	
 	<a id="btn-continue" href="#d-photobox" data-dismiss="modal" class="btn btn-primary btn-large" data-i18n="Result-Continue"></a>
 
 	<div id="v-finish" class="hidden">
