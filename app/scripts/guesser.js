@@ -242,6 +242,10 @@ var guesser = {
 		this.active = false;
 		//console.log('Making a guess: ', this.position, this.currentAnswer);
 
+		// Zoom map out
+		var view = map.getView().getView2D();
+		view.setZoom(0);
+
 		// Sets up a new vector layer
 		var vectorGuess = this.getVector(
 			this.currentIndex + 1, this.position, this.currentAnswer);
@@ -249,6 +253,20 @@ var guesser = {
 		// Add layer to the map
 		map.addLayer(vectorGuess);
 
+		// Center map on guess
+		var minx = (this.position[0] < this.currentAnswer[0]) ? 
+								this.position[0] : this.currentAnswer[0],
+				maxx = (this.position[0] >= this.currentAnswer[0]) ? 
+								this.position[0] : this.currentAnswer[0],
+				miny = (this.position[1] < this.currentAnswer[1]) ? 
+								this.position[1] : this.currentAnswer[1],
+				maxy = (this.position[1] >= this.currentAnswer[1]) ? 
+								this.position[1] : this.currentAnswer[1],
+				EXTSCL = 1000;
+		var extent = [minx-EXTSCL, miny-EXTSCL, maxx+EXTSCL, maxy+EXTSCL];
+		//console.log('Zooming to', extent);
+		view.fitExtent(extent, map.getSize());
+		
 		// Calculate distance to answer
 		var dist = 
 			Math.sqrt(
@@ -291,9 +309,9 @@ var guesser = {
 			  	filter: 'geometryType("linestring")',
 			    symbolizers: [
 			      new ol.style.Stroke({
-			        color: '#a00',
+			        color: '#f70',
 			        width: 3,
-			        opacity: 0.4
+			        opacity: 1
 			      })
 			    ]
 			  }),
@@ -301,29 +319,23 @@ var guesser = {
 			  new ol.style.Rule({
 			    filter: 'geometryType("point") && which == "guess"',
 			    symbolizers: [
-			      new ol.style.Shape({
-			        size: 30,
-			        fill: new ol.style.Fill({color: '#fff'}),
-			        opacity: 1,
-			        stroke: new ol.style.Stroke({
-			          color: '#a00',
-			          width: 2,
-			          opacity: 1
-			        })
-			      }),
-			      new ol.style.Text({
-			        color: '#000',
-			        text: ol.expr.parse('label'),
-			        fontFamily: 'Arial Black,Calibri,sans-serif',
-			        fontSize: 18,
-			        opacity: 1
+			      new ol.style.Icon({ // ' + ol.expr.parse('label') + '
+			      	url: 'images/1.png',
+			      	width: 33, height: 44,
+			      	yOffset: -18
 			      })
 			    ]
 			  }),
-			  // Ending point
+			  // Ending point 
 			  new ol.style.Rule({
 			    filter: 'geometryType("point") && which == "answer"',
 			    symbolizers: [
+			    	new ol.style.Icon({
+			      	url: 'images/G.png',
+			      	width: 33, height: 44,
+			      	yOffset: -18
+			      })
+			    /*
 			      new ol.style.Shape({
 			        size: 20,
 			        fill: new ol.style.Fill({color: '#9d9', opacity:1}),
@@ -333,7 +345,7 @@ var guesser = {
 			          width: 2,
 			          opacity: 1
 			        })
-			      })
+			      }) */
 			    ]
 			  })
 			] }); // -- style
@@ -343,14 +355,14 @@ var guesser = {
 					// Starting point (the guess)
 					type: 'Feature',
 					properties: { 
-						label: "V"+label, which: 'guess' },
+						label: label, which: 'guess' },
 					geometry: {
 						type: 'Point', coordinates: from }
 				},{
 					// Ending point (the real answer)
 					type: 'Feature',
 					properties: {
-						label: "V"+label, which: 'answer' },
+						label: label, which: 'answer' },
 					geometry: {
 						type: 'Point', coordinates: to }
 				},{
