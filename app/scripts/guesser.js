@@ -72,6 +72,7 @@ var guesser = {
 			tgt.addClass('on');
 			$(this).parent().find('.active').removeClass('active');
 			$(this).addClass('active');
+			if (map) map.updateSize();
 		});
 		$('.container-main > div.on:last').removeClass('on');
 
@@ -342,14 +343,14 @@ var guesser = {
 					// Starting point (the guess)
 					type: 'Feature',
 					properties: { 
-						label: label, which: 'guess' },
+						label: "V"+label, which: 'guess' },
 					geometry: {
 						type: 'Point', coordinates: from }
 				},{
 					// Ending point (the real answer)
 					type: 'Feature',
 					properties: {
-						label: label, which: 'answer' },
+						label: "V"+label, which: 'answer' },
 					geometry: {
 						type: 'Point', coordinates: to }
 				},{
@@ -364,8 +365,8 @@ var guesser = {
 		return new ol.layer.Vector({
 				style: style,
 				source: new ol.source.Vector({
-				 projection: map.getView().getProjection(),
 				 parser: new ol.parser.GeoJSON(),
+				 projection: map.getView().getProjection(),
 				 data: { type: 'FeatureCollection',
 				         features: features }
 				})

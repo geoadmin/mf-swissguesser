@@ -10,8 +10,11 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="http://ol3js.org/en/master/build/ol.css" type="text/css">
+	<!-- OpenLayers 3 for GeoAdmin -->
+	<link rel="stylesheet" href="src/build/ol.css" type="text/css">
+	<!-- Lightbox for Bootstrap -->
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.6.1/bootstrap-lightbox.min.css" type="text/css">
+	<!-- Compiled page styles -->
 	<link rel="stylesheet" href="styles/main.css">
 	<!-- build:js scripts/vendor/modernizr.js -->
 	<script src="bower_components/modernizr/modernizr.js"></script>
@@ -160,9 +163,13 @@
 <![endif]-->
 
 <!-- OpenLayers 3 and extensions -->
-<script src="http://ol3js.org/en/master/build/ol.js"></script>
+<!--script src="http://ol3js.org/en/master/build/ol.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js" type="text/javascript"></script>-->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.js" type="text/javascript"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/defs/EPSG21781.js" type="text/javascript"></script>
+
+<!-- OpenLayers 3 for GeoAdmin -->
+<script>window.CLOSURE_NO_DEPS = true;</script>
+<script src="src/build/ol-whitespace.js"></script>
 
 <!-- build:js scripts/vendor/bootstrap.js -->
 <script src="bower_components/jquery/jquery.js"></script>
@@ -186,7 +193,7 @@
 <!-- endbuild -->
 
 <!-- build:js scripts/swissguesser.js -->
-<script src="scripts/wms-custom-proj.js"></script>
+<script src="scripts/ol3-geoadmin.js"></script>
 <script src="scripts/guesser.js"></script>
 <!-- endbuild -->
 
