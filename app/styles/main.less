@@ -25,6 +25,7 @@ body { background:grey; }
 #header {
 	/* Corporate design */
 	background:#fff;
+	height: 122px;
 
 	#webHeaderDiv {
 		font-family: arial, helvetica, verdana, sans-serif;
@@ -102,8 +103,49 @@ body { background:grey; }
 		height: 0px;
 	}
 
+	/* Storymap nav */
+	.navServiceBackground {
+		height: 20px;
+		line-height: 18px;
+		background-color: #ccc;
+		border-top: 1px solid white;
+		border-bottom: 1px solid black;
+		padding-right: 5px;
+		padding-left: 2px;
+		font-size: .75em;
+		letter-spacing: 0;
+		clear: both;
+
+		ul { float:right; }
+		a { color: black; }
+		.inline-list {
+			list-style-type: none;
+		}
+		.inline-list li {
+			display: inline;
+			float: left;
+			cursor:pointer;
+			font-size: 10px;
+		}
+		.selected {
+			font-weight: bold;
+		}
+		.pipe {
+			border-right:1px solid black;
+			width: 4px; margin-right: 4px;
+		}
+		.spacer { 
+			cursor: default; 
+			width: 50px;
+			height:1px;
+		}
+	}
+
 	/* Application layout */
 
+	.navbar-collapse .navbar-nav { 
+		visibility: hidden; 
+	}
 	.navbar-brand { 
 		color: #333;
 		position: absolute;
@@ -119,13 +161,13 @@ body { background:grey; }
 		border-bottom-color:#333; 
 	}
 	.mobile-switch {
-    height: 36px; 
-    text-align: center;
-    padding: 0;
-    
-    border: none;
-    background: none;
-  }
+	    height: 36px; 
+	    text-align: center;
+	    padding: 0;
+	    
+	    border: none;
+	    background: none;
+	}
 }
 
 .overlay {
@@ -152,29 +194,6 @@ div.overlay {
 
 /* Overlay dialog */
 .popover-content { background-color: #7c7; }
-
-@media screen and (max-width: 768px) { 
-
-	#header {
-		.navbar-brand	 { 
-			position: relative;
-			padding: 0.5em 0 0; 
-			margin: 0;
-			left: 1%;
-		}
-		.logo { 
-			background-image: url(../images/logo-small.ch.png);
-			background-position: 10px 50%;
-			background-size: auto 30px;
-			min-height: 0px;
-			padding-left: 50px;
-		}
-		#webHeaderDiv { display: none; }
-	}
-	.container-main > div { display: none; }
-	.container-main > div.on { display: block; }
-	.container-main { margin-top: 72px; }
-}
 
 body #map {
   height: 100%; 
@@ -357,4 +376,31 @@ body #map {
 		height: 11px;
 		display: inline-block;
 	}
+}
+
+/* Responsive scale */
+@media screen and (max-width: 768px) { 
+
+	#header {
+		height: auto;
+		.navbar-brand	 { 
+			position: relative;
+			padding: 0.5em 0 0; 
+			margin: 0;
+			left: 1%;
+		}
+		.logo { 
+			background-image: url(../images/logo-small.ch.png);
+			background-position: 10px 50%;
+			background-size: auto 30px;
+			min-height: 0px;
+			padding-left: 50px;
+		}
+		#webHeaderDiv { display: none; }
+		.navbar-collapse .navbar-nav { visibility: visible; }
+	}
+	.navServiceBackground { display: none; }
+	.container-main > div { display: none; }
+	.container-main > div.on { display: block; }
+	.container-main { margin-top: 72px; }
 }
