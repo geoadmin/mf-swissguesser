@@ -78,14 +78,21 @@ var guesser = {
 
 		// Bind switcher buttons
 		$('.mobile-switch button').click(function() {
-			var tgt = $($(this).attr('data-target'));
+			var t = $(this).attr('data-target');
+			var tgt = $(t);
 			$('.container-main > div.on').removeClass('on');
 			tgt.addClass('on');
 			$(this).parent().find('.active').removeClass('active');
 			$(this).addClass('active');
-			if (map) map.updateSize();
+			$('.slideleft,.slideright').removeClass('slideleft slideright');
+			if (t == '#column-map') {
+				if (map) map.updateSize();
+				tgt.addClass('slideleft');
+			} else {
+				tgt.addClass('slideright');
+			}
 		});
-		$('.container-main > div.on:last').removeClass('on');
+		//$('.container-main > div.on:last').removeClass('on');
 
 		// Show start game
 		$('#d-start').modal();
@@ -294,9 +301,10 @@ var guesser = {
 		this.domLocator.addClass('hidden');
 
 		// Update dialog with score results
-		this.domResults.find('.score').html(score);
-		this.domResults.find('.total').html(this.user.score);
-		this.domResults.find('.distance').html(parseInt(dist)); //TODO: format
+		$('.score', this.domResults).html(score);
+		$('.total', this.domResults).html(this.user.score);
+		$('.distance', this.domResults).html(parseInt(dist)); //TODO: format
+		$('.total', this.domPhotoInf).html(this.user.score);
 		
 		// Generate a comment
 		var comment = (score < 1000) ? "Better luck next time..." :

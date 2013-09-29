@@ -46,7 +46,7 @@
 			<span class="icon-bar"></span>
 		</button>
 		<div class="navbar-toggle mobile-switch">
-			<button class="btn btn-default active" type="button" data-target="#column-photo" data-i18n="Toggle-Photo">Photo</button>
+			<button class="btn btn-default active" type="button" data-target="#d-photobox" data-i18n="Toggle-Photo">Photo</button>
 			<button class="btn btn-default" type="button" data-target="#column-map" data-i18n="Toggle-Map">Map</button>
 		</div>
 	</div>
@@ -70,7 +70,7 @@
 	<div class="collapse navbar-collapse" id="navbar-main">
 	<ul class="nav navbar-nav pull-right">
 		<li>
-			<a href="#" data-target="#d-start" data-toggle="tab" data-dismiss="navbar-nav" data-i18n="App-About">About</a>
+			<a href="#" data-target="#d-start" data-toggle="modal" data-i18n="App-About">About</a>
 		</li>
 		<li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language">
@@ -87,27 +87,23 @@
 </div></nav>
 
 <div class="container container-main">
-<div class="col-md-6 on" id="column-photo">
+<div class="col-md-6 on" id="d-photobox">
 
-	<div id="d-photobox" class="panel" aria-labelledby="label-photo" aria-hidden="true" tabindex="-1">
-		<div class="panel-body">
-				<div class="d-photo">
-					<a data-toggle="lightbox" href="#d-lightbox">
-					<span class="glyphicon glyphicon-fullscreen"></span>
-					</a>
-				</div>
-				<div class="d-copyright">
-					&copy;
-					<a href="http://www.swiss-archives.ch" target="_blank" data-i18n="Photo-Copyright"></a>
-				</div>
-				<p class="hidden">
-				  <span class="d-photo-text" data-i18n="Photo-Text"></span>
-				  <a href="#map"><span class="glyphicon glyphicon-map-marker"></span></a>
-				</p>
-		</div>
-	</div><!-- /.panel -->
+	<div class="d-photo">
+		<a data-toggle="lightbox" href="#d-lightbox">
+			<span class="glyphicon glyphicon-fullscreen"></span>
+		</a>
+	</div>
+	<div class="d-copyright">
+		&copy;
+		<a href="http://www.swiss-archives.ch" target="_blank" data-i18n="Photo-Copyright"></a>
+	</div>
+	<p class="hidden">
+	  <span class="d-photo-text" data-i18n="Photo-Text"></span>
+	  <a href="#map"><span class="glyphicon glyphicon-map-marker"></span></a>
+	</p>
 
-</div><!-- /.column-photo -->
+</div><!-- /#d-photobox -->
 <div class="col-md-6" id="column-map">
 
   <div id="map" class="map"></div>
@@ -150,7 +146,7 @@
 <div id="d-lightbox" class="lightbox modal" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="lightbox-content">
 		<button type="button" class="close" data-dismiss="lightbox" data-toggle="modal" aria-hidden="true">&times;</button>
-		<a data-dismiss="lightbox" data-toggle="modal"><img draggable="false" width="100%" /></a>
+		<a href="#" data-dismiss="lightbox" data-toggle="modal"><img draggable="false" width="100%" /></a>
 	</div>
 </div>
 

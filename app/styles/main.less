@@ -17,7 +17,7 @@ body { background:grey; }
 .container-main, #map { width:100%; height:100%; }
 
 #column-map { height:100%; }
-#column-map, #column-photo { padding:0; z-index:2; }
+#column-map, #d-photobox { padding:0; z-index:2; }
 #row-info { background: #fff; text-align: center; z-index:1; }
 
 .navbar-toggle .icon-bar { background-color: #777; }
@@ -34,7 +34,7 @@ body { background:grey; }
 		line-height: 0;
 	}
 	#webHeaderLinks {
- 		background:url(http://www.bar.admin.ch/images/bg_header_amt.jpg) no-repeat top right;
+		background:url(http://www.bar.admin.ch/images/bg_header_amt.jpg) no-repeat top right;
 		height: 103px;
 	}
 	.logo {
@@ -162,12 +162,12 @@ body { background:grey; }
 		border-bottom-color:#333; 
 	}
 	.mobile-switch {
-	    height: 36px; 
-	    text-align: center;
-	    padding: 0;
-	    
-	    border: none;
-	    background: none;
+		height: 36px; 
+		text-align: center;
+		padding: 0;
+		
+		border: none;
+		background: none;
 	}
 }
 
@@ -200,10 +200,10 @@ body #map {
   height: 100%; 
   width: 100%;
 	.ol-zoom {
-    bottom: 40px;
-    left: auto;
-    right: 8px;
-    top: auto;
+	bottom: 40px;
+	left: auto;
+	right: 8px;
+	top: auto;
 	}
 }
 
@@ -225,43 +225,41 @@ body #map {
 /* Main photo container */
 #d-photobox {
 	margin: 0;
+	background: #fff;
+	padding: 6px;
 
-	.panel-body {
-		padding-bottom: 0;
-
-		div {
-			height: auto;
-			/* How to flow the photo */
-			overflow-y: auto;
-			overflow-x: hidden;
-		}
-
-		p {
-			margin-top: 0.5em;
-			height: auto;
-		}
-
-		.d-photo {
-			-webkit-user-drag: none;
-			-webkit-touch-callout: none;
-		    -webkit-user-select: none;
-		    -khtml-user-select: none;
-		    -moz-user-select: none;
-		    -ms-user-select: none;
-		    user-select: none;
-		    background-size: cover;
-		  }
-
-	  .d-copyright {
-		background-color: #FFFFFF;
-	    border-radius: 5px;
-	    float: right;
-	    padding: 0 0.3em 0.3em;
-	    position: relative;
-	    right: -0.3em;
-	    top: -1.3em;
-	  }
+	div {
+		height: auto;
+		/* How to flow the photo */
+		overflow-y: auto;
+		overflow-x: hidden;
 	}
+
+	p {
+		margin-top: 0.5em;
+		height: auto;
+	}
+
+	.d-photo {
+		-webkit-user-drag: none;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-size: cover;
+	}
+
+  	.d-copyright {
+		background-color: #FFFFFF;
+		border-radius: 5px;
+		float: right;
+		padding: 0 0.3em 0.3em;
+		position: relative;
+		right: -0.3em;
+		top: -1.5em;
+  	}
 
 	.glyphicon-fullscreen {
 		position: absolute;
@@ -416,8 +414,29 @@ body #map {
 		#webHeaderDiv { display: none; }
 		.navbar-collapse .navbar-nav { visibility: visible; }
 	}
+	#row-info {
+		position: fixed; bottom: 0px; left: 0px; width: 100%; 
+	}
 	.navServiceBackground { display: none; }
 	.container-main > div { display: none; }
 	.container-main > div.on { display: block; }
 	.container-main { margin-top: 72px; }
+
+	/* Slide in-out
+	.slideleft {
+		animation-duration: 2s;
+		animation-name: slideleft;
+	}
+	@keyframes slideleft {
+		from { left:400px; }
+		to { left:0px; }
+	}
+	.slideright {
+		animation-duration: 2s;
+		animation-name: slideright;
+	}
+	@keyframes slideright {
+		from { left:-400px; }
+		to { left:0px; }
+	} */
 }
