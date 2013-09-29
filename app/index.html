@@ -103,6 +103,49 @@
 	  <a href="#map"><span class="glyphicon glyphicon-map-marker"></span></a>
 	</p>
 
+	<div id="d-result" class="overlay hidden alert alert-warning">
+		<!--<img>-->
+		<p class="info"></p>
+
+		<p>
+		  <span data-i18n="Result-Score"></span>: 
+		  <b class="distance"></b> 
+		  km from the correct location and got 
+		  <b class="score"></b> points. 
+		  <span class="comment"></span>
+		</p>
+		
+		<a id="btn-continue" href="#d-photobox" data-dismiss="modal" class="btn btn-primary btn-large" data-i18n="Result-Continue"></a>
+
+		<div id="v-finish" class="hidden">
+				
+			<span data-i18n="Finish-Text"></span>
+
+			<div class="sharebox">
+				<div class="shareicon">
+					<button type="button" class="btn btn-sm btn-twitter">
+						<span class="icon-twitter"></span>
+						Tweet</button>
+				</div>
+
+				<div class="shareicon">
+					<button type="button" class="btn btn-sm btn-facebook">
+						<span class="glyphicon glyphicon-thumbs-up"></span>
+						Like</button>
+				</div>
+
+				<div class="shareicon">
+					<button type="button" class="btn btn-sm btn-email">
+						<span class="glyphicon glyphicon-envelope"></span> 
+						E-mail</button>
+				</div>
+			</div><!-- /sharebox -->
+
+			<button type="button" class="btn btn-primary" onClick="location.reload()" data-i18n="Finish-Restart"></button>
+
+		</div><!-- /v-finish -->
+	</div><!-- /d-result -->
+
 </div><!-- /#d-photobox -->
 <div class="col-md-6" id="column-map">
 
@@ -149,49 +192,6 @@
 		<a href="#" data-dismiss="modal"><img draggable="false" width="100%" /></a>
 	</div>
 </div>
-
-<div id="d-result" class="overlay hidden alert alert-warning">
-	<img>
-	<p class="info"></p>
-
-	<p>
-	  <span data-i18n="Result-Score"></span>: 
-	  <b class="distance"></b> 
-	  km from the correct location and got 
-	  <b class="score"></b> points. 
-	  <span class="comment"></span>
-	</p>
-	
-	<a id="btn-continue" href="#d-photobox" data-dismiss="modal" class="btn btn-primary btn-large" data-i18n="Result-Continue"></a>
-
-	<div id="v-finish" class="hidden">
-			
-		<span data-i18n="Finish-Text"></span>
-
-		<div class="sharebox">
-			<div class="shareicon">
-				<button type="button" class="btn btn-sm btn-twitter">
-					<span class="icon-twitter"></span>
-					Tweet</button>
-			</div>
-
-			<div class="shareicon">
-				<button type="button" class="btn btn-sm btn-facebook">
-					<span class="glyphicon glyphicon-thumbs-up"></span>
-					Like</button>
-			</div>
-
-			<div class="shareicon">
-				<button type="button" class="btn btn-sm btn-email">
-					<span class="glyphicon glyphicon-envelope"></span> 
-					E-mail</button>
-			</div>
-		</div><!-- /sharebox -->
-
-		<button type="button" class="btn btn-primary" onClick="location.reload()" data-i18n="Finish-Restart"></button>
-
-	</div><!-- /v-finish -->
-</div><!-- /d-result -->
 
 <!--[if lt IE 7]>
 	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
