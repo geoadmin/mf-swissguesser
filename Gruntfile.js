@@ -244,7 +244,8 @@ module.exports = function (grunt) {
             'fonts/{,*/}*',
             'data/*.json',
             'data/locale/{,*/}*',
-            'data/photos/{,*/}*'
+            'data/photos/{,*/}*',
+            'src/{,*/}*'
           ]
         }]
       },
