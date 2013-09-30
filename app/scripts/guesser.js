@@ -100,11 +100,11 @@ var guesser = {
 
 	// ### Position the map container
 	resize: function() {
-		var frameheight = $(window).height() - 92 - 50;
+		var frameheight = $(window).height();
+		frameheight -= 92 + 50; // adjust for header/footer
 		$('.container-main').css('height', frameheight + 'px');
 		$('.d-photo').css('height', (frameheight - 25) + 'px');
-		//$('#map').css('width', parseInt($(window).width()/2) + 'px');
-		if (map) map.updateSize();
+		if (map && typeof map.updateSize == 'function') map.updateSize();
 	},
 
 	// ### Load image data
@@ -405,6 +405,9 @@ var guesser = {
 	 		});
 	} // -- getVector
 };
+
+// Useful for iOS debugging (disable in production!)
+window.onerror = function(m,u,l) { alert(m+'\n'+u+'\n'+l); };
 
 // Load translation (i18next)
 i18n.init({ 

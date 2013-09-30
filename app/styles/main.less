@@ -207,7 +207,14 @@ body #map {
 	}
 }
 
+/* Photo lightbox frame */
 .modal { overflow: hidden; }
+
+/* Lightbox and start dialog */
+/*.modal-backdrop.in { opacity: 0; }*/
+.modal-dialog { margin-top:12%; }
+.modal-footer p { text-align: left; }
+.modal-header { font-weight: bold; text-align: center; }
 
 /* Fix weird margin issue */
 .modal-open .navbar-fixed-top {
@@ -326,11 +333,7 @@ body #map {
 	border: none;
 	button { padding-right: 5px; }
 }
-/*.modal-backdrop.in { opacity: 0; }*/
-.modal-dialog { margin-top:12%; }
-.modal-footer p { text-align: left; }
 
-/* #btn-start, #btn-continue */
 .btn-primary { 
   background-color:#c33; 
   border:2px solid black; 
