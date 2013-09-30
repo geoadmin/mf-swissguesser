@@ -58,14 +58,6 @@ var guesser = {
 		self.resize();
 		$(window).on('resize', function() { self.resize(); });
 
-		// Load the map
-		initGeoAdmin();
-
-		// Bind challenge start
-		//self.domBtnStart.click(function() {
-			self.loader( self.collection[0] );
-		//});
-
 		$('#d-photobox .d-photo')
 		.click(function() {
 			self.domLightBox.modal();
@@ -177,6 +169,11 @@ var guesser = {
 		//this.currentIndex = -1;
 		//this.next();
 
+	},
+
+	// ### Start challenge convenience function
+	start: function() {
+		this.loader( this.collection[0] );
 	},
 
 	// ### User starts making a guess 
@@ -417,5 +414,13 @@ i18n.init({
   //useLocalStorage: true, localStorageExpirationTime: 86400000
 }, function(t) { $("*[data-i18n]").i18n(); });
 
-// Load data and start game
+// Load data
 $.getJSON('data/base.json', function(d) { guesser.configure(d); });
+
+$(window).load(function() { 
+	// Load the map
+	geoadmin.init(); 
+
+	// Start the game
+	guesser.start();
+});
