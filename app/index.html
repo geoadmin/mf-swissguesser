@@ -103,6 +103,10 @@
 	  <a href="#map"><span class="glyphicon glyphicon-map-marker"></span></a>
 	</p>
 
+	<a id="btn-guess" href="#" class="btn btn-default disabled">
+	 	<span data-i18n="data-Game-Confirm">Confirm guess</span>
+	 </a>
+
 	<div id="d-result" class="overlay hidden alert alert-warning">
 		<!--<img>-->
 		<p class="info"></p>
@@ -110,8 +114,9 @@
 		<p>
 		  <span data-i18n="Result-Score"></span> 
 		  <b class="distance"></b> 
-		  km from the correct location and got 
-		  <b class="score"></b> points. 
+		  <span data-i18n="Result-From">km from the correct location and got</span>
+		  <b class="score"></b> 
+		  <span data-i18n="Result-Points">points.</span>
 		  <span class="comment"></span>
 		</p>
 		
@@ -152,11 +157,7 @@
   <div id="map" class="map"></div>
 
   <div style="display:none">
-	  <div id="map-overlay">
-	   <a id="btn-guess" href="#" class="btn btn-default">
-		 	<span data-i18n="data-Game-Confirm">Confirm</span>
-		 </a>
-		</div>
+	  <div id="map-overlay"></div>
   </div>
   
 </div><!-- /.column-map -->

@@ -11,7 +11,7 @@ var guesser = {
 	lang: 'DE',
 
 	// Set up anonymous user profile
-	user: { score: 0	},
+	user: { score: 0 },
 
 	// State variables
 	config: null, 
@@ -29,6 +29,7 @@ var guesser = {
 	domLocator: 	$('#d-locator'),
 	domBtnNext: 	$('#btn-continue'),
 	domBtnStart: 	$('#btn-start'), 
+	domBtnGuess:  	$('#btn-guess'), 
 	domStartBox: 	$('#d-start'),
 	domPhotoBox: 	$('#d-photobox'), 
 	domLightBox: 	$('#d-lightbox'), 
@@ -58,14 +59,27 @@ var guesser = {
 		self.resize();
 		$(window).on('resize', function() { self.resize(); });
 
-		$('#d-photobox .d-photo')
-		.click(function() {
+		// Init photo zoom and tooltip
+		$('.d-photo', self.domPhotoBox).click(function() {
 			self.domLightBox.modal();
-		})
-		.tooltip({
+		}).tooltip({
 			title: $('.d-photo-text').text(),
 			placement: 'bottom',
 			container: 'body'
+		});
+
+		// Bind guess button
+		$(self.domBtnGuess).click(function(evt) {
+			$(self.overlay.getElement()).hide();
+			$(this).addClass('disabled');
+			evt.preventDefault(); 
+			self.guess();
+			return false;
+		});
+
+		// Bind continue button
+		this.domBtnNext.click(function() {
+			guesser.next();
 		});
 
 		// Bind switcher buttons
@@ -96,8 +110,11 @@ var guesser = {
 			headheight = $('#header').height(),
 			footheight = $('#row-info').height();
 		frameheight -= headheight + footheight;
-		$('.container-main').css('height', frameheight + 'px');
-		$('.d-photo').css('height', (frameheight - 25) + 'px');
+		$('.container-main')
+			.css('height', frameheight + 'px');
+		$('.d-photo', this.domPhotoBox)
+			.css('height', (frameheight - 25 - 18) + 'px');
+		this.domPhotoBox.scrollTop(this.domPhotoBox.height()*2);
 		if (map && typeof map.updateSize == 'function') map.updateSize();
 	},
 
@@ -133,9 +150,8 @@ var guesser = {
 	// ### Continue to next image
 	next: function() {
 
-		if (++this.currentIndex == this.collection.length) {
-			return this.finish();
-		}
+		++this.currentIndex;
+		console.log("Advancing to next image", this.currentIndex);
 
 		// Continue to next image
 		this.loader( this.collection[this.currentIndex] );
@@ -167,9 +183,6 @@ var guesser = {
 
 		$('#btn-continue').hide();
 		$('#v-finish').removeClass('hidden');
-
-		//this.currentIndex = -1;
-		//this.next();
 
 	},
 
@@ -214,54 +227,52 @@ var guesser = {
 	// ### Clear map of answers
 	clear: function() {
 
-			$.each(this.layers, function() {
-				map.removeLayer(this);
-			});
-			this.layers = [];
-			this.domResults.addClass('hidden');
-			this.active = false;
+		$.each(this.layers, function() {
+			map.removeLayer(this);
+		});
+		this.layers = [];
+		this.domResults.addClass('hidden');
+		this.active = false;
 
 	}, // -- clear
 
 	// ### Place an answer
 	place: function(evt) {
+
 		var self = this;
 		if (!self.active) return;
 
 		// Update placement
-		var element = this.overlay.getElement();
+		var element = $(self.overlay.getElement());
 		this.position = evt.getCoordinate();
 		//console.log(this.position);
+
+		element.css('background-image',
+			"url('images/" + (self.currentIndex+1) + ".png')");
 		
-		$(element).popover('destroy');
-		this.overlay.setPosition(this.position);
+		element.popover('destroy');
+		self.overlay.setPosition(this.position);
 
 		// Show the overlay
-		$(element).popover({ 
+		element.popover({ 
 			'placement': 'top',
 			'animation': false, 
 			'html': true, 
 			'content': this.overlayhtml
 		});
-		$(element).popover('show');
-		//console.log(element);
+		element.popover('show').show();
     
-		// Link button action
-		// NB: this button gets recreated for each overlay
-		$('#btn-guess').click(function(evt) {
-			evt.preventDefault(); 
-			guesser.guess();
-			return false;
-		});
+		// Enable link button
+		$(self.domBtnGuess).removeClass('disabled');
 
 	}, // -- place
 
 	// ### Submit a guess
 	guess: function() {
-		
+		console.log('Making guess', this.currentIndex, this.position, this.currentAnswer);
+	
 		// Deactivate guessing for this round
 		this.active = false;
-		//console.log('Making a guess: ', this.position, this.currentAnswer);
 
 		// Zoom map out
 		var view = map.getView().getView2D();
@@ -269,7 +280,7 @@ var guesser = {
 
 		// Sets up a new vector layer
 		var vectorGuess = this.getVector(
-			this.currentIndex + 1, this.position, this.currentAnswer);
+			this.currentIndex+1, this.position, this.currentAnswer);
 
 		// Add layer to the map
 		map.addLayer(vectorGuess);
@@ -289,7 +300,8 @@ var guesser = {
 		view.fitExtent(extent, map.getSize());
 		
 		// Calculate distance to answer
-		var dist = getDistanceEuclidian(this.position, this.currentAnswer);
+		var dist = geoadmin.getDistanceEuclidian(
+			this.position, this.currentAnswer);
 
 		// Calculate score
 		var score = parseInt(Math.abs(180000-dist)/10000)*100;
@@ -313,14 +325,18 @@ var guesser = {
 
 		// Show dialog and get ready to continue the game
 		this.domResults.removeClass('hidden');
-		this.domBtnNext.removeClass('hidden').click(function() {
-			guesser.next();
-		});
+		this.domBtnNext.removeClass('hidden');
+
+		// Check end game status
+		if (this.currentIndex+1 == this.collection.length) {
+			this.finish();
+		}
 
 	}, // -- guess
 
 	// ### Creates vector feature for a guess
 	getVector: function(label, from, to) {
+		var imageUrl = 'images/' + label + '.png';
 		var style = new ol.style.Style({ 
 			rules: [
 				// Lines
@@ -338,8 +354,8 @@ var guesser = {
 			  new ol.style.Rule({
 			    filter: 'geometryType("point") && which == "guess"',
 			    symbolizers: [
-			      new ol.style.Icon({ // ' + ol.expr.parse('label') + '
-			      	url: 'images/1.png',
+			      new ol.style.Icon({
+			      	url: imageUrl,
 			      	width: 33, height: 44,
 			      	yOffset: -18
 			      })
