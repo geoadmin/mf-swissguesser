@@ -127,6 +127,7 @@ body { background: #fff; overflow: hidden; }
 			float: left;
 			cursor:pointer;
 			font-size: 10px;
+			margin-right: 3px;
 		}
 		.selected {
 			font-weight: bold;
@@ -137,7 +138,7 @@ body { background: #fff; overflow: hidden; }
 		}
 		.spacer { 
 			cursor: default; 
-			width: 50px;
+			width: 40px;
 			height:1px;
 		}
 	}
@@ -217,7 +218,7 @@ body #map {
 .modal-header { font-weight: bold; text-align: center; }
 
 /* Fix weird margin issue */
-.modal-open .navbar-fixed-top {
+body.modal-open, .modal-open .navbar-fixed-top {
 	margin-right: 0 !important;
 }
 
