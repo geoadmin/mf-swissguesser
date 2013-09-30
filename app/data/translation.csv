@@ -1,10 +1,8 @@
 id,de,fr,it,en
-App-Title,,,,SwissGuesser
-App-Menu,,,,Menu
-App-About,,,,About
-App-Lang,,,,Language
-Toggle-Map,,,,Map
-Toggle-Photo,,,,Photo
+App-About,Informationen,Informations,Informazione,Informationen
+App-Lang,Sprache,Langue,Lingua,Language
+Toggle-Map,Karte,Carte,Carte,Map
+Toggle-Photo,Foto,Photo,Foto,Photo
 Start-Title,"SwissGuesser: Fotosammlung
 Erster Weltkrieg",,,"SwissGuesser: photo collection from
 World War I"
@@ -61,17 +59,17 @@ Bundesarchivs -> https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228
 
 
 "
-Game-Start,,,,Start
-Game-Confirm,,,,Confirm guess
-Photo-Copyright,,,,Swiss Federal Archives
-Photo-Text,,,,Where do you think this is? Click anywhere on the map.
-Photo-Restart,,,,Restart game
-Photo-Counter,,,,Image
-Result-Score,,,,You scored
-Result-Total,,,,Total score:
-Result-Continue,,,,Continue
-Finish-Text,,,,Thanks for playing! Share your result with friends?
-Finish-Tweet,,,,Tweet
-Finish-Like,,,,Like
-Finish-Email,,,,E-mail
-Finish-Restart,,,,New Game
+Game-Start,Start,Start,Start,Start
+Game-Confirm,Bestätige Schätzung,,,Confirm guess
+Photo-Copyright,Schweizerisches Bundesarchiv,Archives fédérales suisses,Archivio federale svizzero,Swiss Federal Archives
+Photo-Text,Wo wurde das Foto aufgenommen? Klick in die Karte.,,,Where do you think has the photo been taken? Click anywhere on the map.
+Photo-Restart,Neustart,,,Restart game
+Photo-Counter,Foto,Photo,Foto,Photo
+Result-Score,Letztes Ergebnis,,,Last round score:
+Result-Total,Total Ergebnis,,,Total score:
+Result-Continue,Weiter,,,Continue
+Finish-Text,"Teile Dein Ergebnis ""URL"" oder fordere andere heraus ""URL""",,,"Share your score with the ""url"" or let others challenge your score with the ""url"""
+Finish-Tweet,Tweet,,,Tweet
+Finish-Like,Like,,,Like
+Finish-Email,E-mail,,,E-mail
+Finish-Restart,Neustart ,,,New Game

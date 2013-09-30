@@ -226,7 +226,7 @@ body #map {
 #d-photobox {
 	margin: 0;
 	background: #fff;
-	padding: 6px;
+	padding: 1px 6px 0 6px;
 
 	div {
 		height: auto;
@@ -297,10 +297,14 @@ body #map {
 
 	p {
 		float: right;
+		position: absolute;
+		right: 5px;
 	}	
 	.total {
 		font-weight: bold;
 		color: red;
+		font-size: 150%;
+		line-height: 0;
 	}
 }
 
@@ -402,7 +406,15 @@ body #map {
 	}
 }
 
-/* Responsive scale */
+/* Tablet responsive web */
+@media screen and (min-width: 768px) and (max-width: 991px) { 
+	.container-main .col-md-6 {
+		height: 50% !important;
+		overflow: auto;
+	}
+}
+
+/* Smartphone responsive web */
 @media screen and (max-width: 768px) { 
 
 	#header {
@@ -423,6 +435,7 @@ body #map {
 		#webHeaderDiv { display: none; }
 		.navbar-collapse .navbar-nav { visibility: visible; }
 	}
+	#d-photobox { padding: 6px; }
 	#row-info {
 		position: fixed; bottom: 0px; left: 0px; width: 100%; 
 	}
