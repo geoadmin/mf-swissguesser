@@ -18,11 +18,17 @@ function initGeoAdmin() {
       // 10 means that one pixel is 10m width and height
       // List of resolution of the WMTS layers:
       // 650, 500, 250, 100, 50, 20, 10, 5, 2.5, 2, 1, 0.5, 0.25, 0.1
-      resolution: 650,
+      resolution: isLayoutHorizontal('#map') ? 500 : 650,
       // Define a coordinate CH1903 for the center of the view
       center: [660000, 190000]
     })
   });
+}
+
+function isLayoutHorizontal(obj) {
+  var o = $(obj);
+  if (o.length < 1) return false;
+  return (o.width()/o.height()) < 1.0;
 }
 
 function getDistanceEuclidian(A, B) {
