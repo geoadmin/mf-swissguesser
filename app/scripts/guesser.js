@@ -92,8 +92,10 @@ var guesser = {
 
 	// ### Position the map container
 	resize: function() {
-		var frameheight = $(window).height();
-		frameheight -= 92 + 50; // adjust for header/footer
+		var frameheight = $(window).height(),
+			headheight = $('#header').height(),
+			footheight = $('#row-info').height();
+		frameheight -= headheight + footheight;
 		$('.container-main').css('height', frameheight + 'px');
 		$('.d-photo').css('height', (frameheight - 25) + 'px');
 		if (map && typeof map.updateSize == 'function') map.updateSize();

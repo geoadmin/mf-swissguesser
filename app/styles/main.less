@@ -2,7 +2,7 @@
 
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 
-body { background:grey; }
+body { background: #fff; overflow: hidden; }
 
 .browsehappy {
   margin: 0.2em 0; 
@@ -213,7 +213,7 @@ body #map {
 /* Lightbox and start dialog */
 /*.modal-backdrop.in { opacity: 0; }*/
 .modal-dialog { margin-top:12%; }
-.modal-footer p { text-align: left; }
+.modal-footer { margin-top:0; p { text-align: left; } }
 .modal-header { font-weight: bold; text-align: center; }
 
 /* Fix weird margin issue */
@@ -418,6 +418,11 @@ body #map {
 }
 
 /* Smartphone responsive web */
+@media screen and (max-width: 480px) {
+	.navbar-brand { display:none; }
+}
+
+/* Smartphone responsive web */
 @media screen and (max-width: 768px) { 
 
 	#header {
@@ -442,10 +447,11 @@ body #map {
 	#row-info {
 		position: fixed; bottom: 0px; left: 0px; width: 100%; 
 	}
+	.modal-dialog { margin-top:-1em; }
 	.navServiceBackground { display: none; }
 	.container-main > div { display: none; }
 	.container-main > div.on { display: block; }
-	.container-main { margin-top: 72px; }
+	.container-main { margin-top: 47px; padding:0; }
 
 	/* Slide in-out
 	.slideleft {
