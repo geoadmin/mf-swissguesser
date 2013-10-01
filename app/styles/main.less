@@ -218,7 +218,7 @@ body #map {
 }
 
 /* Photo lightbox frame */
-.modal { overflow: hidden; }
+.modal.lightbox { overflow: hidden; background: #fff; }
 
 /* Lightbox and start dialog */
 /*.modal-backdrop.in { opacity: 0; }*/
@@ -304,11 +304,20 @@ body.modal-open, .modal-open .navbar-fixed-top {
 }
 
 #row-info {
-	height: 2.2em;
+	z-index: 10;
+	height: 5.1em;
 	display: block;
 	clear: both;
 	vertical-align: middle;
 	padding-top:5px;
+
+	.mobile-switch {
+		position: relative;
+		top: -0.5em;
+		margin: 0; padding: 0;
+
+		.btn { width: 100%; }
+	}
 
 	.btn-cancel { 
 		float: left; 
@@ -357,11 +366,6 @@ body.modal-open, .modal-open .navbar-fixed-top {
 .btn-primary:hover {
 	background-color:#e55;
 	border:2px solid #fff;  
-}
-
-#btn-guess {
-	width: 100%;
-	margin-top: -2em;
 }
 
 /* Text box result */
@@ -472,7 +476,9 @@ body.modal-open, .modal-open .navbar-fixed-top {
 		#webHeaderDiv { display: none; }
 		.navbar-collapse .navbar-nav { visibility: visible; }
 	}
-	#d-photobox { padding: 6px; }
+	#d-photobox { 
+		padding: 6px; height: 100%;
+	}
 	#row-info {
 		position: fixed; bottom: 0px; left: 0px; width: 100%; 
 	}

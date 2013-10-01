@@ -88,8 +88,11 @@ var guesser = {
 			var tgt = $(t);
 			$('.container-main > div.on').removeClass('on');
 			tgt.addClass('on');
-			$(this).parent().find('.active').removeClass('active');
-			$(this).addClass('active');
+			var navMobileSwitch = $('.navbar-toggle.mobile-switch');
+			$('.active', navMobileSwitch)
+				.removeClass('active')
+				.parent().find('[data-target="' + t + '"]')
+					.addClass('active');
 			$('.slideleft,.slideright').removeClass('slideleft slideright');
 			if (t == '#column-map') {
 				if (map) map.updateSize();
@@ -110,11 +113,12 @@ var guesser = {
 			headheight = $('#header').height(),
 			footheight = $('#row-info').height();
 		frameheight -= headheight + footheight;
+		// Adjust height to fit screen
 		$('.container-main')
-			.css('height', frameheight + 'px');
+			.css('height', (frameheight - 10) + 'px');
 		$('.d-photo', this.domPhotoBox)
-			.css('height', (frameheight - 25 - 18) + 'px');
-		this.domPhotoBox.scrollTop(this.domPhotoBox.height()*2);
+			.css('height', (frameheight - 15) + 'px');
+		//this.domPhotoBox.scrollTop(this.domPhotoBox.height()*2);
 		if (map && typeof map.updateSize == 'function') map.updateSize();
 	},
 
@@ -263,7 +267,8 @@ var guesser = {
 		element.popover('show').show();
     
 		// Enable link button
-		$(self.domBtnGuess).removeClass('disabled');
+		$(self.domBtnGuess).prev().addClass('hidden');
+		$(self.domBtnGuess).removeClass('hidden');
 
 	}, // -- place
 

@@ -103,10 +103,6 @@
 	  <a href="#map"><span class="glyphicon glyphicon-map-marker"></span></a>
 	</p>
 
-	<a id="btn-guess" href="#" class="btn btn-default disabled">
-	 	<span data-i18n="data-Game-Confirm">Confirm guess</span>
-	 </a>
-
 	<div id="d-result" class="overlay hidden alert alert-warning">
 		<!--<img>-->
 		<p class="info"></p>
@@ -162,6 +158,11 @@
   
 </div><!-- /.column-map -->
 <div class="col-md-12" id="row-info">
+
+	<div class="mobile-switch">
+		<button class="btn btn-default" type="button" data-target="#column-map" data-i18n="Game-Make">Make guess</button>
+		<button id="btn-guess" class="btn btn-default hidden" type="button" data-target="#column-map" data-i18n="Game-Confirm">Confirm guess</button>
+	</div>
 
 	<button type="button" class="btn btn-cancel" onClick="location.reload()" data-i18n="Photo-Restart"></button>
 
