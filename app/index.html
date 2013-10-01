@@ -87,7 +87,8 @@
 </div></nav>
 
 <div class="container container-main">
-<div class="col-md-6 on" id="d-photobox">
+<div class="col-md-12" id="loading" data-i18n="Start-Loading">Please wait, loading ...</div>
+<div class="col-md-6 on hidden" id="d-photobox">
 
 	<div class="d-photo">
 		<a data-toggle="lightbox" href="#d-lightbox">
@@ -148,7 +149,7 @@
 	</div><!-- /d-result -->
 
 </div><!-- /#d-photobox -->
-<div class="col-md-6" id="column-map">
+<div class="col-md-6 hidden" id="column-map">
 
   <div id="map" class="map"></div>
 
@@ -157,11 +158,11 @@
   </div>
   
 </div><!-- /.column-map -->
-<div class="col-md-12" id="row-info">
+<div class="col-md-12 hidden" id="row-info">
 
 	<div class="mobile-switch">
 		<button class="btn btn-default" type="button" data-target="#column-map" data-i18n="Game-Make">Make guess</button>
-		<button id="btn-guess" class="btn btn-default hidden" type="button" data-target="#column-map" data-i18n="Game-Confirm">Confirm guess</button>
+		<button id="btn-guess" class="btn btn-primary hidden" type="button" data-target="#column-map" data-i18n="Game-Confirm">Confirm guess</button>
 	</div>
 
 	<button type="button" class="btn btn-cancel" onClick="location.reload()" data-i18n="Photo-Restart"></button>

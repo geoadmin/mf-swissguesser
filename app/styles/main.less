@@ -197,6 +197,13 @@ div.overlay {
 /* Overlay dialog */
 .popover-content { background-color: #7c7; }
 
+/* Loading dialog */
+#loading {
+	margin-top: 10%;
+	text-align: center;
+	display: block;
+}
+
 /* Map */
 body #map {
 	height: 100%; 
@@ -321,7 +328,7 @@ body.modal-open, .modal-open .navbar-fixed-top {
 
 	.btn-cancel { 
 		float: left; 
-		margin-right: -5em;
+		margin-right: -10em;
 		font-size: 88%;
 		padding: 0em;
 	}
@@ -329,13 +336,14 @@ body.modal-open, .modal-open .navbar-fixed-top {
 	p {
 		float: right;
 		position: absolute;
+		font-size: 88%;
 		right: 5px;
 	}	
 	.total {
 		font-weight: bold;
 		color: red;
-		font-size: 150%;
-		line-height: 0;
+		font-size: 130%;
+		line-height: 1.1em;
 		padding-right: 0.5em;
 	}
 }
@@ -361,12 +369,17 @@ body.modal-open, .modal-open .navbar-fixed-top {
 
 .btn-primary { 
 	background-color:#c33; 
-	border:2px solid black; 
+	border:1px solid black; 
 	width:100%;
 }
 .btn-primary:hover {
 	background-color:#e55;
-	border:2px solid #fff;  
+	border:1px solid #fff;  
+}
+.btn-primary.disabled {
+	background-color:#eee;
+	border:1px solid #eee;
+	color:#555;
 }
 
 /* Text box result */

@@ -198,6 +198,10 @@ var guesser = {
 		if (this.collection == null)
 			return alert('Error: data unavailable, cannot start');
 		this.loader( this.collection[0] );
+
+		// Clear loader
+		$('#loading').remove();
+		$('.container-main > .hidden').removeClass('hidden');
 	},
 
 	// ### User starts making a guess 
@@ -309,12 +313,14 @@ var guesser = {
 		//console.log('Zooming to', extent);
 		view.fitExtent(extent, map.getSize());
 		
-		// Calculate distance to answer
+		// Calculate distance to answer (km)
 		var dist = geoadmin.getDistanceEuclidian(
-			this.position, this.currentAnswer);
+			this.position, this.currentAnswer) / 1000;
 
 		// Calculate score
-		var score = parseInt(Math.abs(180000-dist)/10000)*100;
+		var score = (dist < 180) ? 
+			parseInt(Math.abs(180-dist)/10)*100
+			: 0;
 		this.user.score += score;
 
 		// Hide the overlays
@@ -442,13 +448,13 @@ i18n.init({
   //useLocalStorage: true, localStorageExpirationTime: 86400000
 }, function(t) { $("*[data-i18n]").i18n(); });
 
-// Load data
-$.getJSON('data/base.json', function(d) { guesser.configure(d); });
+geoadmin.init(); // Load the map
 
 $(window).load(function() { 
-	// Load the map
-	geoadmin.init(); 
+	$.getJSON('data/base.json', function(d) { 
 
-	// Start the game
-	guesser.start();
+		guesser.configure(d); // Load data
+		guesser.start(); // Start the game
+
+	});
 });
