@@ -319,7 +319,7 @@ var guesser = {
 
 		// Calculate score
 		var score = (dist < 180) ? 
-			parseInt(Math.abs(180-dist)/10)*100
+			parseInt(Math.abs(180-dist)/7)*100
 			: 0;
 		this.user.score += score;
 
@@ -448,9 +448,8 @@ i18n.init({
   //useLocalStorage: true, localStorageExpirationTime: 86400000
 }, function(t) { $("*[data-i18n]").i18n(); });
 
-geoadmin.init(); // Load the map
-
 $(window).load(function() { 
+	geoadmin.init(); // Load the map
 	$.getJSON('data/base.json', function(d) { 
 
 		guesser.configure(d); // Load data
