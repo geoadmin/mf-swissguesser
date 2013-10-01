@@ -79,6 +79,9 @@ var guesser = {
 
 		// Bind continue button
 		this.domBtnNext.click(function() {
+			self.domBtnGuess
+			.removeClass('disabled').addClass('hidden')
+			.prev().removeClass('hidden');
 			guesser.next();
 		});
 
@@ -192,6 +195,8 @@ var guesser = {
 
 	// ### Start challenge convenience function
 	start: function() {
+		if (this.collection == null)
+			return alert('Error: data unavailable, cannot start');
 		this.loader( this.collection[0] );
 	},
 
