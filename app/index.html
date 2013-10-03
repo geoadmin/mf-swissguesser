@@ -12,8 +12,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- OpenLayers 3 for GeoAdmin -->
 	<link rel="stylesheet" href="src/build/ol.css" type="text/css">
-	<!-- Lightbox for Bootstrap -->
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.6.1/bootstrap-lightbox.min.css" type="text/css">
 	<!-- Compiled page styles -->
 	<link rel="stylesheet" href="styles/main.css">
 	<!-- build:js scripts/vendor/modernizr.js -->
@@ -93,7 +91,7 @@
 <div class="col-md-6 on hidden" id="d-photobox">
 
 	<div class="d-photo">
-		<a data-toggle="lightbox" href="#d-lightbox">
+		<a data-toggle="modal" href="#d-lightbox">
 			<span class="glyphicon glyphicon-fullscreen"></span>
 		</a>
 	</div>
@@ -191,7 +189,7 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="d-lightbox" class="lightbox modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="d-lightbox" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="lightbox-content">
 		<button type="button" class="close" data-dismiss="modal" data-toggle="modal" aria-hidden="true">&times;</button>
 		<a href="#" data-dismiss="modal"><img draggable="false" width="100%" /></a>
@@ -229,7 +227,6 @@
 <script src="bower_components/bootstrap/js/collapse.js"></script>
 <!--<script src="bower_components/bootstrap/js/tab.js"></script>-->
 <!-- endbuild -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.6.1/bootstrap-lightbox.js"></script>
 
 <!-- build:js scripts/i18next.js -->
 <script src="bower_components/i18next/release/i18next-1.7.1.min.js"></script>
