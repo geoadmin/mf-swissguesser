@@ -158,7 +158,7 @@ var guesser = {
 	next: function() {
 
 		++this.currentIndex;
-		console.log("Advancing to next image", this.currentIndex);
+		///console.log("Advancing to next image", this.currentIndex);
 
 		// Continue to next image
 		this.loader( this.collection[this.currentIndex] );
@@ -258,7 +258,7 @@ var guesser = {
 		// Update placement
 		var element = $(self.overlay.getElement());
 		this.position = evt.getCoordinate();
-		//console.log(this.position);
+		///console.log(this.position);
 
 		element.css('background-image',
 			"url('images/" + (self.currentIndex+1) + ".png')");
@@ -283,7 +283,7 @@ var guesser = {
 
 	// ### Submit a guess
 	guess: function() {
-		console.log('Making guess', this.currentIndex, this.position, this.currentAnswer);
+		///console.log('Making guess', this.currentIndex, this.position, this.currentAnswer);
 	
 		// Deactivate guessing for this round
 		this.active = false;
@@ -310,7 +310,7 @@ var guesser = {
 								this.position[1] : this.currentAnswer[1],
 				EXTSCL = 1000;
 		var extent = [minx-EXTSCL, miny-EXTSCL, maxx+EXTSCL, maxy+EXTSCL];
-		//console.log('Zooming to', extent);
+		///console.log('Zooming to', extent);
 		view.fitExtent(extent, map.getSize());
 		
 		// Calculate distance to answer (km)
