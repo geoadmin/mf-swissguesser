@@ -196,8 +196,10 @@ var guesser = {
 	getimage: function() {
 		if (++this.igetctr > 10) return this.collection[0];
 		var l = this.collection.length;
-		var r = this.collection[parseInt(Math.random() * l)];
-		if (typeof r.shown == 'undefined') {
+		var i = parseInt(Math.random() * l);
+		///console.log('Picking', i, '/', l);
+		var r = this.collection[i];
+		if (r.shown) {
 			return this.getimage();
 		} else {
 			r.shown = true;
