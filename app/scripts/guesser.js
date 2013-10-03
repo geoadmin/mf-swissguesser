@@ -11,7 +11,7 @@ var guesser = {
 	lang: 'DE',
 
 	// Set up anonymous user profile
-	user: { score: 0 },
+	user: { score: 0, collection: [] },
 
 	// State variables
 	config: null, 
@@ -143,7 +143,7 @@ var guesser = {
 		// Populate components
 		$('h4', infobox).attr('title', metadata.id);
 		$('.image-count', infobox).html(this.currentIndex+1);
-		$('.image-total', infobox).html(this.collection.length);
+		$('.image-total', infobox).html(this.user.collection.length);
 		$('.total', infobox).html(this.user.score);
 
 		// Result box description
@@ -161,7 +161,7 @@ var guesser = {
 		///console.log("Advancing to next image", this.currentIndex);
 
 		// Continue to next image
-		this.loader( this.collection[this.currentIndex] );
+		this.loader( this.user.collection[this.currentIndex] );
 
 		// On mobile, switch tabs
 		$('.mobile-switch button:first').click();
@@ -193,11 +193,29 @@ var guesser = {
 
 	},
 
+	getimage: function() {
+		if (++this.igetctr > 10) return this.collection[0];
+		var l = this.collection.length;
+		var r = this.collection[parseInt(Math.random() * l)];
+		if (typeof r.shown == 'undefined') {
+			return this.getimage();
+		} else {
+			r.shown = true;
+			return r;
+		}
+	},
+
 	// ### Start challenge convenience function
 	start: function() {
 		if (this.collection == null)
 			return alert('Error: data unavailable, cannot start');
-		this.loader( this.collection[0] );
+
+		this.user.collection = [];
+		for (var i = 0; i < 5; i++) {
+			this.igetctr = 0;
+			this.user.collection.push(this.getimage());
+		}
+		this.loader( this.user.collection[0] );
 
 		// Clear loader
 		$('#loading').remove();
@@ -344,7 +362,7 @@ var guesser = {
 		this.domBtnNext.removeClass('hidden');
 
 		// Check end game status
-		if (this.currentIndex+1 == this.collection.length) {
+		if (this.currentIndex+1 == this.user.collection.length) {
 			this.finish();
 		}
 
