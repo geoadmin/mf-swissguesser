@@ -67,6 +67,9 @@ var guesser = {
 			placement: 'bottom',
 			container: 'body'
 		});
+		$('#row-info button:first').click(function(){ 
+			$('.d-photo', self.domPhotoBox).tooltip('show'); 
+		});
 
 		// Bind guess button
 		$(self.domBtnGuess).click(function(evt) {
