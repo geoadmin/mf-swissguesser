@@ -27,6 +27,7 @@ body { background: #fff; overflow: hidden; }
 	/* Corporate design */
 	background:#fff;
 	height: 122px;
+	overflow: hidden;
 
 	#webHeaderDiv {
 		font-family: arial, helvetica, verdana, sans-serif;
@@ -210,10 +211,32 @@ body #map {
 	width: 100%;
 
 	.ol-zoom {
-		bottom: 40px;
-		left: auto;
-		right: 8px;
-		top: auto;
+		top: 40px;
+		right: auto;
+		left: 8px;
+		bottom: auto;
+	}
+
+	.ol-zoom a {
+		background: rgba(51,51,51,0.5)!important;
+	}
+
+	.ol-scale-line-inner {
+		color: black;
+		border-color: black;
+		border-style: none solid solid!important;
+		border-width: medium 3px 3px!important;
+		font-weight: 900;
+	}
+
+	.ol-scale-line { background: none; }
+
+	.ol-attribution {
+		bottom: 6px;
+		background: none;
+		color: black;
+		left: 20%;
+		right: auto;
 	}
 
 	#map-overlay {
