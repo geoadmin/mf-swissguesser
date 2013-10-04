@@ -82,9 +82,10 @@ var guesser = {
 
 		// Bind continue button
 		this.domBtnNext.click(function() {
+			$(this).addClass('hidden');
 			self.domBtnGuess
-			.removeClass('disabled').addClass('hidden')
-			.prev().removeClass('hidden');
+				.removeClass('disabled').addClass('hidden')
+					.prev().removeClass('hidden');
 			guesser.next();
 		});
 
@@ -168,6 +169,9 @@ var guesser = {
 
 		// On mobile, switch tabs
 		$('.mobile-switch button:first').click();
+
+		// Re-center map
+		geoadmin.reset();
 
 	},
 
@@ -324,17 +328,20 @@ var guesser = {
 
 		// Center map on guess
 		var minx = (this.position[0] < this.currentAnswer[0]) ? 
-								this.position[0] : this.currentAnswer[0],
-				maxx = (this.position[0] >= this.currentAnswer[0]) ? 
-								this.position[0] : this.currentAnswer[0],
-				miny = (this.position[1] < this.currentAnswer[1]) ? 
-								this.position[1] : this.currentAnswer[1],
-				maxy = (this.position[1] >= this.currentAnswer[1]) ? 
-								this.position[1] : this.currentAnswer[1],
-				EXTSCL = 1000;
-		var extent = [minx-EXTSCL, miny-EXTSCL, maxx+EXTSCL, maxy+EXTSCL];
+							this.position[0] : this.currentAnswer[0],
+			maxx = (this.position[0] >= this.currentAnswer[0]) ? 
+							this.position[0] : this.currentAnswer[0],
+			miny = (this.position[1] < this.currentAnswer[1]) ? 
+							this.position[1] : this.currentAnswer[1],
+			maxy = (this.position[1] >= this.currentAnswer[1]) ? 
+							this.position[1] : this.currentAnswer[1];
+		var extent = [minx, miny, maxx, maxy];
 		///console.log('Zooming to', extent);
+
+		// Fit viewport on guess
+		// TODO: https://github.com/geoadmin/web-storymaps/issues/20
 		view.fitExtent(extent, map.getSize());
+		view.setCenter([this.currentAnswer[0],this.currentAnswer[1]]);
 		
 		// Calculate distance to answer (km)
 		var dist = geoadmin.getDistanceEuclidian(
@@ -364,6 +371,7 @@ var guesser = {
 
 		// Show dialog and get ready to continue the game
 		this.domResults.removeClass('hidden');
+		this.domBtnNext.parent().find('button').addClass('hidden');
 		this.domBtnNext.removeClass('hidden');
 
 		// Check end game status

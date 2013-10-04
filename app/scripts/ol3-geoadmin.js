@@ -27,6 +27,12 @@ geoadmin.init = function() {
   });
 };
 
+geoadmin.reset = function() {
+  map.getView().setResolution(
+    geoadmin.isLayoutHorizontal('#map') ? 500 : 650);
+  map.getView().setCenter([660000, 190000]);
+};
+
 geoadmin.isLayoutHorizontal = function(obj) {
   var o = $(obj);
   if (o.length < 1) return false;
