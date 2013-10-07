@@ -16,7 +16,16 @@ body { background: #fff; overflow: hidden; }
 
 /* Customize container */
 
-.container-main { margin-top: 90px; }
+.container-main { 
+	margin-top: 90px; 
+
+	.btn-default {
+		background-color: rgba(51, 51, 51, 0.5);
+		border: 1px solid white;
+		color: white; font-weight: bold;
+		box-shadow: #ccc 2px 2px 6px;
+	}
+}
 .container-main, #map { width:100%; height:100%; }
 
 #column-map { height:100%; }
@@ -252,10 +261,13 @@ body #map {
 .modal.lightbox { overflow: hidden; background: #fff; }
 
 /* Lightbox and start dialog */
-/*.modal-backdrop.in { opacity: 0; }*/
+.modal-backdrop.in { opacity:0.9; }
 .modal-dialog { margin-top:12%; }
 .modal-footer { margin-top:0; p { text-align: left; } }
 .modal-header { font-weight: bold; text-align: center; }
+
+/* Pin tooltip to photo */
+.tooltip.bottom { margin-top: -6em; }
 
 /* Fix weird margin issue */
 body.modal-open, .modal-open .navbar-fixed-top {
@@ -274,7 +286,7 @@ body.modal-open, .modal-open .navbar-fixed-top {
 #d-photobox {
 	margin: 0;
 	background: #fff;
-	padding: 1px 6px 0 6px;
+	padding: 1px 2px 0 0;
 
 	div {
 		height: auto;
@@ -311,10 +323,12 @@ body.modal-open, .modal-open .navbar-fixed-top {
 
 	.glyphicon-fullscreen {
 		position: absolute;
-		right: 35px; top: 50px;
+		right: 25px; top: 50px;
 		background: #fff;
 		padding: 6px;
 		border-radius: 6px;
+		font-size: 120%;
+		color: black;
 	}
 
 	.fullscreen, .fullscreen img {
@@ -354,11 +368,12 @@ body.modal-open, .modal-open .navbar-fixed-top {
 		.btn { width: 100%; }
 	}
 
-	.btn-cancel { 
+	.btn.restart { 
 		float: left; 
+		margin-top: -0.2em;
 		margin-right: -10em;
 		font-size: 88%;
-		padding: 0em;
+		padding: 0.2em;
 	}
 
 	p {
@@ -367,6 +382,11 @@ body.modal-open, .modal-open .navbar-fixed-top {
 		font-size: 88%;
 		right: 5px;
 	}	
+
+	.panel-title, p {
+		margin-top: 3px;
+	}
+
 	.total {
 		font-weight: bold;
 		color: red;
@@ -418,8 +438,9 @@ body.modal-open, .modal-open .navbar-fixed-top {
     margin-left: 0;
     width: 100%;
     position: absolute;
-    margin-bottom: 0;
+    margin-bottom: -1px;
     color: #555;
+    max-height:75%; overflow-y:auto;
 
 	/*
 	width: 38em;
@@ -436,14 +457,13 @@ body.modal-open, .modal-open .navbar-fixed-top {
 
 	p {
 		color: inherit;
-		padding-bottom:1em;
 	}
 
 	.info {
-		width: 80%;
+		width: 100%;
 		color: #000;
-		border-bottom: 1px solid #ea8;
-		padding-bottom: 0.5em;
+		border-top: 1px solid #ea8;
+		padding-top: 0.5em;
 		margin-bottom: 0.5em;
 	}
 
@@ -493,7 +513,8 @@ body.modal-open, .modal-open .navbar-fixed-top {
 @media screen and (min-width: 768px) and (max-width: 991px) { 
 	.container-main .col-md-6 {
 		height: 50% !important;
-		overflow: auto;
+		overflow-y: auto;
+		overflow-x: hidden;
 	}
 	#row-info { padding-top: 10px; }
 }
@@ -514,6 +535,7 @@ body.modal-open, .modal-open .navbar-fixed-top {
 			margin: 0;
 			left: 1%;
 		}
+		.navbar-toggle { right: -38px; } 
 		.logo { 
 			background-image: url('../images/logo-small.ch.png');
 			background-position: 10px 50%;
@@ -526,6 +548,9 @@ body.modal-open, .modal-open .navbar-fixed-top {
 	}
 	#d-photobox { 
 		padding: 6px; height: 100%;
+		.glyphicon-fullscreen {
+			right: 23px; top: 23px;
+		}
 	}
 	#row-info {
 		position: fixed; bottom: 0px; left: 0px; width: 100%; 

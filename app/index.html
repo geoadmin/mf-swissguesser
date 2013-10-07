@@ -111,8 +111,6 @@
 
 	<div id="d-result" class="overlay hidden alert alert-warning">
 		<!--<img>-->
-		<p class="info"></p>
-
 		<p>
 		  <span data-i18n="Result-Score"></span> 
 		  <b class="distance"></b> 
@@ -122,8 +120,9 @@
 		  <span class="comment"></span>
 		</p>
 
+		<p class="info"></p>
+
 		<div id="v-finish" class="hidden">
-				
 			<span data-i18n="Finish-Text"></span>
 
 			<div class="sharebox">
@@ -166,10 +165,10 @@
 	<div class="mobile-switch">
 		<button class="btn btn-default" type="button" data-target="#column-map" data-i18n="Game-Guess">Guess</button>
 		<button id="btn-guess" class="btn btn-primary hidden" type="button" data-target="#column-map" data-i18n="Game-Confirm">Confirm</button>
-		<button id="btn-continue" class="btn btn-primary hidden" href="#d-photobox" data-dismiss="modal" data-i18n="Result-Continue">Continue</a>
+		<button id="btn-continue" class="btn btn-primary hidden" href="#d-photobox" data-target="#d-photobox" data-dismiss="modal" data-i18n="Result-Continue">Continue</a>
 	</div>
 
-	<button type="button" class="btn btn-cancel" onClick="location.reload()" data-i18n="Photo-Restart"></button>
+	<button type="button" class="btn btn-default restart" onClick="location.reload()" data-i18n="Photo-Restart"></button>
 
 	<p><span data-i18n="Result-Total"></span> <span class="total"></span></p>
 
@@ -207,9 +206,11 @@
 </div>
 
 <!--[if lt IE 9]>
-	<p class="browsehappy">
+<p class="browsehappy">
 	<button type="button" class="close" onclick="$(this).parent().remove()" aria-hidden="true">&times;</button>
-	You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<span data-i18n="App-Warning">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</span>
+	<a href="http://browsehappy.com/">browsehappy.com</a>
+</p>
 <![endif]-->
 <noscript><p class="browsehappy">Please enable JavaScript to use this app.</p></noscript>
 

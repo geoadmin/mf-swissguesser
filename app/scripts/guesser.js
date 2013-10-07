@@ -50,6 +50,10 @@ var guesser = {
 		// New window all external links
 		$('a[href^="http:"]').attr('target', '_blank');
 
+		// Ensure appropriate browser warning
+		$('.browsehappy a').attr('href','http://browsehappy.com/?locale='
+			+ self.lang.toLowerCase());
+
 		// Fullscreen
 		$('.lightbox').on('shown.bs.modal', function () {
 			$('.modal-backdrop.in').css('opacity', 1);
@@ -68,10 +72,16 @@ var guesser = {
 		}).tooltip({
 			title: $('.d-photo-text').text(),
 			placement: 'bottom',
-			container: 'body'
+			container: 'body',
+			delay: { show: 500, hide: 100 }
 		});
 		$('#row-info button:first').click(function(){ 
-			$('.d-photo', self.domPhotoBox).tooltip('show'); 
+			if ($(window).width()>767) {
+				$('.d-photo', self.domPhotoBox).tooltip('show'); 
+				setTimeout(function() {
+					$('.d-photo', self.domPhotoBox).tooltip('hide'); 
+				}, 3000);
+			}
 		});
 
 		// Bind guess button
@@ -125,9 +135,9 @@ var guesser = {
 		frameheight -= headheight + footheight;
 		// Adjust height to fit screen
 		$('.container-main')
-			.css('height', (frameheight - 10) + 'px');
+			.css('height', parseInt(frameheight - 10) + 'px');
 		$('.d-photo', this.domPhotoBox)
-			.css('height', (frameheight - 15) + 'px');
+			.css('height', parseInt(frameheight - 11) + 'px');
 		//this.domPhotoBox.scrollTop(this.domPhotoBox.height()*2);
 		if (map && typeof map.updateSize == 'function') map.updateSize();
 	},
