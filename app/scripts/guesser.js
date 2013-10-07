@@ -349,12 +349,18 @@ var guesser = {
 							this.position[1] : this.currentAnswer[1],
 			maxy = (this.position[1] >= this.currentAnswer[1]) ? 
 							this.position[1] : this.currentAnswer[1];
-		var extent = [minx, miny, maxx, maxy];
-		///console.log('Zooming to', extent);
+		
+		// Pad the extents to try to fix the issue
+		var escale = 10000;
+		var extent = [Math.round(minx)-escale, Math.round(miny)-escale, 
+					  Math.round(maxx)+escale, Math.round(maxy)+escale];
+		//console.log('Zooming to', extent);
 
 		// Fit viewport on guess
 		// TODO: https://github.com/geoadmin/web-storymaps/issues/20
 		view.fitExtent(extent, map.getSize());
+		
+		// Workaround: center on the answer
 		view.setCenter([this.currentAnswer[0],this.currentAnswer[1]]);
 		
 		// Calculate distance to answer (km)
