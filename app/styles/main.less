@@ -235,11 +235,15 @@ body #map {
 	.ol-scale-line { background: none; }
 
 	.ol-attribution {
-		bottom: 6px;
+		bottom: 9px;
+		left: 100px;
 		background: none;
 		color: black;
-		left: 20%;
 		right: auto;
+	}
+	/* Add copyright to attribution */
+	.ol-attribution li:before {
+		content: "(c) Data:";
 	}
 
 	#map-overlay {
