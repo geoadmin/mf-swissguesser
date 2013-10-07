@@ -9,50 +9,11 @@ Toggle-Photo,Foto,Photo,Foto,Photo
 Start-Title,"SwissGuesser: Fotosammlung
 Erster Weltkrieg",,,"SwissGuesser: photo collection from
 World War I"
-Start-Text,"Eine der grössten Fotosammlung des <a href=""http://www.bar.admin.ch"">Schweizerischen Bundesarchivs</a> ist die
+Start-Text,"Eine der grössten Fotosammlung des __linkBARHTML__Schweizerischen Bundesarchivs__endlinkHTML__ ist die
 Fotosammlung Erster Weltkrieg, die 5'125 digitalisierte Glasplattennegative zum
-Aktivdienst der <a href=""https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228"">Schweizer Armee während des Ersten Weltkriegs</a> umfasst. 
+Aktivdienst der Schweizer Armee __linkARCHTML__während des Ersten Weltkriegs__endlink__ umfasst. 
 
-Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?",,,"Welcome to SwissGuesser, the game that takes you on a historical trip through the country. First we will show you a photograph from the <a href=""http://www.bar.admin.ch"">Swiss Federal Archives</a>. The images are from <a href=""https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228"">footage of the Second World War</a>, taken somewhere in Switzerland. Can you guess where?"
-Start-Links,"Schweizerisches Bundesarchiv -> www.bar.admin.ch
-
-Online Recherche in den Beständen des Bundesarchivs -> www.swiss-archives.ch
-
-
-Fotosammlung Erster Weltkrieg in der Online Recherche des
-Bundesarchivs -> https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228
-
-
-
-","Archives fédérales suisses -> www.bar.admin.ch
-
-Archives fédérales suisses – Recherche en ligne -> www.swiss-archives.ch
-
-
-Fotosammlung Erster Weltkrieg in der Online Recherche des
-Bundesarchivs -> https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228
-
-","Archivio federale svizzero-> www.bar.admin.ch
-
-Archivio federale svizzero – Ricerca on-line -> www.swiss-archives.ch
-
-
-Fotosammlung Erster Weltkrieg in der Online Recherche des
-Bundesarchivs -> https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228
-
-
-
-","Swiss Federal Archives -> www.bar.admin.ch
-
-Swiss Federal Archives – Online Research -> www.swiss-archives.ch
-
-
-Fotosammlung Erster Weltkrieg in der Online Recherche des
-Bundesarchivs -> https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228
-
-
-
-"
+Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?",,,"Welcome to SwissGuesser, the game that takes you on a historical trip through the country. First we will show you a photograph from the __linkBARHTML__Swiss Federal Archives__endlink__. The images are from __linkARCHTML__footage of the Second World War__endlink__, taken somewhere in Switzerland. Can you guess where?"
 Start-Loading,"Bitte warten, laden ...",,,"Please wait, loading ..."
 Game-Start,Start,Start,Start,Start
 Game-Guess,Rate,,,Make a guess
