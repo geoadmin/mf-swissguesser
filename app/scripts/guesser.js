@@ -235,14 +235,25 @@ var guesser = {
 
 	},
 
-	getimage: function() {
+	// ### Get the next random image
+	getimage: function(ix) {
+		// Keep track of infinite recursion
 		if (++this.igetctr > 10) return this.collection[0];
+		// Get a random image
 		var l = this.collection.length;
 		var i = parseInt(Math.random() * l);
-		///console.log('Picking', i, '/', l);
 		var r = this.collection[i];
+		// Get requested image
+		if (ix != null) {
+			rr = this.collection.filter(function(c) { return c.id == ix });
+			if (rr.length == 1) {
+				r = rr[0];
+			}
+		}
+		// Make sure we have not already included it
+		///console.log('Picking', i, '/', l);
 		if (r.shown) {
-			return this.getimage();
+			return this.getimage(null);
 		} else {
 			r.shown = true;
 			return r;
@@ -259,25 +270,37 @@ var guesser = {
 
 		if (this.query['debug']) {
 			// Debug: all images
-			var self = this;
-			$(self.collection).each(function() {
-				this.shown = true;
-				self.user.collection.push(this);
-			});
+			for(var i = 0; i<this.collection.length; i++) {
+				this.collection[i].shown = true;
+				this.user.collection.push(this.collection[i]);
+			}
 			if (this.query['i']) {
 				this.currentIndex = parseInt(this.query['i'])-1;
+			}
+		} else if (this.query['game']) {
+			// Shared game collection
+			var g = this.query['game'].split(',');
+			if (g.length == 5) {
+				for(var i = 0; i < 5; i++) {
+					this.user.collection.push(this.getimage(g[i]));
+				}
+			} else {
+				// Restart the game
+				window.alert('Invalid game code');
+				window.location.href = window.location.origin;
+				return;
 			}
 		} else {
 			// Default: random image collection
 			for (var i = 0; i < 5; i++) {
 				this.igetctr = 0;
-				this.user.collection.push(this.getimage());
+				this.user.collection.push(this.getimage(null));
 			}
 		}
 
 		// Load the first image
 		// TODO: preloader
-		this.loader( this.user.collection[this.currentIndex] );
+		this.loader(this.user.collection[this.currentIndex]);
 
 		// Clear loader
 		$('#loading').remove();
