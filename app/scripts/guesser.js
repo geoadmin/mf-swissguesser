@@ -22,7 +22,7 @@ var guesser = {
 	currentAnswer: null, 
 	active: false,
 	layers: [], 
-	query: [],
+	query: {},
 
 	// DOM references
 	domOverlay: 	$('#map-overlay'),
@@ -254,12 +254,30 @@ var guesser = {
 		if (this.collection == null)
 			return alert('Error: data unavailable, cannot start');
 
+		// Initialize image list
 		this.user.collection = [];
-		for (var i = 0; i < 5; i++) {
-			this.igetctr = 0;
-			this.user.collection.push(this.getimage());
+
+		if (this.query['debug']) {
+			// Debug: all images
+			var self = this;
+			$(self.collection).each(function() {
+				this.shown = true;
+				self.user.collection.push(this);
+			});
+			if (this.query['i']) {
+				this.currentIndex = parseInt(this.query['i'])-1;
+			}
+		} else {
+			// Default: random image collection
+			for (var i = 0; i < 5; i++) {
+				this.igetctr = 0;
+				this.user.collection.push(this.getimage());
+			}
 		}
-		this.loader( this.user.collection[0] );
+
+		// Load the first image
+		// TODO: preloader
+		this.loader( this.user.collection[this.currentIndex] );
 
 		// Clear loader
 		$('#loading').remove();

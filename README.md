@@ -70,7 +70,9 @@ Finally, zip up the dist folder and deploy it to the target host.
 
 # Technical documentation
 
-See [guesser](app/scripts/guesser.html) and [wms-custom-proj](app/scripts/wms-custom-proj.html).
+See [guesser](app/scripts/guesser.html) and [wms-custom-proj](app/scripts/wms-custom-proj.html) for a detailed code walkthrough.
+
+For debugging the application, you can add `&debug=true` to the URL, which will include all images in the game instead of a random batch. The additional parameter `&ix=5` would then jump to the 5th image in the sequence.
 
 # Licensing
 
