@@ -317,6 +317,13 @@ var guesser = {
 				this.user.collection[i].ix + 97);
 		}
 
+		// Populate copy link box
+		var shareform = $('.shareform', sharebox);
+		$('input', shareform).val(permalink);
+		$('input, button', shareform).click(function() {
+			$('input', shareform)[0].select(); // HTML5 does not yet support copy
+		});
+
 		// Populate Email share box
 		$('.btn-email', sharebox).click(function() {
 			location.href = 'mailto:?subject=' 
