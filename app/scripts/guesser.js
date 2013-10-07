@@ -47,6 +47,9 @@ var guesser = {
 			  location.href = location.href.substring(0, 
 			  	location.href.lastIndexOf('/'));
 
+		// New window all external links
+		$('a[href^="http:"]').attr('target', '_blank');
+
 		// Fullscreen
 		$('.lightbox').on('shown.bs.modal', function () {
 			$('.modal-backdrop.in').css('opacity', 1);
