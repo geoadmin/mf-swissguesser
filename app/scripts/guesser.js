@@ -480,12 +480,7 @@ i18n.init({
   fallbackLng: 'en',
   resGetPath: 'data/locale/__lng__/__ns__.json',
   //useLocalStorage: true, localStorageExpirationTime: 86400000
-}, function(t) { $("*[data-i18n]").i18n({
-	'linkBAR': '<a href="http://www.bar.admin.ch">',
-	'linkARC': '<a href="https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228">',
-	'endlink': '</a>',
-	escapeInterpolation: true
-}); });
+}, function(t) { $("*[data-i18n]").i18n(); });
 
 $(window).load(function() { 
 	geoadmin.init(); // Load the map

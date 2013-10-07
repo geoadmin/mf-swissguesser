@@ -9,11 +9,11 @@ Toggle-Photo,Foto,Photo,Foto,Photo
 Start-Title,"SwissGuesser: Fotosammlung
 Erster Weltkrieg",,,"SwissGuesser: photo collection from
 World War I"
-Start-Text,"Eine der grössten Fotosammlung des __linkBARHTML__Schweizerischen Bundesarchivs__endlinkHTML__ ist die
+Start-Text,"Eine der grössten Fotosammlung des Schweizerischen Bundesarchivs[1] ist die
 Fotosammlung Erster Weltkrieg, die 5'125 digitalisierte Glasplattennegative zum
-Aktivdienst der Schweizer Armee __linkARCHTML__während des Ersten Weltkriegs__endlink__ umfasst. 
+Aktivdienst der Schweizer Armee während des Ersten Weltkriegs[2] umfasst. 
 
-Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?",,,"Welcome to SwissGuesser, the game that takes you on a historical trip through the country. First we will show you a photograph from the __linkBARHTML__Swiss Federal Archives__endlink__. The images are from __linkARCHTML__footage of the Second World War__endlink__, taken somewhere in Switzerland. Can you guess where?"
+Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?",,,"Welcome to SwissGuesser, the game that takes you on a historical trip through the country. First we will show you a photograph from the Swiss Federal Archives[1]. The images are from footage of the Second World War[2], taken somewhere in Switzerland. Can you guess where?"
 Start-Loading,"Bitte warten, laden ...",,,"Please wait, loading ..."
 Game-Start,Start,Start,Start,Start
 Game-Guess,Rate,,,Make a guess
@@ -36,3 +36,5 @@ Finish-Like,Like,,,Like
 Finish-Email,E-mail,,,E-mail
 Finish-Restart,Neustart ,,,New Game
 Share-Message,Ich habe {0} Punkte auf #SwissGuesser gemacht! Schaffst du mehr?,,,I just scored {0} on #SwissGuesser! Beat that :)
+Browser-old warning,"Sie verwenden einen veralteten Browser. Um die website in vollem Umfang nutzen zu können, empfehlen wir 
+Ihnen, einen neueren Browser zu installieren.",,,You are using an outdated browser. Please upgrade your browser to improve your experience.
