@@ -293,7 +293,7 @@ var guesser = {
 	// ### Game over
 	finish: function() {
 
-		var msg = "I just scored " + this.user.score + " on SwissGuesser! Beat that :)";
+		var msg = i18n.t('Share-Message', {score: this.user.score});
 		var sharebox = $('.sharebox');
 		
 		// Generate a hash
@@ -305,19 +305,29 @@ var guesser = {
 				this.user.collection[i].ix + 97);
 		}
 
-		// Populate share box
+		// Populate Email share box
 		$('.btn-email', sharebox).click(function() {
-			location.href = 
-				'mailto:?subject=' 
+			location.href = 'mailto:?subject=' 
 				+ msg + '&body=' + permalink;
+			return false;
 		});
 		
+		// Share link on Twitter
 		$('.btn-twitter', sharebox).click(function() {
-			window.open('https://twitter.com/intent/tweet?button_hashtag=SwissGuesser&text='
+			window.open('https://twitter.com/intent/tweet?text='
 				+ msg + ' ' + permalink, '_blank', 'height=260,width=500');
-			//https://twitter.com/intent/tweet?hashtags=SwissGuesser%2C&original_referer=http%3A%2F%2Fxublet%2Fgeo%2Fweb-storymaps%2Fstorymap5%2Fapp%2F&related=swiss_geoportal&text=I%20just%20scored%202300%20on%20%23SwissGuesser!%20Beat%20that%20%3A%29&tw_p=tweetbutton&url=http%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5
+			return false;
 		});
 
+		// Share link on Facebook
+		// TODO: advanced implementation requires app registration https://developers.facebook.com/docs/reference/dialogs/feed/
+		$('.btn-facebook', sharebox).click(function() {
+			window.open('https://www.facebook.com/sharer/sharer.php?u='
+				+ encodeURIComponent(permalink), 'facebook-share-dialog', 'width=626,height=436');
+			return false;
+		});
+
+		// UI buttons, game restart
 		$('#btn-continue').hide();
 		$('#v-finish').removeClass('hidden');
 
