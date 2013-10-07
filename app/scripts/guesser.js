@@ -22,6 +22,7 @@ var guesser = {
 	currentAnswer: null, 
 	active: false,
 	layers: [], 
+	query: [],
 
 	// DOM references
 	domOverlay: 	$('#map-overlay'),
@@ -39,9 +40,8 @@ var guesser = {
 	// ### Initial setup
 	configure: function(json) {
 
-		var self = this;
-		self.config = json.conf;
-		self.collection = json.data;
+		this.config = json.conf;
+		this.collection = json.data;
 
 		// Check for anchor and clear it
 		if (location.href.indexOf('#')>0) 
@@ -53,7 +53,33 @@ var guesser = {
 
 		// Ensure appropriate browser warning
 		$('.browsehappy a').attr('href','http://browsehappy.com/?locale='
-			+ self.lang.toLowerCase());
+			+ this.lang.toLowerCase());
+
+		this.parsequery();
+		this.uisetup(this);
+
+	},
+
+	// ### GET variables from request query
+	parsequery: function() {
+		var sSearch = window.location.search;
+		if (sSearch.length > 1) {
+			for (var aItKey, nKeyId = 0, aCouples = sSearch.substr(1).split("&"); 
+					nKeyId < aCouples.length; nKeyId++) {
+				aItKey = aCouples[nKeyId].split("=");
+				this.query[unescape(aItKey[0])] = 
+					aItKey.length > 1 ? unescape(aItKey[1]) : "";
+			}
+		}
+		console.log(this.query);
+	},
+
+	// ### User Interface setup
+	uisetup: function(self) {
+
+		// Window resizing
+		self.resize();
+		$(window).on('resize', function() { self.resize(); });
 
 		// Fullscreen
 		$('.lightbox').on('shown.bs.modal', function () {
@@ -62,10 +88,6 @@ var guesser = {
 			// Clear backdrops properly (bug?)
 			$('.modal-backdrop.in').remove();
 		});
-
-		// Init resizing
-		self.resize();
-		$(window).on('resize', function() { self.resize(); });
 
 		// Init photo zoom and tooltip
 		$('.d-photo', self.domPhotoBox).click(function() {
