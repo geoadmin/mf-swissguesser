@@ -29,6 +29,7 @@ var guesser = {
 	domLocator: 	$('#d-locator'),
 	domBtnNext: 	$('#btn-continue'),
 	domBtnStart: 	$('#btn-start'), 
+	domBtnClose: 	$('#btn-close'), 
 	domBtnGuess:  	$('#btn-guess'), 
 	domStartBox: 	$('#d-start'),
 	domPhotoBox: 	$('#d-photobox'), 
@@ -192,21 +193,20 @@ var guesser = {
 	finish: function() {
 
 		var msg = "I just scored " + this.user.score + " on #SwissGuesser! Beat that :)";
-
 		var sharebox = $('.sharebox');
+		var permalink = document.location.href; // TODO: hash me
 
 		$('.btn-email', sharebox).click(function() {
-				location.href = 
-					'mailto:?subject=' 
-					+ msg + '&body=' + document.location.href;
-			});
+			location.href = 
+				'mailto:?subject=' 
+				+ msg + '&body=' + permalink;
+		});
 		
 		$('.btn-twitter', sharebox).click(function() {
-				location.href =  
-			'https://twitter.com/intent/tweet?button_hashtag=SwissGuesser&text='
-				+ msg;
+			window.open('https://twitter.com/intent/tweet?button_hashtag=SwissGuesser&text='
+				+ msg + ' ' + permalink, '_blank', 'height=260,width=500');
 			//https://twitter.com/intent/tweet?hashtags=SwissGuesser%2C&original_referer=http%3A%2F%2Fxublet%2Fgeo%2Fweb-storymaps%2Fstorymap5%2Fapp%2F&related=swiss_geoportal&text=I%20just%20scored%202300%20on%20%23SwissGuesser!%20Beat%20that%20%3A%29&tw_p=tweetbutton&url=http%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5
-			});
+		});
 
 		$('#btn-continue').hide();
 		$('#v-finish').removeClass('hidden');
@@ -241,6 +241,7 @@ var guesser = {
 
 		// Clear loader
 		$('#loading').remove();
+		$('.container-main > .hidden').removeClass('hidden');
 		$('.container-main > .hidden').removeClass('hidden');
 	},
 
@@ -386,6 +387,10 @@ var guesser = {
 		this.domResults.removeClass('hidden');
 		this.domBtnNext.parent().find('button').addClass('hidden');
 		this.domBtnNext.removeClass('hidden');
+
+		// Disable "start" button
+		$(this.domBtnStart).addClass('hidden');
+		$(this.domBtnClose).removeClass('hidden');
 
 		// Check end game status
 		if (this.currentIndex+1 == this.user.collection.length) {
