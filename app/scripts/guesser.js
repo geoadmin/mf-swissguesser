@@ -11,7 +11,7 @@ var guesser = {
 	lang: 'DE',
 
 	// Set up anonymous user profile
-	user: { score: 0, collection: [] },
+	user: { score: 0, count: 5, collection: [] },
 
 	// State variables
 	config: null, 
@@ -71,7 +71,7 @@ var guesser = {
 					aItKey.length > 1 ? unescape(aItKey[1]) : "";
 			}
 		}
-		console.log(this.query);
+		///console.log(this.query);
 	},
 
 	// ### User Interface setup
@@ -211,13 +211,101 @@ var guesser = {
 
 	},
 
+	// ### Get the next random image
+	getimage: function(ix) {
+		// Keep track of infinite recursion
+		if (++this.igetctr > 10) return this.collection[0];
+		// Get a random image
+		var l = this.collection.length;
+		var i = parseInt(Math.random() * l);
+		// Get requested image
+		if (ix != null && ix > 0 && ix < this.collection.length) {
+			i = ix;
+		}
+		var r = this.collection[i];
+		// Make sure we have not already included it
+		///console.log('Picking', i, '/', l);
+		if (r.shown) {
+			return this.getimage(null);
+		} else {
+			r.shown = true;
+			r.ix = i;
+			return r;
+		}
+	},
+
+	// ### Start challenge convenience function
+	start: function() {
+		if (this.collection == null)
+			return alert('Error: data unavailable, cannot start');
+
+		// Initialize image list
+		this.user.collection = [];
+
+		if (this.query['game']) {
+			// Shared game collection
+			var g = this.query['game'].split('');
+			if (g.length == this.user.count) {
+				for(var i = 0; i < this.user.count; i++) {
+					var ix = g[i].charCodeAt(0) - 97;
+					this.user.collection.push(this.getimage(ix));
+				}
+			} else {
+				// Restart the game
+				window.alert('Invalid game code');
+				window.location.href = window.location.origin;
+				return;
+			}
+		} else if (this.query['debug']) {
+			// Debug: all images
+			for(var i = 0; i<this.collection.length; i++) {
+				this.collection[i].shown = true;
+				this.user.collection.push(this.collection[i]);
+			}
+			if (this.query['i']) {
+				this.currentIndex = parseInt(this.query['i'])-1;
+			}
+		} else {
+			// Default: random image collection
+			for (var i = 0; i < this.user.count; i++) {
+				this.igetctr = 0;
+				this.user.collection.push(this.getimage(null));
+			}
+		}
+
+		// For debugging, show loaded sequence
+		if (this.query['debug']) {
+			var cc = [];
+			this.user.collection.forEach(function(c) { cc.push(c.id) });
+			console.log(cc);
+		}
+
+		// Load the first image
+		// TODO: preloader
+		this.loader(this.user.collection[this.currentIndex]);
+
+		// Clear loader
+		$('#loading').remove();
+		$('.container-main > .hidden').removeClass('hidden');
+		$('.container-main > .hidden').removeClass('hidden');
+	},
+
 	// ### Game over
 	finish: function() {
 
 		var msg = "I just scored " + this.user.score + " on #SwissGuesser! Beat that :)";
 		var sharebox = $('.sharebox');
-		var permalink = document.location.href; // TODO: hash me
+		
+		// Generate a hash
+		var permalink = document.location.href;
+		permalink += (permalink.indexOf('?') > 0) ? "&" : "?";
+		permalink += "game=";
+		for (var i = 0; i<this.user.count; i++) {
+			permalink += String.fromCharCode(
+				this.user.collection[i].ix + 97);
+		}
 
+		// Populate share box
 		$('.btn-email', sharebox).click(function() {
 			location.href = 
 				'mailto:?subject=' 
@@ -233,79 +321,6 @@ var guesser = {
 		$('#btn-continue').hide();
 		$('#v-finish').removeClass('hidden');
 
-	},
-
-	// ### Get the next random image
-	getimage: function(ix) {
-		// Keep track of infinite recursion
-		if (++this.igetctr > 10) return this.collection[0];
-		// Get a random image
-		var l = this.collection.length;
-		var i = parseInt(Math.random() * l);
-		var r = this.collection[i];
-		// Get requested image
-		if (ix != null) {
-			rr = this.collection.filter(function(c) { return c.id == ix });
-			if (rr.length == 1) {
-				r = rr[0];
-			}
-		}
-		// Make sure we have not already included it
-		///console.log('Picking', i, '/', l);
-		if (r.shown) {
-			return this.getimage(null);
-		} else {
-			r.shown = true;
-			return r;
-		}
-	},
-
-	// ### Start challenge convenience function
-	start: function() {
-		if (this.collection == null)
-			return alert('Error: data unavailable, cannot start');
-
-		// Initialize image list
-		this.user.collection = [];
-
-		if (this.query['debug']) {
-			// Debug: all images
-			for(var i = 0; i<this.collection.length; i++) {
-				this.collection[i].shown = true;
-				this.user.collection.push(this.collection[i]);
-			}
-			if (this.query['i']) {
-				this.currentIndex = parseInt(this.query['i'])-1;
-			}
-		} else if (this.query['game']) {
-			// Shared game collection
-			var g = this.query['game'].split(',');
-			if (g.length == 5) {
-				for(var i = 0; i < 5; i++) {
-					this.user.collection.push(this.getimage(g[i]));
-				}
-			} else {
-				// Restart the game
-				window.alert('Invalid game code');
-				window.location.href = window.location.origin;
-				return;
-			}
-		} else {
-			// Default: random image collection
-			for (var i = 0; i < 5; i++) {
-				this.igetctr = 0;
-				this.user.collection.push(this.getimage(null));
-			}
-		}
-
-		// Load the first image
-		// TODO: preloader
-		this.loader(this.user.collection[this.currentIndex]);
-
-		// Clear loader
-		$('#loading').remove();
-		$('.container-main > .hidden').removeClass('hidden');
-		$('.container-main > .hidden').removeClass('hidden');
 	},
 
 	// ### User starts making a guess 
