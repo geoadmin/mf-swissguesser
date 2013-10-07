@@ -29,10 +29,12 @@ var guesser = {
 	domResults: 	$('#d-result'),
 	domLocator: 	$('#d-locator'),
 	domBtnNext: 	$('#btn-continue'),
+	domBtnMobile: 	$('#btn-continue-mobile'),
 	domBtnStart: 	$('#btn-start'), 
 	domBtnClose: 	$('#btn-close'), 
 	domBtnGuess:  	$('#btn-guess'), 
 	domStartBox: 	$('#d-start'),
+	domFinishBox: 	$('#v-finish'), 
 	domPhotoBox: 	$('#d-photobox'), 
 	domLightBox: 	$('#d-lightbox'), 
 	domPhotoInf: 	$('#row-info'),
@@ -74,6 +76,10 @@ var guesser = {
 		///console.log(this.query);
 	},
 
+	is: {
+		mobile: function() { return $(window).width() <= 768; }
+	},
+
 	// ### User Interface setup
 	uisetup: function(self) {
 
@@ -99,7 +105,7 @@ var guesser = {
 			delay: { show: 500, hide: 100 }
 		});
 		$('#row-info button:first').click(function(){ 
-			if ($(window).width()>767) {
+			if (!self.is.mobile()) {
 				$('.d-photo', self.domPhotoBox).tooltip('show'); 
 				setTimeout(function() {
 					$('.d-photo', self.domPhotoBox).tooltip('hide'); 
@@ -123,6 +129,12 @@ var guesser = {
 				.removeClass('disabled').addClass('hidden')
 					.prev().removeClass('hidden');
 			guesser.next();
+		});
+
+		// Bind second continue button (mobile)
+		this.domBtnMobile.click(function() {
+			$(this).addClass('hidden');
+			guesser.domBtnNext.removeClass('hidden');
 		});
 
 		// Bind switcher buttons
@@ -328,9 +340,8 @@ var guesser = {
 		});
 
 		// UI buttons, game restart
-		$('#btn-continue').hide();
-		$('#v-finish').removeClass('hidden');
-
+		$(this.domBtnNext).hide();
+		$(this.domFinishBox).removeClass('hidden');		
 	},
 
 	// ### User starts making a guess 
@@ -480,7 +491,13 @@ var guesser = {
 		// Show dialog and get ready to continue the game
 		this.domResults.removeClass('hidden');
 		this.domBtnNext.parent().find('button').addClass('hidden');
-		this.domBtnNext.removeClass('hidden');
+
+		// Two-step continue when on mobile screens
+		if (this.is.mobile()) {
+			this.domBtnMobile.removeClass('hidden');
+		} else {
+			this.domBtnNext.removeClass('hidden');
+		}
 
 		// Disable "start" button
 		$(this.domBtnStart).addClass('hidden');

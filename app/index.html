@@ -145,7 +145,7 @@
 				</div>
 			</div><!-- /sharebox -->
 
-			<button type="button" class="btn btn-primary" onClick="location.reload()" data-i18n="Finish-Restart">New Game</button>
+			<button type="button" class="btn btn-primary" onClick="location.href='/'" data-i18n="Finish-Restart">New Game</button>
 
 		</div><!-- /v-finish -->
 	</div><!-- /d-result -->
@@ -164,11 +164,15 @@
 
 	<div class="mobile-switch">
 		<button class="btn btn-default" type="button" data-target="#column-map" data-i18n="Game-Guess">Guess</button>
+
 		<button id="btn-guess" class="btn btn-primary hidden" type="button" data-target="#column-map" data-i18n="Game-Confirm">Confirm</button>
-		<button id="btn-continue" class="btn btn-primary hidden" href="#d-photobox" data-target="#d-photobox" data-dismiss="modal" data-i18n="Result-Continue">Continue</a>
+
+		<button id="btn-continue-mobile" class="btn btn-primary hidden" type="button" data-target="#d-photobox" data-i18n="Result-Continue">Continue</button>
+
+		<button id="btn-continue" class="btn btn-primary hidden" type="button" data-target="#d-photobox" data-dismiss="modal" data-i18n="Result-Continue">Continue</a>
 	</div>
 
-	<button type="button" class="btn btn-default restart" onClick="location.reload()" data-i18n="Photo-Restart"></button>
+	<button type="button" class="btn btn-default restart" onClick="location.href='/'" data-i18n="Photo-Restart"></button>
 
 	<p><span data-i18n="Result-Total"></span> <span class="total"></span></p>
 
