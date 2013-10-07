@@ -1,40 +1,40 @@
 id,de,fr,it,en
 App-About,Informationen,Informations,Informazione,Informationen
 App-Lang,Sprache,Langue,Lingua,Language
+App-Warning,"Sie verwenden einen veralteten Browser. Um die website in vollem Umfang nutzen zu können, empfehlen wir Ihnen, einen neueren Browser zu installieren.",,,You are using an outdated browser. Please upgrade your browser to improve your experience.
+Finish-Email,E-mail,,,E-mail
+Finish-Like,Like,,,Like
+Finish-Restart,Neustart ,,,New Game
+Finish-Text,"Teile Dein Ergebnis ""URL"" oder fordere andere heraus ""URL""",,,"Share your score with the ""url"" or let others challenge your score with the ""url"""
+Finish-Tweet,Tweet,,,Tweet
+Game-Confirm,Bestätige Schätzung,,,Confirm guess
+Game-Guess,Rate,,,Make a guess
+Game-Start,Start,Start,Start,Start
+Game-Close,,,,Close
+Head-BAR,Schweizerisches Bundesarchiv,Archives fédérales suisses,Archivio federale svizzero,Swiss Federal Archives
 Head-CH,Bundesverwaltung admin.ch,Administration fédérale admin.ch,Amministrazione federale admin.ch,Federal Administration admin.ch
 Head-EDI,Eidg. Departement des Innern,Département fédéral de l'intérieur,Dipartimento federale dell'interno,Federal Department of Home Affairs
-Head-BAR,Schweizerisches Bundesarchiv,Archives fédérales suisses,Archivio federale svizzero,Swiss Federal Archives
-Toggle-Map,Karte,Carte,Carte,Map
-Toggle-Photo,Foto,Photo,Foto,Photo
-Start-Title,"SwissGuesser: Fotosammlung
-Erster Weltkrieg",,,"SwissGuesser: photo collection from
-World War I"
+Photo-Copyright,Schweizerisches Bundesarchiv,Archives fédérales suisses,Archivio federale svizzero,Swiss Federal Archives
+Photo-Counter,Foto,Photo,Foto,Photo
+Photo-Restart,Neustart,,,Restart game
+Photo-Text,Wo wurde das Foto aufgenommen? Klick in die Karte.,,,Where do you think has the photo been taken? Click anywhere on the map.
+Result-1,Mehr Glück beim nächsten mal....,,,Better luck next time...
+Result-2,Gut gemacht,,,Well done
+Result-3,Exzellent,,,Excellent!
+Result-Continue,Weiter,,,Continue
+Result-From,km von der korrekten Position und erhalte,,,km from the correct location and got
+Result-Points,Punkte.,,,points.
+Result-Score,Letztes Ergebnis,,,Last round score:
+Result-Total,Total,,,Total
+Share-Message,Ich habe __score__ Punkte auf SwissGuesser gemacht! Schaffst du mehr?,,,I just scored __score__ playing SwissGuesser! Beat that :)
+Start-Loading,"Bitte warten, laden ...",,,"Please wait, loading ..."
 Start-Text,"Eine der grössten Fotosammlung des Schweizerischen Bundesarchivs[1] ist die
 Fotosammlung Erster Weltkrieg, die 5'125 digitalisierte Glasplattennegative zum
 Aktivdienst der Schweizer Armee während des Ersten Weltkriegs[2] umfasst. 
 
 Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?",,,"Welcome to SwissGuesser, the game that takes you on a historical trip through the country. First we will show you a photograph from the Swiss Federal Archives[1]. The images are from footage of the Second World War[2], taken somewhere in Switzerland. Can you guess where?"
-Start-Loading,"Bitte warten, laden ...",,,"Please wait, loading ..."
-Game-Start,Start,Start,Start,Start
-Game-Guess,Rate,,,Make a guess
-Game-Confirm,Bestätige Schätzung,,,Confirm guess
-Photo-Copyright,Schweizerisches Bundesarchiv,Archives fédérales suisses,Archivio federale svizzero,Swiss Federal Archives
-Photo-Text,Wo wurde das Foto aufgenommen? Klick in die Karte.,,,Where do you think has the photo been taken? Click anywhere on the map.
-Photo-Restart,Neustart,,,Restart game
-Photo-Counter,Foto,Photo,Foto,Photo
-Result-Score,Letztes Ergebnis,,,Last round score:
-Result-Total,Total,,,Total score:
-Result-From,km von der korrekten Position und erhalte,,,km from the correct location and got
-Result-Points,Punkte.,,,points.
-Result-1,Mehr Glück beim nächsten mal....,,,Better luck next time...
-Result-2,Gut gemacht,,,Well done
-Result-3,Exzellent,,,Excellent!
-Result-Continue,Weiter,,,Continue
-Finish-Text,"Teile Dein Ergebnis ""URL"" oder fordere andere heraus ""URL""",,,"Share your score with the ""url"" or let others challenge your score with the ""url"""
-Finish-Tweet,Tweet,,,Tweet
-Finish-Like,Like,,,Like
-Finish-Email,E-mail,,,E-mail
-Finish-Restart,Neustart ,,,New Game
-Share-Message,Ich habe {0} Punkte auf #SwissGuesser gemacht! Schaffst du mehr?,,,I just scored {0} on #SwissGuesser! Beat that :)
-Browser-old warning,"Sie verwenden einen veralteten Browser. Um die website in vollem Umfang nutzen zu können, empfehlen wir 
-Ihnen, einen neueren Browser zu installieren.",,,You are using an outdated browser. Please upgrade your browser to improve your experience.
+Start-Title,"SwissGuesser: Fotosammlung
+Erster Weltkrieg",,,"SwissGuesser: photo collection from
+World War I"
+Toggle-Map,Karte,Carte,Carte,Map
+Toggle-Photo,Foto,Photo,Foto,Photo

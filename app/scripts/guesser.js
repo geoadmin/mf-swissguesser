@@ -293,7 +293,7 @@ var guesser = {
 	// ### Game over
 	finish: function() {
 
-		var msg = "I just scored " + this.user.score + " on #SwissGuesser! Beat that :)";
+		var msg = "I just scored " + this.user.score + " on SwissGuesser! Beat that :)";
 		var sharebox = $('.sharebox');
 		
 		// Generate a hash
