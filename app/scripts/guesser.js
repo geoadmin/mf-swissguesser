@@ -231,7 +231,7 @@ var guesser = {
 		var l = this.collection.length;
 		var i = parseInt(Math.random() * l);
 		// Get requested image
-		if (ix != null && ix > 0 && ix < this.collection.length) {
+		if (ix != null && ix >= 0 && ix < this.collection.length) {
 			i = ix;
 		}
 		var r = this.collection[i];
