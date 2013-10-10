@@ -123,7 +123,7 @@
 		<p class="info"></p>
 
 		<div id="v-finish" class="hidden">
-			<span data-i18n="Finish-Text"></span>
+			<p class="message" data-i18n="Finish-Text"></p>
 
 			<div class="sharebox">
 				<form class="shareicon shareform">
@@ -151,8 +151,6 @@
 				</div>
 			</div><!-- /sharebox -->
 
-			<button type="button" class="btn btn-primary" onClick="location.href='?'" data-i18n="Finish-Restart">New Game</button>
-
 		</div><!-- /v-finish -->
 	</div><!-- /d-result -->
 
@@ -176,6 +174,8 @@
 		<button id="btn-continue-mobile" class="btn btn-primary hidden" type="button" data-target="#d-photobox" data-i18n="Result-Continue">Continue</button>
 
 		<button id="btn-continue" class="btn btn-primary hidden" type="button" data-target="#d-photobox" data-dismiss="modal" data-i18n="Result-Continue">Continue</a>
+
+		<button id="btn-finish" type="button" class="btn btn-primary hidden" onClick="location.href='?'" data-i18n="Finish-Restart">New Game</button>
 	</div>
 
 	<button type="button" class="btn btn-default restart" onClick="location.href='?'" data-i18n="Photo-Restart"></button>

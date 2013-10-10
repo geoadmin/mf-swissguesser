@@ -33,6 +33,7 @@ var guesser = {
 	domBtnStart: 	$('#btn-start'), 
 	domBtnClose: 	$('#btn-close'), 
 	domBtnGuess:  	$('#btn-guess'), 
+	domBtnFinish: 	$('#btn-finish'),
 	domStartBox: 	$('#d-start'),
 	domFinishBox: 	$('#v-finish'), 
 	domPhotoBox: 	$('#d-photobox'), 
@@ -334,7 +335,7 @@ var guesser = {
 	// ### Populate share box
 	sharebox: function(permalink) {
 
-		var msg = i18n.t('Share-Message', {score: this.user.score});
+		var msg = i18n.t('Share-Message', {score: guesser.user.score});
 		var shb = $('.sharebox');
 
 		// Populate copy link box
@@ -367,8 +368,9 @@ var guesser = {
 		});
 
 		// UI buttons, game restart
-		$(this.domBtnNext).hide();
-		$(this.domFinishBox).removeClass('hidden');		
+		guesser.domBtnNext.parent().find('button').addClass('hidden');
+		guesser.domFinishBox.removeClass('hidden');
+		guesser.domBtnFinish.removeClass('hidden');
 	},
 
 	// ### User starts making a guess 
