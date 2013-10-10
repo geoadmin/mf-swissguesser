@@ -474,9 +474,10 @@ var guesser = {
 			this.position, this.currentAnswer) / 1000;
 
 		// Calculate score
-		var score = (dist < 180) ? 
-			Math.floor(14*(Math.log(dist)^(180-dist))/100.0)*100
+		var score = (dist < 260) ? 
+			Math.floor(-824.693 * Math.log(0.00340872 * dist) / 100.0)*100
 			: 0;
+		score = (score > 4500) ? 4500 : score;
 		this.user.score += score;
 
 		// Hide the overlays
@@ -486,7 +487,7 @@ var guesser = {
 		// Update dialog with score results
 		$('.score', this.domResults).html(score);
 		$('.total', this.domResults).html(this.user.score);
-		$('.distance', this.domResults).html(parseInt(dist)); //TODO: format
+		$('.distance', this.domResults).html(parseInt(dist) + " km");
 		$('.total', this.domPhotoInf).html(this.user.score);
 		
 		// Generate a comment

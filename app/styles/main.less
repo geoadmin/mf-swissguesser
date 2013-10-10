@@ -2,6 +2,8 @@
 
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 
+@swissred: #c33;
+
 body { background: #fff; overflow: hidden; }
 
 .browsehappy {
@@ -388,8 +390,8 @@ body.modal-open, .modal-open .navbar-fixed-top {
 	}
 
 	.total {
+		color: @swissred;
 		font-weight: bold;
-		color: red;
 		font-size: 130%;
 		line-height: 1.1em;
 		padding-right: 0.5em;
@@ -417,7 +419,7 @@ body.modal-open, .modal-open .navbar-fixed-top {
 }
 
 .btn-primary { 
-	background-color:#c33; 
+	background-color: @swissred; 
 	border:1px solid black; 
 	width:100%;
 }
@@ -457,9 +459,8 @@ body.modal-open, .modal-open .navbar-fixed-top {
 		margin-right: 1em;
 	}
 
-	p {
-		color: inherit;
-	}
+	p { color: inherit; }
+	b { color: @swissred; }
 
 	.info {
 		width: 100%;
@@ -470,8 +471,8 @@ body.modal-open, .modal-open .navbar-fixed-top {
 	}
 
 	.total {
+		color: @swissred;
 		font-weight: bold;
-		color: #f99;
 		font-size: 200%;
 	}
 
