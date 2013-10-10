@@ -179,6 +179,7 @@ var guesser = {
 
 	// ### Load image data
 	loader: function(metadata) {
+		if (typeof metadata == 'undefined') return;
 
 		// Get image data
 		var imgbox = this.domPhotoBox,
@@ -304,9 +305,6 @@ var guesser = {
 
 	// ### Game over
 	finish: function() {
-
-		var msg = i18n.t('Share-Message', {score: this.user.score});
-		var sharebox = $('.sharebox');
 		
 		// Generate a hash
 		var permalink = document.location.href;
@@ -317,22 +315,44 @@ var guesser = {
 				this.user.collection[i].ix + 97);
 		}
 
+		// Generate shortened URL
+		$.ajax({
+			url: "https://api.geo.admin.ch/shorten.json",
+			jsonp: "cb",
+			data: { "url": permalink },
+			success: function(data) {
+				guesser.sharebox(data['shorturl']);
+			},
+			error: function() {
+				// Use full link instead (e.g. local dev)
+				guesser.sharebox(permalink);	
+			}
+		});
+
+	},
+
+	// ### Populate share box
+	sharebox: function(permalink) {
+
+		var msg = i18n.t('Share-Message', {score: this.user.score});
+		var shb = $('.sharebox');
+
 		// Populate copy link box
-		var shareform = $('.shareform', sharebox);
+		var shareform = $('.shareform', shb);
 		$('input', shareform).val(permalink);
 		$('input, button', shareform).click(function() {
 			$('input', shareform)[0].select(); // HTML5 does not yet support copy
 		});
 
 		// Populate Email share box
-		$('.btn-email', sharebox).click(function() {
+		$('.btn-email', shb).click(function() {
 			location.href = 'mailto:?subject=' 
 				+ msg + '&body=' + permalink;
 			return false;
 		});
 		
 		// Share link on Twitter
-		$('.btn-twitter', sharebox).click(function() {
+		$('.btn-twitter', shb).click(function() {
 			window.open('https://twitter.com/intent/tweet?text='
 				+ msg + ' ' + permalink, '_blank', 'height=260,width=500');
 			return false;
@@ -340,7 +360,7 @@ var guesser = {
 
 		// Share link on Facebook
 		// TODO: advanced implementation requires app registration https://developers.facebook.com/docs/reference/dialogs/feed/
-		$('.btn-facebook', sharebox).click(function() {
+		$('.btn-facebook', shb).click(function() {
 			window.open('https://www.facebook.com/sharer/sharer.php?u='
 				+ encodeURIComponent(permalink), 'facebook-share-dialog', 'width=626,height=436');
 			return false;
