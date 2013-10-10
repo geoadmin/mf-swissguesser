@@ -340,9 +340,9 @@ var guesser = {
 
 		// Populate copy link box
 		var shareform = $('.shareform', shb);
-		$('input', shareform).val(permalink);
+		$('input', shareform).hide().val(permalink);
 		$('input, button', shareform).click(function() {
-			$('input', shareform)[0].select(); // HTML5 does not yet support copy
+			$('input', shareform).fadeIn()[0].select(); // HTML5 does not yet support copy
 		});
 
 		// Populate Email share box
