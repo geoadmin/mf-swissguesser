@@ -475,7 +475,7 @@ var guesser = {
 
 		// Calculate score
 		var score = (dist < 180) ? 
-			parseInt(Math.abs(180-dist)/7)*100
+			Math.floor(14*(Math.log(dist)^(180-dist))/100.0)*100
 			: 0;
 		this.user.score += score;
 
