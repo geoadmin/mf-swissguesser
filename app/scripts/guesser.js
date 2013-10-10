@@ -539,8 +539,7 @@ var guesser = {
 			    symbolizers: [
 			      new ol.style.Icon({
 			      	url: imageUrl,
-			      	width: 33, height: 44,
-			      	yOffset: -18
+			      	width: 32, height: 64
 			      })
 			    ]
 			  }),
@@ -550,8 +549,7 @@ var guesser = {
 			    symbolizers: [
 			    	new ol.style.Icon({
 			      	url: 'images/G.png',
-			      	width: 33, height: 44,
-			      	yOffset: -18
+			      	width: 32, height: 64
 			      })
 			    /*
 			      new ol.style.Shape({
