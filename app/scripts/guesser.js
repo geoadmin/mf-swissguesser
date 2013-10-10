@@ -367,10 +367,17 @@ var guesser = {
 			return false;
 		});
 
+		// On mobile, reverse the order
+		if (guesser.is.mobile()) {
+			$('.info', guesser.domResults).before(guesser.domFinishBox);
+			guesser.domBtnNext.click(); // navigate to photo/info
+		}
+
 		// UI buttons, game restart
 		guesser.domBtnNext.parent().find('button').addClass('hidden');
 		guesser.domFinishBox.removeClass('hidden');
-		guesser.domBtnFinish.removeClass('hidden');
+		// Pause 2 seconds before showing new game button
+		setTimeout(function() {	guesser.domBtnFinish.hide().removeClass('hidden').fadeIn(); }, 2000);
 	},
 
 	// ### User starts making a guess 
