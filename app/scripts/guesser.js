@@ -57,16 +57,9 @@ var guesser = {
 			  location.href = location.href.substring(0, 
 			  	location.href.lastIndexOf('/'));
 
-		// New window all external links
-		$('a[href^="http:"]').attr('target', '_blank');
-
-		// Ensure appropriate browser warning
-		$('.browsehappy a').attr('href','http://browsehappy.com/?locale='
-			+ this.lang.toLowerCase());
-
+		// Set up user interface
 		this.parseQuery();
 		this.initLayout(this);
-
 	},
 
 	// ### GET variables from request query
@@ -93,6 +86,14 @@ var guesser = {
 		// Window resizing
 		self.resize();
 		$(window).on('resize', function() { self.resize(); });
+
+		// New window all external links
+		// (Done after i18n init)
+		//$('a[href^="http:"]').attr('target', '_blank');
+
+		// Ensure appropriate browser warning
+		$('.browsehappy a').attr('href','http://browsehappy.com/?locale='
+			+ this.lang.toLowerCase());
 
 		// Fullscreen
 		$('.lightbox').on('shown.bs.modal', function () {
@@ -208,7 +209,7 @@ var guesser = {
 
 		// Result box description
 		$('.info', this.domResults).html(metadata[this.lang]);
-		console.log('Loading image', metadata.id, this.lang);
+		///console.log('Loading image', metadata.id, this.lang);
 	
 		// Start the challenge
 		guesser.challenge(map, [metadata.y, metadata.x]);
@@ -649,6 +650,8 @@ i18n.init({
 	  //useLocalStorage: true, localStorageExpirationTime: 86400000
 	}, function(t) { 
 		$("*[data-i18n]").i18n();
+		// New window all external links
+		$('a[href^="http:"]').attr('target', '_blank');
 	});
 
 $(window).load(function() { 
