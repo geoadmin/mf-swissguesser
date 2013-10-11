@@ -103,7 +103,7 @@ var guesser = {
 		$('.browsehappy a').attr('href','http://browsehappy.com/?locale='
 			+ self.lang.toLowerCase());
 
-		// Fullscreen
+		// Fullscreen mode
 		$('.lightbox').on('shown.bs.modal', function () {
 			$('.modal-backdrop.in').css('opacity', 1);
 		}).on('hidden.bs.modal', function () {
@@ -119,7 +119,12 @@ var guesser = {
 			placement: 'bottom',
 			container: 'body',
 			delay: { show: 500, hide: 100 }
+		}).on('shown.bs.tooltip', function () {
+			// Hide the tooltip if the lightbox is showing
+			if (self.domLightBox.hasClass('in'))
+				$(this).tooltip('hide');
 		});
+		// Show extra on-click tip when not on mobile
 		$('#row-info button:first').click(function(){ 
 			if (!self.is.mobile()) {
 				$('.d-photo', self.domPhotoBox).tooltip('show'); 
