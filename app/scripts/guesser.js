@@ -9,6 +9,7 @@ var guesser = {
 
 	// Default language is German
 	lang: 'DE',
+	supportedLangs: ['DE','FR','IT','EN'],
 
 	// Set up anonymous user profile
 	user: { score: 0, count: 5, collection: [] },
@@ -41,10 +42,15 @@ var guesser = {
 	domPhotoInf: 	$('#row-info'),
 
 	// ### Initial setup
-	configure: function(json) {
+	configure: function(json, l) {
 
 		this.config = json.conf;
 		this.collection = json.data;
+
+		// Detect language
+		l = l.toUpperCase();
+		if (l.length > 2) l = l.substr(0,2);
+		if (this.supportedLangs.indexOf(l >= 0)) this.lang = l;
 
 		// Check for anchor and clear it
 		if (location.href.indexOf('#')>0) 
@@ -58,13 +64,13 @@ var guesser = {
 		$('.browsehappy a').attr('href','http://browsehappy.com/?locale='
 			+ this.lang.toLowerCase());
 
-		this.parsequery();
-		this.uisetup(this);
+		this.parseQuery();
+		this.initLayout(this);
 
 	},
 
 	// ### GET variables from request query
-	parsequery: function() {
+	parseQuery: function() {
 		var sSearch = window.location.search;
 		if (sSearch.length > 1) {
 			for (var aItKey, nKeyId = 0, aCouples = sSearch.substr(1).split("&"); 
@@ -82,7 +88,7 @@ var guesser = {
 	},
 
 	// ### User Interface setup
-	uisetup: function(self) {
+	initLayout: function(self) {
 
 		// Window resizing
 		self.resize();
@@ -227,7 +233,7 @@ var guesser = {
 	},
 
 	// ### Get the next random image
-	getimage: function(ix) {
+	getImage: function(ix) {
 		// Keep track of infinite recursion
 		if (++this.igetctr > 10) return this.collection[0];
 		// Get a random image
@@ -241,7 +247,7 @@ var guesser = {
 		// Make sure we have not already included it
 		///console.log('Picking', i, '/', l);
 		if (r.shown) {
-			return this.getimage(null);
+			return this.getImage(null);
 		} else {
 			r.shown = true;
 			r.ix = i;
@@ -263,7 +269,7 @@ var guesser = {
 			if (g.length == this.user.count) {
 				for(var i = 0; i < this.user.count; i++) {
 					var ix = g[i].charCodeAt(0) - 97;
-					this.user.collection.push(this.getimage(ix));
+					this.user.collection.push(this.getImage(ix));
 				}
 			} else {
 				// Restart the game
@@ -284,7 +290,7 @@ var guesser = {
 			// Default: random image collection
 			for (var i = 0; i < this.user.count; i++) {
 				this.igetctr = 0;
-				this.user.collection.push(this.getimage(null));
+				this.user.collection.push(this.getImage(null));
 			}
 		}
 
@@ -323,18 +329,18 @@ var guesser = {
 			jsonp: "cb",
 			data: { "url": permalink },
 			success: function(data) {
-				guesser.sharebox(data['shorturl']);
+				guesser.share(data['shorturl']);
 			},
 			error: function() {
 				// Use full link instead (e.g. local dev)
-				guesser.sharebox(permalink);	
+				guesser.share(permalink);	
 			}
 		});
 
 	},
 
 	// ### Populate share box
-	sharebox: function(permalink) {
+	share: function(permalink) {
 
 		var msg = i18n.t('Share-Message', {score: guesser.user.score});
 		var shb = $('.sharebox');
@@ -521,10 +527,9 @@ var guesser = {
 		$('.total', this.domPhotoInf).html(this.user.score);
 		
 		// Generate a comment
-		var comment = (score < 1000) ? "Better luck next time..." :
-		              (score < 2000) ? "Well done." : 
-		                               "Excellent!";
-		this.domResults.find('.comment').html(comment); //TODO: i18n
+		var comment = (score < 1000) ? "Result-1" :
+		              (score < 2000) ? "Result-2" : "Result-3";
+		this.domResults.find('.comment').html(i18n.t(comment));
 
 		// Show dialog and get ready to continue the game
 		this.domResults.removeClass('hidden');
@@ -638,17 +643,21 @@ window.onerror = function(m,u,l) { alert(m+'\n'+u+'\n'+l); };
 
 // Load translation (i18next)
 i18n.init({ 
-  detectLngQS: 'lang', 
-  fallbackLng: 'en',
-  resGetPath: 'data/locale/__lng__/__ns__.json',
-  //useLocalStorage: true, localStorageExpirationTime: 86400000
-}, function(t) { $("*[data-i18n]").i18n(); });
+	  detectLngQS: 'lang', 
+	  fallbackLng: 'en',
+	  resGetPath: 'data/locale/__lng__/__ns__.json',
+	  //useLocalStorage: true, localStorageExpirationTime: 86400000
+	}, function(t) { 
+		$("*[data-i18n]").i18n();
+	});
 
 $(window).load(function() { 
 	geoadmin.init(); // Load the map
+	
 	$.getJSON('data/base.json', function(d) { 
 
-		guesser.configure(d); // Load data
+		var lang = i18n.detectLanguage();
+		guesser.configure(d, lang); // Load data
 		guesser.start(); // Start the game
 
 	});
