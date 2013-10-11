@@ -34,22 +34,23 @@ var csvData = [];
 var csvConverter = new Converter();
 csvConverter.on("end_parsed",function(jsonObj){
 	jsonObj.csvRows.forEach(function(item) {
-    var data = {
-    	id: 	item['Bildname'],
-    	x: 		parseFloat(item['Koordinate X']),
-    	y: 		parseFloat(item['Koordinate  Y']),
-    	DE: 	item['Beschreibung DE'],
-    	FR: 	item['Beschreibung FR'],
-    	IT: 	item['Beschreibung IT'],
-    	EN: 	item['Beschreibung EN']
-    };
-    var filename = config.dataPrefix + data.id + config.dataSuffix;
-    fs.exists(basePath + filename, function(exists) {
-    	if (!exists)
-    		console.log("[ERROR] File not found: " + basePath + filename);
-    });
-    //console.log(data);
-    csvData.push(data);
+	    var data = {
+	    	id: 	item['Bildnummer'],
+	    	x: 		parseFloat(item['X Koordinate']),
+	    	y: 		parseFloat(item['  Y Koordinate']),
+	    	DE: 	item['Legende DE **'],
+	    	FR: 	item['Legende FR **'],
+	    	IT: 	item['Legende IT **'],
+	    	EN: 	item['Legende  EN **']
+	    };
+	    if (data.id.length < 4) return;
+	    var filename = config.dataPrefix + data.id + config.dataSuffix;
+	    fs.exists(basePath + filename, function(exists) {
+	    	if (!exists)
+	    		console.log("[ERROR] File not found: " + basePath + filename);
+	    });
+	    //console.log(data);
+	    csvData.push(data);
 	});
 	//console.log(csvData);
 

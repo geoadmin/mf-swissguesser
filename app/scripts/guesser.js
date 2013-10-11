@@ -202,6 +202,7 @@ var guesser = {
 
 		// Result box description
 		$('.info', this.domResults).html(metadata[this.lang]);
+		console.log('Loading image', metadata.id, this.lang);
 	
 		// Start the challenge
 		guesser.challenge(map, [metadata.y, metadata.x]);
