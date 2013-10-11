@@ -37,11 +37,11 @@ csvConverter.on("end_parsed",function(jsonObj){
 	    var data = {
 	    	id: 	item['Bildnummer'],
 	    	x: 		parseFloat(item['X Koordinate']),
-	    	y: 		parseFloat(item['  Y Koordinate']),
+	    	y: 		parseFloat(item['Y Koordinate']),
 	    	DE: 	item['Legende DE **'],
 	    	FR: 	item['Legende FR **'],
 	    	IT: 	item['Legende IT **'],
-	    	EN: 	item['Legende  EN **']
+	    	EN: 	item['Legende EN **']
 	    };
 	    if (data.id.length < 4) return;
 	    var filename = config.dataPrefix + data.id + config.dataSuffix;
