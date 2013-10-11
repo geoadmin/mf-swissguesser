@@ -91,9 +91,17 @@ var guesser = {
 		// (Done after i18n init)
 		//$('a[href^="http:"]').attr('target', '_blank');
 
-		// Ensure appropriate browser warning
+		// Language of header links
+		$('#webHeaderLinks a').each(function() {
+			$(this).attr('href',
+				$(this).attr('href') + 
+				'?lang=' + self.lang.toLowerCase()
+			);
+		});
+
+		// Language of browser warning
 		$('.browsehappy a').attr('href','http://browsehappy.com/?locale='
-			+ this.lang.toLowerCase());
+			+ self.lang.toLowerCase());
 
 		// Fullscreen
 		$('.lightbox').on('shown.bs.modal', function () {
