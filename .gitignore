@@ -3,7 +3,6 @@ dist
 docs
 .tmp
 app/bower_components
-
 app/fonts/
 app/styles/*.css
 libpeerconnection.log
@@ -13,3 +12,5 @@ libpeerconnection.log
 
 app/data/*.xlsx
 app/data/photos
+
+release.sh
