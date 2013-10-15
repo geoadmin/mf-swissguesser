@@ -2,9 +2,16 @@
 	"folders":
 	[
 		{
+			"file_exclude_patterns":
+			[
+				"*.css"
+			],
 			"follow_symlinks": true,
-			"path": ".",
-			"file_exclude_patterns": ["*.css"]
+			"path": "/var/www/geo/web-storymaps/storymap5"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/var/www/geo/web-storymaps/storymap4"
 		}
 	],
 	"settings":

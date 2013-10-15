@@ -276,6 +276,13 @@ body.modal-open, .modal-open .navbar-fixed-top {
 	margin-right: 0 !important;
 }
 
+/* Welcome screen */
+#d-start .modal-content {
+	background: black;
+	color: white;
+	opacity: 0.8;
+}
+
 /* Floating help alert */
 #d-locator {
 	img {
@@ -570,6 +577,13 @@ body.modal-open, .modal-open .navbar-fixed-top {
 		}
 		#webHeaderDiv { display: none; }
 		.navbar-collapse .navbar-nav { visibility: visible; }
+		.navbar-collapse {
+			position: fixed;
+			background: white;
+			right: 0px;
+			ul { min-width: 15em; }
+			.icon { height: 1.8em; margin-left:-1em; margin-right:0.4em; }
+		}
 	}
 	#d-photobox { 
 		padding: 6px; height: 100%;
