@@ -8,10 +8,6 @@
 			],
 			"follow_symlinks": true,
 			"path": "/var/www/geo/web-storymaps/storymap5"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "/var/www/geo/web-storymaps/storymap4"
 		}
 	],
 	"settings":

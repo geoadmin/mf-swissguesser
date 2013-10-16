@@ -18,7 +18,7 @@ body { background: #fff; overflow: hidden; }
 /* Customize container */
 
 .container-main { 
-	margin-top: 90px; 
+	margin-top: 120px; 
 
 	.btn-default {
 		background-color: rgba(51, 51, 51, 0.5);
@@ -38,7 +38,6 @@ body { background: #fff; overflow: hidden; }
 
 #header {
 	/* Corporate design */
-	background:#fff;
 	height: 122px;
 	overflow: hidden;
 
@@ -579,16 +578,14 @@ body.modal-open, .modal-open .navbar-fixed-top {
 		}
 		.navbar-toggle { right: -38px; } 
 		.navbar-collapse {
-			position: fixed;
-			background: white;
-			right: 0px; padding: 0;
-			ul { min-width: 16em; padding: 0; }
+			.navbar-nav { visibility: visible; margin:0; background: #fff; }
+			.navbar-nav > li > a { font-weight: bold; color: @swissgrey; }
 			.dropdown-menu {
 				a.active,a:hover { background-color: @swissblue; color: white; }
 			}
-			.navbar-nav > li > a { font-weight: bold; color: @swissgrey; }
-			.navbar-nav { visibility: visible; margin:0; }
 			.icon { height: 1.8em; margin-left:-1em; margin-right:0.4em; }
+			ul { min-width: 16em; padding: 0; }
+			padding: 0;
 		}
 	}
 	#d-photobox { 

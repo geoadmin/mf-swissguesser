@@ -195,9 +195,9 @@ var guesser = {
 		frameheight -= headheight + footheight;
 		// Adjust height to fit screen
 		$('.container-main')
-			.css('height', parseInt(frameheight - 10) + 'px');
+			.css('height', parseInt(frameheight - 22) + 'px');
 		$('.d-photo', this.domPhotoBox)
-			.css('height', parseInt(frameheight - 11) + 'px');
+			.css('height', parseInt(frameheight - 23) + 'px');
 		//this.domPhotoBox.scrollTop(this.domPhotoBox.height()*2);
 		if (map && typeof map.updateSize == 'function') map.updateSize();
 	},
