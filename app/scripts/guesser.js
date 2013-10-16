@@ -356,11 +356,15 @@ var guesser = {
 	// ### Populate share box
 	share: function(permalink) {
 
-		var msg = i18n.t('Share-Message', {score: guesser.user.score});
-		var shb = $('.sharebox');
+		var msg = i18n.t('Share-Message', 
+					{score: guesser.user.score}),
+			txt = i18n.t('Finish-Text', 
+					{score: '<b>' + guesser.user.score + '</b>'}),
+			shb = $('.sharebox');
+
+		var shareform = $('.shareform', shb);
 
 		// Populate copy link box
-		var shareform = $('.shareform', shb);
 		$('input', shareform).hide().val(permalink);
 		$('input, button', shareform).click(function() {
 			$('input', shareform).fadeIn()[0].select(); // HTML5 does not yet support copy
@@ -381,12 +385,16 @@ var guesser = {
 		});
 
 		// Share link on Facebook
-		// TODO: advanced implementation requires app registration https://developers.facebook.com/docs/reference/dialogs/feed/
+		// TODO: advanced implementation requires app registration
+		// 		 https://developers.facebook.com/docs/reference/dialogs/feed/
 		$('.btn-facebook', shb).click(function() {
 			window.open('https://www.facebook.com/sharer/sharer.php?u='
 				+ encodeURIComponent(permalink), 'facebook-share-dialog', 'width=626,height=436');
 			return false;
 		});
+
+		// User facing text message
+		$('.message', guesser.domFinishBox).html(txt);
 
 		// On mobile, reverse the order
 		if (guesser.is.mobile()) {

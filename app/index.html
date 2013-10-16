@@ -71,26 +71,18 @@
 	</ul>
 	</div>
 	<div class="collapse navbar-collapse" id="navbar-main"><ul class="nav navbar-nav pull-right">
-		<li>
-			<a href="#" data-target="#d-start" data-toggle="modal" data-i18n="App-About">About</a>
-		</li>
-		<li class="dropdown open">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language"><span data-i18n="App-Lang">Language</span> <span class="caret"></span></a>
-			<ul class="dropdown-menu" aria-labelledby="language">
-			    <li><a tabindex="-1" href="?lang=de">Deutsch</a></li>
-			    <li><a tabindex="-1" href="?lang=fr">Français</a></li>
-			    <li><a tabindex="-1" href="?lang=it">Italiano</a></li>
-				<li><a tabindex="-1" href="?lang=en">English</a></li>
-			</ul>
-		</li>
-		<li class="dropdown open">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language"><span data-i18n="App-Share">Share</span> <span class="caret"></span></a>
-			<ul class="dropdown-menu" aria-labelledby="language">
-				<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/"tabindex="-1"><img class="icon" src="images/social/facebook_big.png"> Facebook</a></li> 
-				<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="images/social/twitter_big.png"> Twitter</a></li>
-				<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="images/social/googleplus_big.png"> Google+</a></li>
-			</ul>
-		</li>
+		<li><a href="#" data-target="#d-start" data-toggle="modal" data-i18n="App-About">About</a></li>
+
+		<li role="presentation" class="dropdown-header"><span data-i18n="App-Lang">Language</span> <span class="caret"></span></li>
+		    <li><a tabindex="-1" href="?lang=de">Deutsch</a></li>
+		    <li><a tabindex="-1" href="?lang=fr">Français</a></li>
+		    <li><a tabindex="-1" href="?lang=it">Italiano</a></li>
+			<li><a tabindex="-1" href="?lang=en">English</a></li>
+
+		<li role="presentation" class="dropdown-header"><span data-i18n="App-Share">Share</span> <span class="caret"></span></li>
+			<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/"tabindex="-1"><img class="icon" src="images/social/facebook_big.png"> Facebook</a></li> 
+			<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="images/social/twitter_big.png"> Twitter</a></li>
+			<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="images/social/googleplus_big.png"> Google+</a></li>
 	</ul></div>
 </div></nav>
 
@@ -128,7 +120,7 @@
 		<p class="info"></p>
 
 		<div id="v-finish" class="hidden">
-			<p class="message" data-i18n="Finish-Text"></p>
+			<p class="message"></p>
 
 			<div class="sharebox">
 				<form class="shareicon shareform">

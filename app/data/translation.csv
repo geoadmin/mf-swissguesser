@@ -1,11 +1,12 @@
 id,de,fr,it,en
-App-About,Informationen,Informations,Informazioni,Informationen
+App-About,Informationen,Informations,Informazioni,Information
+App-Share,Teilen,Partager,Condividere,Share
 App-Lang,Sprache,Langue,Lingua,Language
 App-Warning,"Sie verwenden einen veralteten Browser. Um die website in vollem Umfang nutzen zu können, empfehlen wir Ihnen, einen neueren Browser zu installieren.","Vous utilisez un navigateur trop ancien. Pour utiliser toute les possibilités de ce site web, nous vous conseillons d'installer un navigateur plus récent.","Si sta utilizzando un browser non completamente supportato. Per sfruttare appieno le funzionalità di questo sito web, consigliamo di installare un browser più recente",You are using an outdated browser. Please upgrade your browser to improve your experience.
 Finish-Email,E-mail,e-mail,e-mail,E-mail
 Finish-Like,Like,Like,Mi piace,Like
 Finish-Restart,Neustart ,Nouvelle partie,Nuova partita,New Game
-Finish-Text,Teilen Sie ihr Ergebnis und fordere andere heraus dich zu übertreffen,Partage ton résultat et défie d'autres challengers de te dépasser,Condivida il suo risultato oppure tenti di superarsi cliccando su,Share your score and let others challenge you
+Finish-Text,Teilen Sie Ihr Endergebnis von __score__,Partagez votre résultat de __score__,Condivida il suo risultato finale di __score__,Share your score of __score__
 Finish-Tweet,Tweet,Tweet,Tweet,Tweet
 Game-Confirm,Bestätige Schätzung,Confirme ton estimation,Confermare,Confirm guess
 Game-Guess,Rate,Devine,Stimare la posizione ,Make a guess
@@ -18,7 +19,7 @@ Photo-Copyright,Schweizerisches Bundesarchiv,Archives fédérales suisses,Archiv
 Photo-Counter,Foto,Photo,Foto,Photo
 Photo-Restart,Neustart,Nouvelle partie,Nuova partita,Restart game
 Photo-Text,Wo wurde das Foto aufgenommen? Klick in die Karte.,Où a été prise la photographie? Clique sur la carte.,Dove è stata scattata la foto? Cliccare sulla mappa.,Where do you think has the photo been taken? Click anywhere on the map.
-Result-1,Mehr Glück beim nächsten mal....,Plus de chance la prochaine fois...,Sarà più fortunato la prossima volta ...,Better luck next time...
+Result-1,Mehr Glück beim nächsten Mal....,Plus de chance la prochaine fois...,Sarà più fortunato la prossima volta ...,Better luck next time...
 Result-2,Gut gemacht.,Bien joué.,Perfetto.,Well done.
 Result-3,Exzellent!,Excellent!,Eccellente !,Excellent!
 Result-Continue,Weiter,Continue,Continuare,Continue
