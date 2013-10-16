@@ -3,6 +3,8 @@
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 
 @swissred: #c33;
+@swissblue: #0081c2;
+@swissgrey: #555;
 
 body { background: #fff; overflow: hidden; }
 
@@ -152,10 +154,10 @@ body { background: #fff; overflow: hidden; }
 		}
 	}
 
-	/* Application layout */
+	/* Navigation bar */
 
 	.navbar-collapse .navbar-nav { 
-		visibility: hidden; 
+		visibility: hidden;
 	}
 	.navbar-brand { 
 		color: #333;
@@ -437,7 +439,7 @@ body.modal-open, .modal-open .navbar-fixed-top {
 .btn-primary.disabled {
 	background-color:#eee;
 	border:1px solid #eee;
-	color:#555;
+	color: @swissgrey;
 }
 
 /* Text box result */
@@ -451,7 +453,7 @@ body.modal-open, .modal-open .navbar-fixed-top {
     margin-left: 0;
     margin-bottom: 24px;
     border-radius: 0;
-    color: #555;
+    color: @swissgrey;
 
 	/*
 	width: 38em;
@@ -561,13 +563,6 @@ body.modal-open, .modal-open .navbar-fixed-top {
 
 	#header {
 		height: auto;
-		.navbar-brand	 { 
-			position: relative;
-			padding: 0.5em 0 0; 
-			margin: 0;
-			left: 1%;
-		}
-		.navbar-toggle { right: -38px; } 
 		.logo { 
 			background-image: url('../images/logo-small.ch.png');
 			background-position: 10px 50%;
@@ -576,12 +571,23 @@ body.modal-open, .modal-open .navbar-fixed-top {
 			padding-left: 50px;
 		}
 		#webHeaderDiv { display: none; }
-		.navbar-collapse .navbar-nav { visibility: visible; margin:7.5px; }
+		.navbar-brand	 { 
+			position: relative;
+			padding: 0.5em 0 0; 
+			margin: 0;
+			left: 1%;
+		}
+		.navbar-toggle { right: -38px; } 
 		.navbar-collapse {
 			position: fixed;
 			background: white;
-			right: 0px;
-			ul { min-width: 12em; }
+			right: 0px; padding: 0;
+			ul { min-width: 16em; padding: 0; }
+			.dropdown-menu {
+				a.active,a:hover { background-color: @swissblue; color: white; }
+			}
+			.navbar-nav > li > a { font-weight: bold; color: @swissgrey; }
+			.navbar-nav { visibility: visible; margin:0; }
 			.icon { height: 1.8em; margin-left:-1em; margin-right:0.4em; }
 		}
 	}

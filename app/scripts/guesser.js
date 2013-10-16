@@ -103,6 +103,10 @@ var guesser = {
 		$('.browsehappy a').attr('href','http://browsehappy.com/?locale='
 			+ self.lang.toLowerCase());
 
+		// Language highlight in menu
+		$('#language li a[lang="' + this.lang.toLowerCase() + '"]')
+			.addClass('active');
+
 		// Fullscreen mode
 		$('.lightbox').on('shown.bs.modal', function () {
 			$('.modal-backdrop.in').css('opacity', 1);
