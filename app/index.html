@@ -1,11 +1,14 @@
+<!--[if HTML5]><![endif]-->
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-	<meta charset="utf-8">
+	<!--[if !HTML5]>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+	<meta charset="utf-8">
 	<title>SwissGuesser</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- OpenLayers 3 for GeoAdmin -->
@@ -218,7 +221,7 @@
 <!--[if lte IE 8]>
 <p class="browsehappy">
 	<button type="button" class="close" onclick="$(this).parent().remove()" aria-hidden="true">&times;</button>
-	<span data-i18n="App-Warning">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</span>
+	<span data-i18n="App-Warning">You are using an <strong>outdated</strong> browser. Please upgrade to improve your experience.</span>
 	<a href="http://browsehappy.com/">browsehappy.com</a>
 </p>
 <![endif]-->
