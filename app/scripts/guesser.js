@@ -44,8 +44,15 @@ var guesser = {
 	// ### Initial setup
 	configure: function(json, l) {
 
-		this.config = json.conf;
-		this.collection = json.data;
+		var self = this;
+		self.config = json.conf;
+
+		// Prepare image collection
+		self.collection = [];
+		$.each(json.data, function() {
+			this.src = self.config.dataPrefix + this.id + self.config.dataSuffix;
+			self.collection.push(this);
+		});
 
 		// Detect language
 		l = l.toUpperCase();
@@ -106,7 +113,7 @@ var guesser = {
 		// Don't display warning in Compatibility Mode
 		if (document.documentMode && document.documentMode == 9)
 			$('.browsehappy').hide();
-		
+
 		// Language highlight in menu
 		$('#language li a[lang="' + this.lang.toLowerCase() + '"]')
 			.addClass('active');
@@ -217,16 +224,12 @@ var guesser = {
 		if (typeof metadata == 'undefined') return;
 
 		// Get image data
-		var imgbox = this.domPhotoBox,
-			infobox = this.domPhotoInf,
-			imgsrc = 
-				this.config.dataPrefix + metadata.id + 
-				this.config.dataSuffix;
+		var imgbox = this.domPhotoBox, infobox = this.domPhotoInf;
 
 		// Load images
-		$('.d-photo').css('background-image', 'url(' + imgsrc + ')');
-		$('img', this.domLightBox).attr('src', imgsrc);
-		$('img', this.domResults).attr('src', imgsrc);
+		$('.d-photo').css('background-image', 'url(' + metadata.src + ')');
+		$('img', this.domLightBox).attr('src', metadata.src);
+		$('img', this.domResults).attr('src', metadata.src);
 
 		// Populate components
 		$('h4', infobox).attr('title', metadata.id);
@@ -329,8 +332,10 @@ var guesser = {
 			console.log(cc);
 		}
 
+		// Preload the images
+		$(this.user.collection).each(function() { $('<img/>')[0].src = this.src; });
+
 		// Load the first image
-		// TODO: preloader
 		this.loader(this.user.collection[this.currentIndex]);
 
 		// Clear loader
