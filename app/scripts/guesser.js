@@ -104,12 +104,9 @@ var guesser = {
 		$('.browsehappy a').attr('href', browsehappy);
 
 		// Don't display warning in Compatibility Mode
-		switch (document.documentMode) {
-			case 9: $('.browsehappy').hide(); break;
-			case 5: if (window.confirm(i18n.t('App-Warning')))
-						document.location.href = browsehappy;
-		}
-
+		if (document.documentMode && document.documentMode == 9)
+			$('.browsehappy').hide();
+		
 		// Language highlight in menu
 		$('#language li a[lang="' + this.lang.toLowerCase() + '"]')
 			.addClass('active');
