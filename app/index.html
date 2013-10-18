@@ -96,7 +96,7 @@
 </div></nav>
 
 <div class="container container-main">
-<div class="col-md-12" id="loading" data-i18n="Start-Loading">
+<div class="col-md-12 hidden" id="loading" data-i18n="Start-Loading">
 	Please wait, loading ...
 </div>
 <div class="col-md-6 on hidden" id="d-photobox">
@@ -199,7 +199,10 @@
 <div id="d-start" class="modal" aria-labelledby="label-intro" aria-hidden="true" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
 	<div class="modal-content">
-		<div class="modal-header" data-i18n="Start-Title">SwissGuesser</div>
+		<div class="modal-header">
+			<button type="button" class="close" href="#d-photobox" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<span data-i18n="Start-Title"></span>
+		</div>
 		<div class="modal-body">
 			<p data-i18n="[html]Start-Text;"></p>
 			<p class="modal-divider">
@@ -226,7 +229,7 @@
 <!--[if lte IE 8]>
 <p class="browsehappy">
 	<button type="button" class="close" onclick="$(this).parent().remove()" aria-hidden="true">&times;</button>
-	<span data-i18n="App-Warning">You are using an <strong>outdated</strong> browser. Please upgrade to improve your experience.</span>
+	<span data-i18n="App-Warning">You are using an outdated browser. Please upgrade to improve your experience.</span>
 	<a href="http://browsehappy.com/">browsehappy.com</a>
 </p>
 <![endif]-->

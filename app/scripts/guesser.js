@@ -100,8 +100,15 @@ var guesser = {
 		});
 
 		// Language of browser warning
-		$('.browsehappy a').attr('href','http://browsehappy.com/?locale='
-			+ self.lang.toLowerCase());
+		var browsehappy = 'http://browsehappy.com/?locale=' + self.lang.toLowerCase();
+		$('.browsehappy a').attr('href', browsehappy);
+
+		// Don't display warning in Compatibility Mode
+		switch (document.documentMode) {
+			case 9: $('.browsehappy').hide(); break;
+			case 5: if (window.confirm(i18n.t('App-Warning')))
+						document.location.href = browsehappy;
+		}
 
 		// Language highlight in menu
 		$('#language li a[lang="' + this.lang.toLowerCase() + '"]')
@@ -672,6 +679,8 @@ var guesser = {
 
 // Useful for iOS debugging (disable in production!)
 window.onerror = function(m,u,l) { alert(m+'\n'+u+'\n'+l); };
+
+$('#loading').removeClass('hidden');
 
 // Load translation (i18next)
 i18n.init({ 

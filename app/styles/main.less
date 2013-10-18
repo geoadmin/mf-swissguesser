@@ -262,12 +262,11 @@ body #map {
 /* Photo lightbox frame */
 .modal.lightbox { overflow: hidden; background: #fff; }
 
-/* Lightbox and start dialog */
+/* Lightbox */
 .modal-backdrop.in { opacity:0.8; }
 .modal-dialog { margin-top:12%; }
 .modal-footer { margin-top:0; p { text-align: left; } }
 .modal-header { font-weight: bold; text-align: center; }
-.modal-divider { border-top:1px solid @swissgrey; padding-top: .8em; }
 
 /* Pin tooltip to photo */
 .tooltip.bottom { margin-top: -6em; }
@@ -278,11 +277,19 @@ body.modal-open, .modal-open .navbar-fixed-top {
 }
 
 /* Welcome screen */
-#d-start .modal-content {
-	background: black;
-	border: 1px solid #ddd;
-	color: white;
-	opacity: 0.8;
+#d-start {
+	.modal-content {
+		background: black;
+		border: 1px solid #ddd;
+		color: white;
+		opacity: 0.8;
+	}
+	.modal-divider { 
+		border-top:1px solid #eee; 
+		padding-top:0.8em; 
+		margin: 0; 
+	}
+	.close { color: white; opacity: 1; }
 }
 
 /* Floating help alert */
