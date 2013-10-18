@@ -107,6 +107,12 @@ var guesser = {
 		$('#language li a[lang="' + this.lang.toLowerCase() + '"]')
 			.addClass('active');
 
+		// Language of copyright link
+		$('#s-copyright').each(function() {
+			$(this).attr('href', 
+				$(this).attr('href').replace('/de/', 
+					'/' + self.lang.toLowerCase() + '/')); });
+
 		// Fullscreen mode
 		$('.lightbox').on('shown.bs.modal', function () {
 			$('.modal-backdrop.in').css('opacity', 1);
