@@ -381,12 +381,14 @@ var guesser = {
 					{score: '<b>' + guesser.user.score + '</b>'}),
 			shb = $('.sharebox');
 
-		var shareform = $('.shareform', shb);
-
 		// Populate copy link box
+		var shareform = $('.shareform', shb);
 		$('input', shareform).hide().val(permalink);
 		$('input, button', shareform).click(function() {
 			$('input', shareform).fadeIn()[0].select(); // HTML5 does not yet support copy
+		});
+		$('a', shareform).attr('href', permalink).click(function(evt) {
+			evt.preventDefault();
 		});
 
 		// Populate Email share box

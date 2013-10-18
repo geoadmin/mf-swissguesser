@@ -282,10 +282,9 @@ body.modal-open, .modal-open .navbar-fixed-top {
 		background: black;
 		border: 1px solid #ddd;
 		color: white;
-		opacity: 0.8;
 	}
 	.modal-divider { 
-		border-top:1px solid #eee; 
+		border-top:1px solid #ddd; 
 		padding-top:0.8em; 
 		margin: 0; 
 	}
@@ -510,8 +509,8 @@ body.modal-open, .modal-open .navbar-fixed-top {
 
 		.shareicon {
 			display: inline-block;
-			height: initial;
-			overflow: initial;
+			overflow-x: visible; 
+			overflow-y: visible;
 		}
 
 		.shareicon button, .shareform {
@@ -534,6 +533,7 @@ body.modal-open, .modal-open .navbar-fixed-top {
 				min-width: 5em;
 				margin:0; 
 			}
+			a { text-decoration: underline; }
 		}
 
 		.icon-twitter {
