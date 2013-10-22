@@ -539,7 +539,7 @@ var guesser = {
 		var escale = 10000;
 		var extent = [Math.round(minx)-escale, Math.round(miny)-escale, 
 					  Math.round(maxx)+escale, Math.round(maxy)+escale];
-		//console.log('Zooming to', extent);
+		///console.log('Zooming to', extent);
 
 		// Fit viewport on guess
 		// TODO: https://github.com/geoadmin/web-storymaps/issues/20
