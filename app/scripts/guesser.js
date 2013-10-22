@@ -41,6 +41,10 @@ var guesser = {
 	domLightBox: 	$('#d-lightbox'), 
 	domPhotoInf: 	$('#row-info'),
 
+	// Cached assets
+	assetcache:['images/1.png', 'images/2.png', 'images/3.png', 
+				'images/4.png', 'images/5.png', 'images/G.png'],
+
 	// ### Initial setup
 	configure: function(json, l) {
 
@@ -332,8 +336,13 @@ var guesser = {
 			console.log(cc);
 		}
 
-		// Preload the images
-		$(this.user.collection).each(function() { $('<img/>')[0].src = this.src; });
+		// Preload the photo images
+		$(this.user.collection).each(
+			function() { $('<img/>')[0].src = this.src; });
+
+		// Preload additional assets
+		$(this.assetcache).each(
+			function() { $('<img/>')[0].src = this; });
 
 		// Load the first image
 		this.loader(this.user.collection[this.currentIndex]);
