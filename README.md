@@ -20,6 +20,14 @@ This will install Grunt and Bower automatically. However, it is recommended that
 
 Run this command as root to use system-wide, or use the [nave.sh](https://github.com/isaacs/nave) utility for your local user.
 
+Install dependencies
+
+`storymap5# bower install`
+
+or
+
+`storymap5# node_modules/.bin/bower install`
+
 For generating documentation, the [Pygments](http://pygments.org/) utility is required, which can be installed as indicated [on the website](http://pygments.org/download/) or on Ubuntu/Debian systems as follows:
 
 `# sudo apt-get install python-pygments`
