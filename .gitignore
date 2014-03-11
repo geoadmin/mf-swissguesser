@@ -16,3 +16,18 @@ app/data/*.xlsx
 app/data/photos/*.jpg
 
 release.sh
+
+.installed.cfg
+*.pyc
+*.ini
+*.mo
+*.iml
+*.swp
+*~
+buildout/bin/
+buildout/develop-eggs/
+buildout/eggs/
+buildout/parts/
+swissguesser.egg-info
+MANIFEST
+
