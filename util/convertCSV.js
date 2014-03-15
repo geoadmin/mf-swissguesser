@@ -1,4 +1,4 @@
-var basePath = 'app/'
+var basePath = 'swissguesser/static/'
 var defaultConfig = {
 	outFileName: 	'data/base.json',
 	csvFileName: 	'data/MetadatenAufnahmen.csv',
@@ -13,7 +13,7 @@ var config = {
 }
 
 // Just use the defaults..
-config = defaultConfig;
+//config = defaultConfig;
 
 var hasArguments = true;
 Object.keys(config).forEach(function(key) {
