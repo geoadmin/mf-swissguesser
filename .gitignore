@@ -30,4 +30,4 @@ buildout/eggs/
 buildout/parts/
 swissguesser.egg-info
 MANIFEST
-
+apache/*.conf
