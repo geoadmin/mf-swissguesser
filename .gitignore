@@ -29,5 +29,6 @@ buildout/develop-eggs/
 buildout/eggs/
 buildout/parts/
 swissguesser.egg-info
+swissguesser/static/bower_components
 MANIFEST
 apache/*.conf
