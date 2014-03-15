@@ -1,5 +1,5 @@
 var config = {
-  basePath:     'app/data/',
+        basePath:   process.argv[2]  || 'app/data/',
 	csvFileName: 	'translation.csv',
 	dataPrefix: 	'locale/',
 	dataSuffix: 	'/translation.json',

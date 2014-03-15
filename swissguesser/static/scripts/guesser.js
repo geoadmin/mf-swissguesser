@@ -563,8 +563,8 @@ var guesser = {
 
 		// Update placement
 		var element = $(self.overlay.getElement());
-		this.position = evt.getCoordinate();
-		///console.log(this.position);
+		this.position = evt.coordinate;
+		console.log(this.position);
 
 		element.css({
 			'background-image': "url('images/" + (self.currentIndex+1) + ".png')",
@@ -591,7 +591,7 @@ var guesser = {
 
 	// ### Submit a guess
 	guess: function() {
-		///console.log('Making guess', this.currentIndex, this.position, this.currentAnswer);
+		console.log('Making guess', this.currentIndex, this.position, this.currentAnswer);
 	
 		// Deactivate guessing for this round
 		this.active = false;
@@ -717,7 +717,17 @@ var guesser = {
 	// ### Creates vector feature for a guess
 	getVector: function(label, from, to) {
 		var imageUrl = 'images/' + label + '.png';
-		var style = new ol.style.Style({ rules: [
+
+                var defaultStyle =  new ol.style.Style({
+        fill: new ol.style.Fill({
+          color: 'rgba(255, 0, 0, 0.3)'
+        }),
+        stroke: new ol.style.Stroke({
+          color: '#FF0000',
+          width:2
+        })
+      });
+		/*var style = new ol.style.Style({ rules: [
 				// Lines
 				new ol.style.Rule({
 					filter: 'geometryType("LineString")',
@@ -743,7 +753,7 @@ var guesser = {
 						width: 32, height: 64
 					}) ]
 				})
-			] }); // -- style
+			] }); */ // -- style
 		
 		var features = [
 			new ol.Feature({
@@ -764,7 +774,9 @@ var guesser = {
 		];
 
 		return new ol.layer.Vector({
-			style: style,
+			style: function(feature, resolution) {
+                            return [defaultStyle];
+                         },
 			source: new ol.source.Vector({
 			 features: features
 			})
