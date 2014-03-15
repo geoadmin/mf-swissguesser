@@ -32,3 +32,5 @@ swissguesser.egg-info
 swissguesser/static/bower_components
 MANIFEST
 apache/*.conf
+swissguesser/static/storymap5/data/photos/*.jpg
+swissguesser/static/storymap9/data/photos/*.jpg
