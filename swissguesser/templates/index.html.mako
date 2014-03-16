@@ -71,10 +71,10 @@
 	<div class="navServiceBackground">
 	<ul class="inline-list">
 		<li><b>Share:</b></li>
-		<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/" title="Facebook"><img src="images/social/facebook.gif" alt="Facebook" width="13" height="13"></a></li> 
-		<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Twitter"><img src="images/social/twitter.gif" alt="Facebook" width="13" height="13"></a></li> 
-		<li><a href="http://google.com/bookmarks/mark?op=edit&amp;bkmk=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Google Bookmarks"><img src="images/social/google.gif" alt="Google Bookmarks" width="13" height="13"></a></li> 
-		<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Google+"><img src="images/social/googleplus.gif" alt="Google+" width="13" height="13"></a></li> 
+		<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/" title="Facebook"><img src="../images/social/facebook.gif" alt="Facebook" width="13" height="13"></a></li> 
+		<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Twitter"><img src="../images/social/twitter.gif" alt="Facebook" width="13" height="13"></a></li> 
+		<li><a href="http://google.com/bookmarks/mark?op=edit&amp;bkmk=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Google Bookmarks"><img src="../images/social/google.gif" alt="Google Bookmarks" width="13" height="13"></a></li> 
+		<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Google+"><img src="../images/social/googleplus.gif" alt="Google+" width="13" height="13"></a></li> 
 		<li class="spacer"></li>
 		<li><a tabindex="-1" href="?lang=de">Deutsch</a></li>
 		<li class="pipe">&nbsp;</li>
@@ -101,9 +101,9 @@
 		<li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language"><span data-i18n="App-Share">Share</span> <span class="caret"></span></a>
 			<ul class="dropdown-menu" aria-labelledby="language">
-				<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/"tabindex="-1"><img class="icon" src="images/social/facebook_big.png" width="64" height="64"> Facebook</a></li> 
-				<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="images/social/twitter_big.png" width="64" height="64"> Twitter</a></li>
-				<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="images/social/googleplus_big.png" width="64" height="64"> Google+</a></li>
+				<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/"tabindex="-1"><img class="icon" src="../images/social/facebook_big.png" width="64" height="64"> Facebook</a></li> 
+				<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="../images/social/twitter_big.png" width="64" height="64"> Twitter</a></li>
+				<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="../images/social/googleplus_big.png" width="64" height="64"> Google+</a></li>
 			</ul>
 		</li>
 	</ul></div>
@@ -221,7 +221,7 @@
 			<p data-i18n="[html]Start-Text;"></p>
 			<p class="modal-divider">
 				<span data-i18n="Start-Credit"></span>: 
-				<a href="http://api.geo.admin.ch/" target="_blank">api.geo.admin.ch</a><br>
+				<a href="http://api3.geo.admin.ch/" target="_blank">api3.geo.admin.ch</a><br>
 				<a id="s-copyright" href="http://www.geo.admin.ch/internet/geoportal/de/home/geoadmin/contact.html#copyright" target="_blank"><span data-i18n="Start-Copyright"></span></a>
 			</p>
 		</div>
