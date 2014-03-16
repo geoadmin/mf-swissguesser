@@ -22,7 +22,7 @@ def strip_tags(html):
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head lang="${context.lang}">
+<head lang="${lang}">
 	<!--[if !HTML5]>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<![endif]-->
@@ -34,13 +34,13 @@ def strip_tags(html):
 	<meta name="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest"/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
-	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap5/images/preview.jpg" /> 
+	<meta property="og:image" content="${Preview_Url}" /> 
 	<meta property="og:title" content="${Start_Text|h}" />
 	<meta property="og:description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
 	<!-- Google+ tags -->
 	<meta itemprop="name" content="">
 	<meta itemprop="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
-	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap5/images/preview.jpg">
+	<meta itemprop="image" content="${Preview_Url}">
 
 	<!-- Compiled page styles -->
 	<link rel="stylesheet" href="../styles/main.css">
@@ -88,10 +88,10 @@ def strip_tags(html):
 	<div class="navServiceBackground">
 	<ul class="inline-list">
 		<li><b>Share:</b></li>
-		<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/" title="Facebook"><img src="../images/social/facebook.gif" alt="Facebook" width="13" height="13"></a></li> 
-		<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Twitter"><img src="../images/social/twitter.gif" alt="Facebook" width="13" height="13"></a></li> 
-		<li><a href="http://google.com/bookmarks/mark?op=edit&amp;bkmk=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Google Bookmarks"><img src="../images/social/google.gif" alt="Google Bookmarks" width="13" height="13"></a></li> 
-		<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Google+"><img src="../images/social/googleplus.gif" alt="Google+" width="13" height="13"></a></li> 
+		<li><a href="http://www.facebook.com/sharer.php?u=${App_Url|u}" title="Facebook"><img src="../images/social/facebook.gif" alt="Facebook" width="13" height="13"></a></li>
+		<li><a href="http://twitter.com/intent/tweet?url=${App_Url|u}" title="Twitter"><img src="../images/social/twitter.gif" alt="Facebook" width="13" height="13"></a></li> 
+		<li><a href="http://google.com/bookmarks/mark?op=edit&amp;bkmk=${App_Url|u}" title="Google Bookmarks"><img src="../images/social/google.gif" alt="Google Bookmarks" width="13" height="13"></a></li> 
+		<li><a href="https://plus.google.com/share?url=h${App_Url|u}" title="Google+"><img src="../images/social/googleplus.gif" alt="Google+" width="13" height="13"></a></li> 
 		<li class="spacer"></li>
 		<li><a tabindex="-1" href="?lang=de">Deutsch</a></li>
 		<li class="pipe">&nbsp;</li>
@@ -118,9 +118,9 @@ def strip_tags(html):
 		<li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language"><span data-i18n="App-Share">Share</span> <span class="caret"></span></a>
 			<ul class="dropdown-menu" aria-labelledby="language">
-				<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/"tabindex="-1"><img class="icon" src="../images/social/facebook_big.png" width="64" height="64"> Facebook</a></li> 
-				<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="../images/social/twitter_big.png" width="64" height="64"> Twitter</a></li>
-				<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="../images/social/googleplus_big.png" width="64" height="64"> Google+</a></li>
+				<li><a href="http://www.facebook.com/sharer.php?u=${App_Url|u}"tabindex="-1"><img class="icon" src="../images/social/facebook_big.png" width="64" height="64"> Facebook</a></li> 
+				<li><a href="http://twitter.com/intent/tweet?url=${App_Url|u}" tabindex="-1"><img class="icon" src="../images/social/twitter_big.png" width="64" height="64"> Twitter</a></li>
+				<li><a href="https://plus.google.com/share?url=${App_Url|u}" tabindex="-1"><img class="icon" src="../images/social/googleplus_big.png" width="64" height="64"> Google+</a></li>
 			</ul>
 		</li>
 	</ul></div>
@@ -302,5 +302,4 @@ def strip_tags(html):
 
 </body>
 </html>
-${context.keys()}    # list of direct variable names
-${context.__dict__}  # probably more along what you're looking for.
+
