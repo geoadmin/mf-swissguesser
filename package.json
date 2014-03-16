@@ -8,7 +8,8 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
-    "csvtojson": "~0.1.4"
+    "csvtojson": "~0.1.4",
+    "async": "~0.1.22"
   },
   "engines": {
     "node": ">=0.8.0"
