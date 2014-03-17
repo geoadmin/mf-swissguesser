@@ -49,8 +49,8 @@ var guesser = {
 	domPhotoInf: 	$('#row-info'),
 
 	// Cached assets
-	assetcache:['images/1.png', 'images/2.png', 'images/3.png', 
-				'images/4.png', 'images/5.png', 'images/G.png'],
+	assetcache:['../images/1.png', '../images/2.png', '../images/3.png', 
+				'../images/4.png', '../images/5.png', '../images/G.png'],
 
 	// ### Initial setup
 	configure: function(json, l) {
@@ -259,7 +259,19 @@ var guesser = {
 		$('.total', infobox).html(this.user.score);
 
 		// Result box description
-		$('.info p', this.domResults).html(metadata[this.lang]);
+                // either a html fragment or an url
+                var msg = metadata[this.lang];
+                if (msg.indexOf('http') == 0) {
+                    $.ajax({
+                        url: msg
+                    }).done(function(data) {
+                        $('.info p', this.domResults).html(data);
+                 });
+                } else {
+                    var decoded =  $("<div/>").html(msg).text();
+		    $('.info p', this.domResults).html(decoded);
+                }
+                
 		///console.log('Loading image', metadata.id, this.lang);
 	
 		// Start the challenge
@@ -564,7 +576,7 @@ var guesser = {
 		// Update placement
 		var element = $(self.overlay.getElement());
 		this.position = evt.coordinate;
-		console.log(this.position);
+		//console.log(this.position);
 
 		element.css({
 			'background-image': "url('images/" + (self.currentIndex+1) + ".png')",
@@ -591,7 +603,7 @@ var guesser = {
 
 	// ### Submit a guess
 	guess: function() {
-		console.log('Making guess', this.currentIndex, this.position, this.currentAnswer);
+		//console.log('Making guess', this.currentIndex, this.position, this.currentAnswer);
 	
 		// Deactivate guessing for this round
 		this.active = false;
