@@ -60,8 +60,10 @@ var guesser = {
 
 		// Prepare image collection
 		self.collection = [];
+                // donloadUrl is an absolute Url pointing to where the images are
+                var baseUrl = self.config.downloadUrl || self.config.dataPrefix;
 		$.each(json.data, function() {
-			this.src = self.config.dataPrefix + this.id + self.config.dataSuffix;
+			this.src = baseUrl + this.id + self.config.dataSuffix;
 			self.collection.push(this);
 		});
 
@@ -313,6 +315,7 @@ var guesser = {
 		var r = this.collection[i];
 		// Make sure we have not already included it
 		///console.log('Picking', i, '/', l);
+                
 		if (r.shown) {
 			return this.getImage(null);
 		} else {
