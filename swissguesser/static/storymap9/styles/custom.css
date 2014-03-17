@@ -1,6 +1,7 @@
 .d-photo {
     background-repeat:no-repeat;
     background-position: center center;
+    background-size:cover; /*will only work with css3 */
 }
 
 
