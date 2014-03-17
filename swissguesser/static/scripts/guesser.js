@@ -60,8 +60,10 @@ var guesser = {
 
 		// Prepare image collection
 		self.collection = [];
+                // donloadUrl is an absolute Url pointing to where the images are
+                var baseUrl = self.config.downloadUrl || self.config.dataPrefix;
 		$.each(json.data, function() {
-			this.src = self.config.dataPrefix + this.id + self.config.dataSuffix;
+			this.src = baseUrl + this.id + self.config.dataSuffix;
 			self.collection.push(this);
 		});
 
@@ -313,6 +315,7 @@ var guesser = {
 		var r = this.collection[i];
 		// Make sure we have not already included it
 		///console.log('Picking', i, '/', l);
+                
 		if (r.shown) {
 			return this.getImage(null);
 		} else {
@@ -728,9 +731,8 @@ var guesser = {
 
 	// ### Creates vector feature for a guess
 	getVector: function(label, from, to) {
-		var imageUrl = 'images/' + label + '.png';
-
-                var defaultStyle =  new ol.style.Style({
+		var imageUrl = '../../images/' + label + '.png';
+                 var defaultStyle =  new ol.style.Style({
         fill: new ol.style.Fill({
           color: 'rgba(255, 0, 0, 0.3)'
         }),
@@ -739,6 +741,16 @@ var guesser = {
           width:2
         })
       });
+        var guessStyle = new ol.style.Style({
+            image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+            src: imageUrl
+            }))
+        });
+       var realStyle = new ol.style.Style({
+            image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+            url: '../../images/G.png'
+            }))
+        });
 		/*var style = new ol.style.Style({ rules: [
 				// Lines
 				new ol.style.Rule({
@@ -761,7 +773,7 @@ var guesser = {
 				new ol.style.Rule({
 					filter: 'geometryType("Point") && which == "answer"',
 					symbolizers: [ new ol.style.Icon({
-						url: 'images/G.png',
+						url: '../images/G.png',
 						width: 32, height: 64
 					}) ]
 				})
@@ -771,12 +783,14 @@ var guesser = {
 			new ol.Feature({
 				// Starting point (the guess)
 				label: label, which: 'guess',
-				geometry: new ol.geom.Point(from)
+                  		geometry: new ol.geom.Point(from),
+                                style: guessStyle
 			}),
 			new ol.Feature({
 				// Ending point (the real answer)
 				label: label, which: 'answer',
-				geometry: new ol.geom.Point(to)
+				geometry: new ol.geom.Point(to),
+                                style: realStyle
 			}),
 			new ol.Feature({
 				// Line from A to B
