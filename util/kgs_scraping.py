@@ -39,7 +39,7 @@ def get_copyrights(filename='swissguesser/static/storymap9/data/copyright.csv'):
     copyrights = {}
     try:
         f = open(filename, 'rb')
-        csv_file = csv.DictReader(f, delimiter=',', quotechar='"')
+        csv_file = csv.DictReader(f, delimiter=';', quotechar='"')
 
         for row in csv_file:
             # kgs nr p. ex. kgs_00005_0001
@@ -62,7 +62,7 @@ def extract_table(content, rows=None):
     # removing coordinates
     table.tr.find_next_sibling("tr").extract()
     table.tr.find_next_sibling("tr").extract()
-
+    # moving the link to a new column
     trs = table.tr.find_next_siblings("tr")
 
     more = trs[2].td.find_next_sibling("td")
@@ -71,22 +71,27 @@ def extract_table(content, rows=None):
     trs[2].td.extract()
     trs[3].td.extract()
 
+    trs[2].decompose()
+    trs[3].decompose()
+
     trs[0].append(more)
     trs[1].append(link)
-
+    # copyright info, if any
     if rows:
-        new_tag = soup.new_tag("tr")
-        new_tag.string = " — ".join(rows)
-        trs[3].insert_after(new_tag)
+        new_td = soup.new_tag("td",colspan=2)
+        new_td.string = " — ".join(rows)
+        new_tr = soup.new_tag("tr")
+        new_tr.append(new_td)
+        trs[1].insert_after(new_tr)
 
-    s = unicode(table)  # .decode('utf-8')
+    s = unicode(table)
 
     return u''.join('&%s;' % entities[ord(c)] if ord(c) in entities else c for c in s)
 
 
 if __name__ == '__main__':
 
-    f = open(sys.argv[1], 'r')  # opens the csv file
+    f = open(sys.argv[1], 'r')  
     test_file = open('test2.csv', 'w')
 
     copyrights = get_copyrights()
@@ -99,7 +104,7 @@ if __name__ == '__main__':
         csvwriter.writerow(dict((fn, fn) for fn in csv_file.fieldnames))
         n = 0
 
-        for row in csv_file:   # iterates the rows of the file in orders
+        for row in csv_file:  
             n += 1
             bild_nr = row['Bildnummer']
             kgs_nr = bild_nr.split('_')[1]
@@ -120,9 +125,6 @@ if __name__ == '__main__':
 
                 row[fieldname] = extract_table(ct, bild_copyright)
 
-                # print row[fieldname]
-
-                #row[fieldname] = "?".join([url, "lang=%s" % lang])
 
             csvwriter.writerow(
                 {k: v if v is not None else v for k, v in row.items()})
