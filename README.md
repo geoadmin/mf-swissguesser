@@ -27,7 +27,7 @@ Swissguesser multi-projects
 
 Each subproject has two main .csv configurations files:
 * `MetadatenAufnahme.csv` and
-* `translation.csv
+* `translation.csv`
 
 These two files are used to generate various json files, respectively with `buildout install convert-csv`and `buildout install translate-csv`.
 
@@ -36,12 +36,14 @@ if you provide a `downloadUrl`on as an argument, the images will be linked inste
 
 ### Storymap5 (BAR)
 
-The original one!. This GeoAdmin Story Map is an interactive game to guess historical locations from the Swiss National Archive on a Swisstopo map of Switzerland.
+The original one! This GeoAdmin Story Map is an interactive game to guess historical locations from the Swiss National Archive on a Swisstopo map of Switzerland.
 
 ### Storymap9 (KGS)
 
+Protection of cultural property inventory
+
 * Images are linked to the dav0 server
-* Explanations text is an url 
+* Explanations text and the copyright information are scraped from map.geo.admin.ch htmlPopup and the `meta.txt` file using the `util\kgs_scraper.py`script
 
 
 ### Storymap10 (LUBIS)
@@ -50,4 +52,6 @@ Historic aerial view
 
 * Images have to be copied to `static\storymap10\data\photos`
 * Explanations are linked to _map.geo.admin.ch_ popup
+* The `MetadatenAufnahme.csv` has to be generated from the `MetadatenAufnahme.csv.template` using the
+  `util\lubis_scraper.py` script
 
