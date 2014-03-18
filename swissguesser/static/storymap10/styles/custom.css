@@ -11,3 +11,5 @@
     text-align: right;
     background: url(../images/header_amt.jpg) no-repeat top right !important;
 }
+
+.htmlpopup-container .htmlpopup-header { display: none; }
