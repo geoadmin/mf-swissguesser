@@ -40,9 +40,14 @@ The original one!. This GeoAdmin Story Map is an interactive game to guess histo
 
 ### Storymap9 (KGS)
 
-
+* Images are linked to the dav0 server
+* Explanations text is an url 
 
 
 ### Storymap10 (LUBIS)
 
 Historic aerial view
+
+* Images have to be copied to `static\storymap10\data\photos`
+* Explanations are linked to _map.geo.admin.ch_ popup
+
