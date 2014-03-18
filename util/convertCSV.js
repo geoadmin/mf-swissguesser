@@ -11,7 +11,7 @@ var config = {
     dataPrefix: process.argv[4],
     dataSuffix: process.argv[5],
     project: process.argv[6],
-    downloadUrl: process.argv[7] || false
+    downloadUrl: (process.argv[7] && process.argv[7].indexOf('http') == 0) || false
 }
 
 // Just use the defaults..
