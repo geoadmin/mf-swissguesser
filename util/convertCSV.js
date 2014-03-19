@@ -5,13 +5,16 @@ var defaultConfig = {
     dataPrefix: 'data/photos/',
     dataSuffix: '_A1.jpg'
 }
+var downloadUrl = null;
+if (process.argv[7] && (process.argv[7].indexOf('http') == 0 )) {  downloadUrl = process.argv[7];};
 var config = {
     outFileName: process.argv[2],
     csvFileName: process.argv[3],
     dataPrefix: process.argv[4],
     dataSuffix: process.argv[5],
     project: process.argv[6],
-    downloadUrl: (process.argv[7] && process.argv[7].indexOf('http') == 0) || false
+    downloadUrl: downloadUrl,
+    downloadImages: false
 }
 
 // Just use the defaults..
@@ -83,7 +86,7 @@ csvConverter.on("end_parsed", function (jsonObj) {
 
            //if(fs.existsSync(basePath + filename)) {
             if (!exists) {
-                if (config.downloadUrl) {
+                if (config.downloadImages) {
                     count += 1;
                     var remote_filename = data.id + config.dataSuffix;
 
