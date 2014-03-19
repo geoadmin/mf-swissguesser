@@ -5,13 +5,16 @@ var defaultConfig = {
     dataPrefix: 'data/photos/',
     dataSuffix: '_A1.jpg'
 }
+var downloadUrl = null;
+if (process.argv[7] && (process.argv[7].indexOf('http') == 0 )) {  downloadUrl = process.argv[7];};
 var config = {
     outFileName: process.argv[2],
     csvFileName: process.argv[3],
     dataPrefix: process.argv[4],
     dataSuffix: process.argv[5],
     project: process.argv[6],
-    downloadUrl: (process.argv[7] && process.argv[7].indexOf('http') == 0) || false
+    downloadUrl: downloadUrl,
+    downloadImages: false
 }
 
 // Just use the defaults..
@@ -86,15 +89,18 @@ csvConverter.on("end_parsed", function (jsonObj) {
                 if (config.downloadUrl) {
                     count += 1;
                     var remote_filename = data.id + config.dataSuffix;
-
                     url = config.downloadUrl + remote_filename;
-                    //data.imageUrl = url;
+                    if (config.downloadImages) {
+                        console.log("[INFO] Downloading from: " + url);
 
-                    queue.push({url: url, dest: basePath + filename}, function (msg) {
+                        queue.push({url: url, dest: basePath + filename}, function (msg) {
                           console.log(msg);
-                    });
+                        });
+                    } else {
+                        console.log("[INFO]  Image wil be linked to: " + url);
+                    }
                 } else {
-                    console.log("[ERROR] File not found: " + basePath + filename);
+                    console.log("[ERROR] File not foundi and no Url given: " + basePath + filename);
                 }
             };
          });
