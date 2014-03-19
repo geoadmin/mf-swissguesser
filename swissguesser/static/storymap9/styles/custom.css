@@ -1,7 +1,18 @@
-.d-photo {
+
+@media screen and (max-width: 1024px){
+    .d-photo {
     background-repeat:no-repeat;
     background-position: center center;
-    background-size:cover; /*will only work with css3 */
+    background-size: contain;; /* fit to available space, will only work with css3 */
+   }
+}
+
+@media screen and (min-width: 1024px){
+    .d-photo {
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: 600px auto;
+   }
 }
 
 
