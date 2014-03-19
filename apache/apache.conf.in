@@ -1,1 +1,3 @@
-DocumentRoot ${buildout:directory}/swissguesser/static
+Alias ${vars:apache_entry_point}  ${buildout:directory}/swissguesser/static
+
+
