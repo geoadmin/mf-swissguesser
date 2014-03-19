@@ -47,7 +47,7 @@ def strip_tags(html):
         <!-- Custom style for this Guesser -->
         <link rel="stylesheet" href="styles/custom.css" type="text/css">
 	<!-- build:js scripts/vendor/modernizr.js -->
-	<script src="../bower_components/modernizr/modernizr.js"></script>
+	<script src="../libs/modernizr/modernizr.js"></script>
 	<!-- endbuild -->
 </head>
 <body>
@@ -272,23 +272,23 @@ def strip_tags(html):
 <script language="JavaScript">/* Quirks mode / ancient IE */ if (document.documentMode && document.documentMode < 8 && window.confirm("Please upgrade your browser to use this website.")) document.location.href = "http://browsehappy.com/"; </script>
 
 <!-- build:js scripts/vendor/bootstrap.js -->
-<script src="../bower_components/jquery/jquery.js"></script>
-<script src="../bower_components/bootstrap/js/affix.js"></script>
-<script src="../bower_components/bootstrap/js/alert.js"></script>
-<script src="../bower_components/bootstrap/js/dropdown.js"></script>
-<script src="../bower_components/bootstrap/js/tooltip.js"></script>
-<script src="../bower_components/bootstrap/js/modal.js"></script>
-<script src="../bower_components/bootstrap/js/transition.js"></script>
-<script src="../bower_components/bootstrap/js/button.js"></script>
-<script src="../bower_components/bootstrap/js/popover.js"></script>
-<!--<script src="bower_components/bootstrap/js/carousel.js"></script>
-<script src="bower_components/bootstrap/js/scrollspy.js"></script>
-<script src="bower_components/bootstrap/js/collapse.js"></script>
-<script src="bower_components/bootstrap/js/tab.js"></script>-->
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../libs/bootstrap/js/affix.js"></script>
+<script src="../libs/bootstrap/js/alert.js"></script>
+<script src="../libs/bootstrap/js/dropdown.js"></script>
+<script src="../libs/bootstrap/js/tooltip.js"></script>
+<script src="../libs/bootstrap/js/modal.js"></script>
+<script src="../libs/bootstrap/js/transition.js"></script>
+<script src="../libs/bootstrap/js/button.js"></script>
+<script src="../libs/bootstrap/js/popover.js"></script>
+<!--<script src="libs/bootstrap/js/carousel.js"></script>
+<script src="../libs/bootstrap/js/scrollspy.js"></script>
+<script src="../libs/bootstrap/js/collapse.js"></script>
+<script src="../libs/bootstrap/js/tab.js"></script>-->
 <!-- endbuild -->
 
 <!-- build:js scripts/i18next.js -->
-<script src="../bower_components/i18next/i18next.min.js"></script>
+<script src="../libs/i18next/i18next.min.js"></script>
 <!-- endbuild -->
 
 <!-- OpenLayers for GeoAdmin -->
