@@ -86,18 +86,21 @@ csvConverter.on("end_parsed", function (jsonObj) {
 
            //if(fs.existsSync(basePath + filename)) {
             if (!exists) {
-                if (config.downloadImages) {
+                if (config.downloadUrl) {
                     count += 1;
                     var remote_filename = data.id + config.dataSuffix;
-
                     url = config.downloadUrl + remote_filename;
-                    //data.imageUrl = url;
+                    if (config.downloadImages) {
+                        console.log("[INFO] Downloading from: " + url);
 
-                    queue.push({url: url, dest: basePath + filename}, function (msg) {
+                        queue.push({url: url, dest: basePath + filename}, function (msg) {
                           console.log(msg);
-                    });
+                        });
+                    } else {
+                        console.log("[INFO]  Image wil be linked to: " + url);
+                    }
                 } else {
-                    console.log("[ERROR] File not found: " + basePath + filename);
+                    console.log("[ERROR] File not foundi and no Url given: " + basePath + filename);
                 }
             };
          });
