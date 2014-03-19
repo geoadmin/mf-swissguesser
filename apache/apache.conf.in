@@ -1,3 +1,15 @@
 Alias ${vars:apache_entry_point}  ${buildout:directory}/swissguesser/static
 
+<FilesMatch .*>
+   Options MultiViews
+   AddLanguage de     .de
+   AddLanguage fr     .fr
+   AddLanguage it     .it    
+   AddLanguage en     .en
+</FilesMatch>
+
+LanguagePriority de fr it en
+ForceLanguagePriority Fallback
+
+
 
