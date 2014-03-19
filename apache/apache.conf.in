@@ -1,4 +1,16 @@
-Alias ${vars:apache_entry_point}  ${buildout:directory}/swissguesser/static
+RewriteEngine on
+ExpiresActive on
+
+# Enabling CORS
+Header set Access-Control-Allow-Origin "*"
+
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/x-javascript application/javascript application/json
+AddOutputFilterByType DEFLATE text/html text/plain text/xml
+
+Alias /${vars:apache_base_path}  ${buildout:directory}/swissguesser/static
+
+RewriteRule ^${apache_entry_path}$ /${vars:apache_base_path}/ [PT]
 
 <FilesMatch .*>
    Options MultiViews
@@ -10,6 +22,10 @@ Alias ${vars:apache_entry_point}  ${buildout:directory}/swissguesser/static
 
 LanguagePriority de fr it en
 ForceLanguagePriority Fallback
+
+
+
+
 
 
 
