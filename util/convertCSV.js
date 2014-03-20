@@ -57,7 +57,7 @@ var download = function (task, cb) {
     });
 }
 
-var queue = async.queue(download, 10); // Run ten simultaneous uploads
+var queue = async.queue(download, 10); // Run ten simultaneous downloads
 
 
 queue.drain = function() {
@@ -81,31 +81,37 @@ csvConverter.on("end_parsed", function (jsonObj) {
             EN: item['Legende EN **']
         };
         if (data.id.length < 4) return;
-        var filename = config.dataPrefix + data.id + config.dataSuffix;
-        fs.exists(basePath + filename, function (exists) {
 
-           //if(fs.existsSync(basePath + filename)) {
-            if (!exists) {
-                if (config.downloadUrl) {
-                    count += 1;
-                    var remote_filename = data.id + config.dataSuffix;
-                    url = config.downloadUrl + remote_filename;
-                    if (config.downloadImages) {
-                        console.log("[INFO] Downloading from: " + url);
+        if (!isNaN(data.x) && !isNaN(data.y)) {
 
-                        queue.push({url: url, dest: basePath + filename}, function (msg) {
-                          console.log(msg);
-                        });
+            var filename = config.dataPrefix + data.id + config.dataSuffix;
+            fs.exists(basePath + filename, function (exists) {
+    
+               //if(fs.existsSync(basePath + filename)) {
+                if (!exists) {
+                    if (config.downloadUrl) {
+                        count += 1;
+                        var remote_filename = data.id + config.dataSuffix;
+                        url = config.downloadUrl + remote_filename;
+                        if (config.downloadImages) {
+                            console.log("[INFO] Downloading from: " + url);
+    
+                            queue.push({url: url, dest: basePath + filename}, function (msg) {
+                              console.log(msg);
+                            });
+                        } else {
+                            console.log("[INFO]  Image wil be linked to: " + url);
+                        }
                     } else {
-                        console.log("[INFO]  Image wil be linked to: " + url);
+                        console.log("[ERROR] File not found and no Url given: " + basePath + filename);
                     }
-                } else {
-                    console.log("[ERROR] File not foundi and no Url given: " + basePath + filename);
-                }
-            };
-         });
-        //console.log(data);
-        csvData.push(data);
+                };
+             });
+            //console.log(data);
+            csvData.push(data);
+        } else {
+            console.log("[WARNING] Image "+ filename + " has no coordinates");
+        }
     });
     //console.log(csvData);
 
