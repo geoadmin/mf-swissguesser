@@ -1,10 +1,11 @@
+
 <!--[if HTML5]><![endif]-->
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
+<head lang="it">
 	<!--[if !HTML5]>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<![endif]-->
@@ -12,24 +13,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 	<link href="http://www.swisstopo.admin.ch/internet/swisstopo.ConfigFavicon.ico" type="image/x-icon" rel="Shortcut Icon">
 
-	<title>SwissGuesser</title>
+	<title>La collezione di foto della prima guerra mondiale, una delle più grandi degli Archivi federali svizzeri, comprende 5125 negativi su supporto di vetro e successivamente digitalizzati. Le foto sono relative al Servizio Attivo dell'esercito svizzero durante la prima guerra mondiale.</title>
 	<meta name="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest"/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
 	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap5/images/preview.jpg" /> 
-	<meta property="og:title" content="SwissGuesser: photo collection from World War I" /> 
+	<meta property="og:title" content="La collezione di foto della prima guerra mondiale, una delle più grandi degli &lt;a href=&#34;http://www.bar.admin.ch&#34;&gt;Archivi federali svizzeri&lt;/a&gt;, comprende 5125 negativi su supporto di vetro e successivamente digitalizzati. Le foto sono relative al Servizio Attivo dell&#39;esercito svizzero &lt;a href=&#34;https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228&#34;&gt;durante la prima guerra mondiale&lt;/a&gt;." />
 	<meta property="og:description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
 	<!-- Google+ tags -->
-	<meta itemprop="name" content="SwissGuesser: photo collection from World War I">
+	<meta itemprop="name" content="">
 	<meta itemprop="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
 	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap5/images/preview.jpg">
 
-	<!-- OpenLayers 3 for GeoAdmin -->
-	<link rel="stylesheet" href="src/build/ga.css" type="text/css">
 	<!-- Compiled page styles -->
-	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="../styles/main.css">
+        <!-- Custom style for this Guesser -->
+        <link rel="stylesheet" href="styles/custom.css" type="text/css">
 	<!-- build:js scripts/vendor/modernizr.js -->
-	<script src="../bower_components/modernizr/modernizr.js"></script>
+	<script src="../libs/modernizr/modernizr.js"></script>
 	<!-- endbuild -->
 </head>
 <body>
@@ -70,10 +71,10 @@
 	<div class="navServiceBackground">
 	<ul class="inline-list">
 		<li><b>Share:</b></li>
-		<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/" title="Facebook"><img src="images/social/facebook.gif" alt="Facebook" width="13" height="13"></a></li> 
-		<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Twitter"><img src="images/social/twitter.gif" alt="Facebook" width="13" height="13"></a></li> 
-		<li><a href="http://google.com/bookmarks/mark?op=edit&amp;bkmk=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Google Bookmarks"><img src="images/social/google.gif" alt="Google Bookmarks" width="13" height="13"></a></li> 
-		<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" title="Google+"><img src="images/social/googleplus.gif" alt="Google+" width="13" height="13"></a></li> 
+		<li><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5" title="Facebook"><img src="../images/social/facebook.gif" alt="Facebook" width="13" height="13"></a></li>
+		<li><a href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5" title="Twitter"><img src="../images/social/twitter.gif" alt="Facebook" width="13" height="13"></a></li> 
+		<li><a href="http://google.com/bookmarks/mark?op=edit&amp;bkmk=http%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5" title="Google Bookmarks"><img src="../images/social/google.gif" alt="Google Bookmarks" width="13" height="13"></a></li> 
+		<li><a href="https://plus.google.com/share?url=hhttp%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5" title="Google+"><img src="../images/social/googleplus.gif" alt="Google+" width="13" height="13"></a></li> 
 		<li class="spacer"></li>
 		<li><a tabindex="-1" href="?lang=de">Deutsch</a></li>
 		<li class="pipe">&nbsp;</li>
@@ -100,9 +101,9 @@
 		<li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language"><span data-i18n="App-Share">Share</span> <span class="caret"></span></a>
 			<ul class="dropdown-menu" aria-labelledby="language">
-				<li><a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5/"tabindex="-1"><img class="icon" src="images/social/facebook_big.png" width="64" height="64"> Facebook</a></li> 
-				<li><a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="images/social/twitter_big.png" width="64" height="64"> Twitter</a></li>
-				<li><a href="https://plus.google.com/share?url=http%3a%2f%2fstorymaps.geo.admin.ch/storymaps/storymap5" tabindex="-1"><img class="icon" src="images/social/googleplus_big.png" width="64" height="64"> Google+</a></li>
+				<li><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5"tabindex="-1"><img class="icon" src="../images/social/facebook_big.png" width="64" height="64"> Facebook</a></li> 
+				<li><a href="http://twitter.com/intent/tweet?url=http%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5" tabindex="-1"><img class="icon" src="../images/social/twitter_big.png" width="64" height="64"> Twitter</a></li>
+				<li><a href="https://plus.google.com/share?url=http%3A%2F%2Fstorymaps.geo.admin.ch%2Fstorymaps%2Fstorymap5" tabindex="-1"><img class="icon" src="../images/social/googleplus_big.png" width="64" height="64"> Google+</a></li>
 			</ul>
 		</li>
 	</ul></div>
@@ -220,7 +221,7 @@
 			<p data-i18n="[html]Start-Text;"></p>
 			<p class="modal-divider">
 				<span data-i18n="Start-Credit"></span>: 
-				<a href="http://api.geo.admin.ch/" target="_blank">api.geo.admin.ch</a><br>
+				<a href="http://api3.geo.admin.ch/" target="_blank">api3.geo.admin.ch</a><br>
 				<a id="s-copyright" href="http://www.geo.admin.ch/internet/geoportal/de/home/geoadmin/contact.html#copyright" target="_blank"><span data-i18n="Start-Copyright"></span></a>
 			</p>
 		</div>
@@ -254,28 +255,27 @@
 <script language="JavaScript">/* Quirks mode / ancient IE */ if (document.documentMode && document.documentMode < 8 && window.confirm("Please upgrade your browser to use this website.")) document.location.href = "http://browsehappy.com/"; </script>
 
 <!-- build:js scripts/vendor/bootstrap.js -->
-<script src="../bower_components/jquery/jquery.js"></script>
-<script src="../bower_components/bootstrap/js/affix.js"></script>
-<script src="../bower_components/bootstrap/js/alert.js"></script>
-<script src="../bower_components/bootstrap/js/dropdown.js"></script>
-<script src="../bower_components/bootstrap/js/tooltip.js"></script>
-<script src="../bower_components/bootstrap/js/modal.js"></script>
-<script src="../bower_components/bootstrap/js/transition.js"></script>
-<script src="../bower_components/bootstrap/js/button.js"></script>
-<script src="../bower_components/bootstrap/js/popover.js"></script>
-<!--<script src="bower_components/bootstrap/js/carousel.js"></script>
-<script src="bower_components/bootstrap/js/scrollspy.js"></script>
-<script src="bower_components/bootstrap/js/collapse.js"></script>
-<script src="bower_components/bootstrap/js/tab.js"></script>-->
+<script src="../libs/jquery/jquery.js"></script>
+<script src="../libs/bootstrap/js/affix.js"></script>
+<script src="../libs/bootstrap/js/alert.js"></script>
+<script src="../libs/bootstrap/js/dropdown.js"></script>
+<script src="../libs/bootstrap/js/tooltip.js"></script>
+<script src="../libs/bootstrap/js/modal.js"></script>
+<script src="../libs/bootstrap/js/transition.js"></script>
+<script src="../libs/bootstrap/js/button.js"></script>
+<script src="../libs/bootstrap/js/popover.js"></script>
+<!--<script src="libs/bootstrap/js/carousel.js"></script>
+<script src="../libs/bootstrap/js/scrollspy.js"></script>
+<script src="../libs/bootstrap/js/collapse.js"></script>
+<script src="../libs/bootstrap/js/tab.js"></script>-->
 <!-- endbuild -->
 
 <!-- build:js scripts/i18next.js -->
-<script src="../bower_components/i18next/i18next.min.js"></script>
+<script src="../libs/i18next/i18next.min.js"></script>
 <!-- endbuild -->
 
 <!-- OpenLayers for GeoAdmin -->
 <script src="//api3.geo.admin.ch/loader.js"></script>
-<script src="src/build/ga.js"></script>
 
 <!-- build:js scripts/swissguesser.js -->
 <script src="../scripts/ol3-geoadmin.js"></script>
@@ -285,3 +285,4 @@
 
 </body>
 </html>
+
