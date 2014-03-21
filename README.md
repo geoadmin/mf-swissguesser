@@ -3,7 +3,25 @@ SwissGuesser
 
 Swissguesser multi-projects
 
-1/ Install 
+1/ Install and deploy
+
+If you do not update the data, you may simply clone the project from the repository, copy the images file (see _subproject specifi_ below) 
+and deploy it:
+
+    cd /var/www/vhosts/mf-swissguesser/private
+
+    git clone git@github.com:geoadmin/mf-swissguesser.git swissguesser
+
+    cd swissguesser
+
+    sudo apache2ctl graceful
+
+    sudo -u deploy deploy -r deploy/deploy.cfg int   # or prod
+
+2/ Updating data
+
+To update a project, you need to install the buildout environment, update the `MetadatenAufnahme.csv` and `translation.csv`, and 
+generate the new project file.
 
     cd /var/www/vhosts/mf-swissguesser/private
 
@@ -14,12 +32,6 @@ Swissguesser multi-projects
     buildout/bin/buildout -c <project buildout>.cfg
 
     sudo apache2ctl graceful
-
-2/ Deploy
-
-    cd /var/www/vhosts/mf-swissguesser/private/swissguesser
-
-    sudo -u deploy deploy -r deploy/deploy.cfg int   # or prod
 
 
 
@@ -38,12 +50,16 @@ if you provide a `downloadUrl`on as an argument, the images will be linked inste
 
 The original one! This GeoAdmin Story Map is an interactive game to guess historical locations from the Swiss National Archive on a Swisstopo map of Switzerland.
 
+* Images have to be copied to the `images\photos`directory
+
 ### Storymap9 (KGS)
 
 Protection of cultural property inventory
 
 * Images are linked to the dav0 server
 * Explanations text and the copyright information are scraped from map.geo.admin.ch htmlPopup and the `meta.txt` file using the `util\kgs_scraper.py`script
+* The `MetadatenAufnahme.csv` has to be generated from the `MetadatenAufnahme.csv.template` using the
+  `util\kgs_scraper.py` script
 
 
 ### Storymap10 (LUBIS)
