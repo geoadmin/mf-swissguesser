@@ -582,7 +582,7 @@ var guesser = {
 		//console.log(this.position);
 
 		element.css({
-			'background-image': "url('images/" + (self.currentIndex+1) + ".png')",
+			'background-image': "url('../images/" + (self.currentIndex+1) + ".png')",
 			'margin-top': "-31px"
 		});
 		
