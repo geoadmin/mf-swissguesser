@@ -731,78 +731,62 @@ var guesser = {
 
 	// ### Creates vector feature for a guess
 	getVector: function(label, from, to) {
-		var imageUrl = '../../images/' + label + '.png';
-                 var defaultStyle =  new ol.style.Style({
-        fill: new ol.style.Fill({
-          color: 'rgba(255, 0, 0, 0.3)'
-        }),
-        stroke: new ol.style.Stroke({
-          color: '#FF0000',
-          width:2
-        })
-      });
-        var guessStyle = new ol.style.Style({
-            image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-            src: imageUrl
-            }))
-        });
-       var realStyle = new ol.style.Style({
-            image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-            url: '../../images/G.png'
-            }))
-        });
-		/*var style = new ol.style.Style({ rules: [
-				// Lines
-				new ol.style.Rule({
-					filter: 'geometryType("LineString")',
-					symbolizers: [ new ol.style.Stroke({
-						color: '#f70',
-						width: 3,
-						opacity: 1
-					}) ]
-				}),
-				// Starting point
-				new ol.style.Rule({
-					filter: 'geometryType("Point") && which == "guess"',
-					symbolizers: [ new ol.style.Icon({
-						url: imageUrl,
-						width: 32, height: 64
-					}) ]
-				}),
-				// Ending point 
-				new ol.style.Rule({
-					filter: 'geometryType("Point") && which == "answer"',
-					symbolizers: [ new ol.style.Icon({
-						url: '../images/G.png',
-						width: 32, height: 64
-					}) ]
-				})
-			] }); */ // -- style
-		
+		var imageUrl = '../images/' + label + '.png';
+
+        var styles = {
+            'Point': {
+                'guess': [new ol.style.Style({
+                    image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                        src: '../images/G.png'
+                    }))
+                })],
+                'answer': [
+                    new ol.style.Style({
+                        image: new ol.style.Icon( /** @type {olx.style.IconOptions} */ ({
+                            src:  imageUrl
+                        }))
+                    })
+                ]
+            },
+            'LineString': {
+                'default':
+                    [new ol.style.Style({
+                        stroke: new ol.style.Stroke({
+                            color: '#f70',
+                            width: 3
+                        })
+                    })]
+                }
+        };
+
+        var styleFunction = function(feature, resolution) {
+            var style = feature.get('which') || 'default';
+
+            return  styles[feature.getGeometry().getType()][style];
+        };
+
+	
 		var features = [
 			new ol.Feature({
 				// Starting point (the guess)
-				label: label, which: 'guess',
-                  		geometry: new ol.geom.Point(from),
-                                style: guessStyle
+				label: label,
+                                which: 'guess',
+                  		geometry: new ol.geom.Point(from)
 			}),
 			new ol.Feature({
 				// Ending point (the real answer)
-				label: label, which: 'answer',
-				geometry: new ol.geom.Point(to),
-                                style: realStyle
+				label: label,
+                                which: 'answer',
+				geometry: new ol.geom.Point(to)
 			}),
 			new ol.Feature({
 				// Line from A to B
-				color: '#fff',
 				geometry: new ol.geom.LineString([from, to])
 			})
 		];
 
 		return new ol.layer.Vector({
-			style: function(feature, resolution) {
-                            return [defaultStyle];
-                         },
+                        style: styleFunction,
 			source: new ol.source.Vector({
 			 features: features
 			})
