@@ -13,16 +13,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 	<link href="http://www.swisstopo.admin.ch/internet/swisstopo.ConfigFavicon.ico" type="image/x-icon" rel="Shortcut Icon">
 
-	<title>La troisième version de l'inventaire PBC, adoptée par le Conseil Fédéral en 2009, contient approximativement 3200 objets d'importance nationale. La Section PBC de Office fédéral de la protection de la population (OFPP)   et les cantons sont responsables pour la mise à jour de l'inventaire. Découvrez les biens culturels de la Suisse et essayez de localiser les objets sur la carte.</title>
-	<meta name="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest"/>
+	<title>SwissGuesser: Inventaire des biens culturels </title>
+	<meta name="description" content="La troisième version de l'inventaire PBC, adoptée par le Conseil Fédéral en 2009, contient approximativement 3200 objets d'importance nationale. La Section PBC de Office fédéral de la protection de la population (OFPP)   et les cantons sont responsables pour la mise à jour de l'inventaire. Découvrez les biens culturels de la Suisse et essayez de localiser les objets sur la carte."/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
 	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg" /> 
-	<meta property="og:title" content="La troisième version de l&#39;inventaire PBC, adoptée par le Conseil Fédéral en 2009, contient approximativement 3200 objets d&#39;importance nationale. La &lt;a href=&#34;http://www.bevoelkerungsschutz.admin.ch/internet/bs/fr/home/themen/kgs.html&#34;&gt;Section PBC&lt;/a&gt; de &lt;a href=&#34;http://www.bevoelkerungsschutz.admin.ch/internet/bs/fr/home/das_babs.html&#34;&gt;Office fédéral de la protection de la population (OFPP) &lt;/a&gt;  et les cantons sont responsables pour la mise à jour de l&#39;inventaire. Découvrez les biens culturels de la Suisse et essayez de localiser les objets sur la carte." />
-	<meta property="og:description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta property="og:title" content="SwissGuesser: Inventaire des biens culturels " />
+	<meta property="og:description" content="La troisième version de l'inventaire PBC, adoptée par le Conseil Fédéral en 2009, contient approximativement 3200 objets d'importance nationale. La Section PBC de Office fédéral de la protection de la population (OFPP)   et les cantons sont responsables pour la mise à jour de l'inventaire. Découvrez les biens culturels de la Suisse et essayez de localiser les objets sur la carte.">
 	<!-- Google+ tags -->
-	<meta itemprop="name" content="">
-	<meta itemprop="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta itemprop="name" content="SwissGuesser: Inventaire des biens culturels ">
+	<meta itemprop="description" content="La troisième version de l'inventaire PBC, adoptée par le Conseil Fédéral en 2009, contient approximativement 3200 objets d'importance nationale. La Section PBC de Office fédéral de la protection de la population (OFPP)   et les cantons sont responsables pour la mise à jour de l'inventaire. Découvrez les biens culturels de la Suisse et essayez de localiser les objets sur la carte.">
 	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg">
 
 	<!-- Compiled page styles -->
