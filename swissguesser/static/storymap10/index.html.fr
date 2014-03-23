@@ -13,18 +13,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 	<link href="http://www.swisstopo.admin.ch/internet/swisstopo.ConfigFavicon.ico" type="image/x-icon" rel="Shortcut Icon">
 
-	<title>320`000  photographies aériennes ,  réalisées par swisstopo entre 1927 et aujourd'hui pour toute la Suisse dans le cadre de l'établissement du modèle topographique du paysage swissTLM3D, de la mise à jour de la carte nationale ainsi que de la production de la mosaïque d’orthophotos SWISSIMAGE, sont maintenant à disposition en ligne.
-Trouvez-vous le centre de la photographie aérienne historique sur la carte?</title>
-	<meta name="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest"/>
+	<title>Swiss Guesser: Photographies aériennes historiques </title>
+	<meta name="description" content="320`000  photographies aériennes ,  réalisées par swisstopo entre 1927 et aujourd'hui pour toute la Suisse dans le cadre de l'établissement du modèle topographique du paysage swissTLM3D, de la mise à jour de la carte nationale ainsi que de la production de la mosaïque d’orthophotos SWISSIMAGE, sont maintenant à disposition en ligne.
+Trouvez-vous le centre de la photographie aérienne historique sur la carte?"/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
 	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap10/images/preview.jpg" /> 
-	<meta property="og:title" content="320`000  &lt;a href=&#34; http://map.lubis.admin.ch&#34;&gt;photographies aériennes&lt;/a&gt; ,  réalisées par swisstopo entre 1927 et aujourd&#39;hui pour toute la Suisse dans le cadre de l&#39;établissement du modèle topographique du paysage swissTLM3D, de la mise à jour de la carte nationale ainsi que de la production de la mosaïque d’orthophotos SWISSIMAGE, sont maintenant à disposition en ligne.
-Trouvez-vous le centre de la photographie aérienne historique sur la carte?" />
-	<meta property="og:description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta property="og:title" content="Swiss Guesser: Photographies aériennes historiques " />
+	<meta property="og:description" content="320`000  photographies aériennes ,  réalisées par swisstopo entre 1927 et aujourd'hui pour toute la Suisse dans le cadre de l'établissement du modèle topographique du paysage swissTLM3D, de la mise à jour de la carte nationale ainsi que de la production de la mosaïque d’orthophotos SWISSIMAGE, sont maintenant à disposition en ligne.
+Trouvez-vous le centre de la photographie aérienne historique sur la carte?">
 	<!-- Google+ tags -->
-	<meta itemprop="name" content="">
-	<meta itemprop="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta itemprop="name" content="Swiss Guesser: Photographies aériennes historiques ">
+	<meta itemprop="description" content="320`000  photographies aériennes ,  réalisées par swisstopo entre 1927 et aujourd'hui pour toute la Suisse dans le cadre de l'établissement du modèle topographique du paysage swissTLM3D, de la mise à jour de la carte nationale ainsi que de la production de la mosaïque d’orthophotos SWISSIMAGE, sont maintenant à disposition en ligne.
+Trouvez-vous le centre de la photographie aérienne historique sur la carte?">
 	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap10/images/preview.jpg">
 
 	<!-- Compiled page styles -->
