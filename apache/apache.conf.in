@@ -8,24 +8,20 @@ AddOutputFilterByType DEFLATE text/css
 AddOutputFilterByType DEFLATE application/x-javascript application/javascript application/json
 AddOutputFilterByType DEFLATE text/html text/plain text/xml
 
-Alias /${vars:apache_base_path}  ${buildout:directory}/swissguesser/static
+Alias /${vars:apache_base_path}/storymaps  ${buildout:directory}/swissguesser/static
 
-RewriteRule ^${apache_entry_path}$ /${vars:apache_base_path}/ [PT]
-
-<FilesMatch .*>
-   Options MultiViews
-   AddLanguage de     .de
-   AddLanguage fr     .fr
-   AddLanguage it     .it    
-   AddLanguage en     .en
-</FilesMatch>
-
-LanguagePriority de fr it en
-ForceLanguagePriority Fallback
+RewriteCond %{QUERY_STRING} lang=(it|de|en|fr)
+RewriteRule ^/${vars:apache_base_path}/storymaps/(storymap\d+)/?$  /${vars:apache_base_path}/storymaps/$1/index.html.%1  [E=LANG:%1,P,S=1]
+RewriteRule ^/${vars:apache_base_path}/(storymap\d+)/?$  /${vars:apache_base_path}/$1/index.html.de  [E=LANG:de,P,L]
 
 
+#RewriteRule ^${vars:apache_entry_path}$ /${vars:apache_base_path}/ [PT]
 
 
-
-
+<Location ${vars:apache_entry_path}>
+    Options Indexes FollowSymLinks +MultiViews
+    DirectoryIndex index index.html index.html.de index.html.fr index.html.en index.html.it
+    Order Allow,Deny
+    Allow from all
+</Location>
 
