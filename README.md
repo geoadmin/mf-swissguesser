@@ -61,6 +61,16 @@ http://storymaps.geo.admin.ch/storymaps/storymap5
 * The `MetadatenAufnahme` is derived from this `doc <https://docs.google.com/spreadsheet/ccc?key=0Alq30s3mf7gPdDZPbWlVaFA0SmVoaWFCZ3hTbGtyaWc&usp=drive_web#gid=0>`__
 * Images have to be copied to the `images\photos` directory
 
+### Storymap8 (BAK)
+
+Switzerland is the cable car country par excellence.
+
+http://storymaps.geo.admin.ch/storymaps/storymap8
+
+* Use plain `MetadatenAufnahme` and `translation.csv`
+* Images have to be copied to the `images\photos` directory (original source ?)
+
+
 ### Storymap9 (KGS)
 
 Protection of cultural property inventory
