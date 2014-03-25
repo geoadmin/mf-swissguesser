@@ -30,16 +30,16 @@ def strip_tags(html):
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 	<link href="http://www.swisstopo.admin.ch/internet/swisstopo.ConfigFavicon.ico" type="image/x-icon" rel="Shortcut Icon">
 
-	<title>${Start_Text|strip_tags}</title>
-	<meta name="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest"/>
+	<title>${Start_Title|strip_tags}</title>
+	<meta name="description" content="${Start_Text|strip_tags}"/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
 	<meta property="og:image" content="${Preview_Url}" /> 
-	<meta property="og:title" content="${Start_Text|h}" />
-	<meta property="og:description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta property="og:title" content="${Start_Title}" />
+	<meta property="og:description" content="${Start_Text|strip_tags}">
 	<!-- Google+ tags -->
-	<meta itemprop="name" content="">
-	<meta itemprop="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta itemprop="name" content="${Start_Title}">
+	<meta itemprop="description" content="${Start_Text|strip_tags}">
 	<meta itemprop="image" content="${Preview_Url}">
 
 	<!-- Compiled page styles -->

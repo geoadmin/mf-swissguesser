@@ -13,16 +13,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 	<link href="http://www.swisstopo.admin.ch/internet/swisstopo.ConfigFavicon.ico" type="image/x-icon" rel="Shortcut Icon">
 
-	<title>320`000 immagini aeree, realizzate da swisstopo su tutta la Svizzera a partire dal 1927 per l'aggiornamento della carta nazionale ed inseguito nell'ambito della definizione del modello topografico del paesaggio swissTLM3D e della produzione delle ortofoto SWISSIMAGE, sono attualmente disponibili online. Riesce ad individuare il centro dell'immagine storica sulla mappa? </title>
-	<meta name="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest"/>
+	<title>Swiss Guesser: Immagini aeree storiche</title>
+	<meta name="description" content="320`000 immagini aeree, realizzate da swisstopo su tutta la Svizzera a partire dal 1927 per l'aggiornamento della carta nazionale ed inseguito nell'ambito della definizione del modello topografico del paesaggio swissTLM3D e della produzione delle ortofoto SWISSIMAGE, sono attualmente disponibili online. Riesce ad individuare il centro dell'immagine storica sulla mappa? "/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
 	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap10/images/preview.jpg" /> 
-	<meta property="og:title" content="320`000 &lt;a href=&#34; http://map.lubis.admin.ch&#34;&gt;immagini aeree&lt;/a&gt;, realizzate da swisstopo su tutta la Svizzera a partire dal 1927 per l&#39;aggiornamento della carta nazionale ed inseguito nell&#39;ambito della definizione del modello topografico del paesaggio swissTLM3D e della produzione delle ortofoto SWISSIMAGE, sono attualmente disponibili online. Riesce ad individuare il centro dell&#39;immagine storica sulla mappa? " />
-	<meta property="og:description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta property="og:title" content="Swiss Guesser: Immagini aeree storiche" />
+	<meta property="og:description" content="320`000 immagini aeree, realizzate da swisstopo su tutta la Svizzera a partire dal 1927 per l'aggiornamento della carta nazionale ed inseguito nell'ambito della definizione del modello topografico del paesaggio swissTLM3D e della produzione delle ortofoto SWISSIMAGE, sono attualmente disponibili online. Riesce ad individuare il centro dell'immagine storica sulla mappa? ">
 	<!-- Google+ tags -->
-	<meta itemprop="name" content="">
-	<meta itemprop="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta itemprop="name" content="Swiss Guesser: Immagini aeree storiche">
+	<meta itemprop="description" content="320`000 immagini aeree, realizzate da swisstopo su tutta la Svizzera a partire dal 1927 per l'aggiornamento della carta nazionale ed inseguito nell'ambito della definizione del modello topografico del paesaggio swissTLM3D e della produzione delle ortofoto SWISSIMAGE, sono attualmente disponibili online. Riesce ad individuare il centro dell'immagine storica sulla mappa? ">
 	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap10/images/preview.jpg">
 
 	<!-- Compiled page styles -->

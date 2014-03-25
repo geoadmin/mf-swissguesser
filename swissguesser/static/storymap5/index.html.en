@@ -13,18 +13,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 	<link href="http://www.swisstopo.admin.ch/internet/swisstopo.ConfigFavicon.ico" type="image/x-icon" rel="Shortcut Icon">
 
-	<title>The photo collection of WW I is one of the largest of the Swiss Federal Archives. It contains more than 5125 negatives on glass plates which are successively digitized. They document the active service of the Swiss Army during the first World War
-Can you guess where the pictures were taken?</title>
-	<meta name="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest"/>
+	<title>SwissGuesser: photo collection from
+World War I</title>
+	<meta name="description" content="The photo collection of WW I is one of the largest of the Swiss Federal Archives. It contains more than 5125 negatives on glass plates which are successively digitized. They document the active service of the Swiss Army during the first World War
+Can you guess where the pictures were taken?"/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
 	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap5/images/preview.jpg" /> 
-	<meta property="og:title" content="The photo collection of WW I is one of the largest of the &lt;a href=&#34;http://www.bar.admin.ch&#34;&gt;Swiss Federal Archives&lt;/a&gt;. It contains more than 5125 negatives on glass plates which are successively digitized. They document the active service of the Swiss Army &lt;a href=&#34;https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228&#34;&gt;during the first World War&lt;/a&gt;
-Can you guess where the pictures were taken?" />
-	<meta property="og:description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta property="og:title" content="SwissGuesser: photo collection from
+World War I" />
+	<meta property="og:description" content="The photo collection of WW I is one of the largest of the Swiss Federal Archives. It contains more than 5125 negatives on glass plates which are successively digitized. They document the active service of the Swiss Army during the first World War
+Can you guess where the pictures were taken?">
 	<!-- Google+ tags -->
-	<meta itemprop="name" content="">
-	<meta itemprop="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta itemprop="name" content="SwissGuesser: photo collection from
+World War I">
+	<meta itemprop="description" content="The photo collection of WW I is one of the largest of the Swiss Federal Archives. It contains more than 5125 negatives on glass plates which are successively digitized. They document the active service of the Swiss Army during the first World War
+Can you guess where the pictures were taken?">
 	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap5/images/preview.jpg">
 
 	<!-- Compiled page styles -->

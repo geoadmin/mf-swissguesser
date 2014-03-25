@@ -13,24 +13,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 	<link href="http://www.swisstopo.admin.ch/internet/swisstopo.ConfigFavicon.ico" type="image/x-icon" rel="Shortcut Icon">
 
-	<title>Eine der grössten Fotosammlung des Schweizerischen Bundesarchivs ist die
+	<title>SwissGuesser: Fotosammlung
+Erster Weltkrieg</title>
+	<meta name="description" content="Eine der grössten Fotosammlung des Schweizerischen Bundesarchivs ist die
 Fotosammlung Erster Weltkrieg, die 5'125 digitalisierte Glasplattennegative zum
 Aktivdienst der Schweizer Armee während des Ersten Weltkriegs umfasst. 
 
-Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?</title>
-	<meta name="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest"/>
+Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?"/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
 	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap5/images/preview.jpg" /> 
-	<meta property="og:title" content="Eine der grössten Fotosammlung des &lt;a href=&#34;http://www.bar.admin.ch&#34;&gt;Schweizerischen Bundesarchivs&lt;/a&gt; ist die
-Fotosammlung Erster Weltkrieg, die 5&#39;125 digitalisierte Glasplattennegative zum
-Aktivdienst der Schweizer Armee &lt;a href=&#34;https://www.swiss-archives.ch/archivplansuche.aspx?ID=1439228&#34;&gt;während des Ersten Weltkriegs umfasst&lt;/a&gt;. 
+	<meta property="og:title" content="SwissGuesser: Fotosammlung
+Erster Weltkrieg" />
+	<meta property="og:description" content="Eine der grössten Fotosammlung des Schweizerischen Bundesarchivs ist die
+Fotosammlung Erster Weltkrieg, die 5'125 digitalisierte Glasplattennegative zum
+Aktivdienst der Schweizer Armee während des Ersten Weltkriegs umfasst. 
 
-Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?" />
-	<meta property="og:description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?">
 	<!-- Google+ tags -->
-	<meta itemprop="name" content="">
-	<meta itemprop="description" content="StoryMaps: Data Stories is a showcase of web maps on interesting themes, with information, learning, entertainment and inspiring stories linked to the use of geodata at the center of interest">
+	<meta itemprop="name" content="SwissGuesser: Fotosammlung
+Erster Weltkrieg">
+	<meta itemprop="description" content="Eine der grössten Fotosammlung des Schweizerischen Bundesarchivs ist die
+Fotosammlung Erster Weltkrieg, die 5'125 digitalisierte Glasplattennegative zum
+Aktivdienst der Schweizer Armee während des Ersten Weltkriegs umfasst. 
+
+Erkennen Sie die Orte, an denen die Soldaten damals ihre Übungen und Manöver abhielten?">
 	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap5/images/preview.jpg">
 
 	<!-- Compiled page styles -->
