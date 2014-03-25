@@ -65,8 +65,9 @@ def extract_table(content, rows=None):
     # moving the link to a new column
     trs = table.tr.find_next_siblings("tr")
 
-    more = trs[2].td.find_next_sibling("td")
-    link = trs[3].td.find_next_sibling("td")
+    import copy
+    more = copy.deepcopy(trs[2].td.find_next_sibling("td"))
+    link = copy.deepcopy(trs[3].td.find_next_sibling("td"))
 
     trs[2].td.extract()
     trs[3].td.extract()
@@ -76,6 +77,8 @@ def extract_table(content, rows=None):
 
     trs[0].append(more)
     trs[1].append(link)
+
+
     # copyright info, if any
     if rows:
         new_td = soup.new_tag("td",colspan=2)
@@ -86,13 +89,18 @@ def extract_table(content, rows=None):
 
     s = unicode(table)
 
+
     return u''.join('&%s;' % entities[ord(c)] if ord(c) in entities else c for c in s)
 
 
 if __name__ == '__main__':
 
+    if len(sys.argv) <>  2:
+        print "Usage: kgs_scrapper.py <MetadatenAufnahme template>\nkgs_scrapper.py swissguesser/static/storymap9/data/MetadatenAufnahmen.csv.template"
+        sys.exit(2)
+
     f = open(sys.argv[1], 'r')  
-    test_file = open('test2.csv', 'w')
+    test_file = open('swissguesser/static/storymap9/data/MetadatenAufnahmen.csv', 'w')
 
     copyrights = get_copyrights()
 
