@@ -1,100 +1,73 @@
 SwissGuesser
 ============
 
-This GeoAdmin Story Map is an interactive game to guess historical locations from the [Swiss National Archive](http://www.bar.admin.ch/) on a [Swisstopo](http://swisstopo.admin.ch) map of Switzerland. 
+Swissguesser multi-projects
 
-Play the game here:
-http://storymaps.geo.admin.ch/storymaps/storymap5
+1/ Install and deploy
 
-# Installation
+If you do not update the data, you may simply clone the project from the repository, copy the images file (see _subproject specifi_ below) 
+and deploy it:
 
-The project uses a custom build of OpenLayers 3 for the GeoAdmin map, jQuery 2 and the Twitter Bootstrap 3 framework, with a collection of tools powered by Node.js.
+    cd /var/www/vhosts/mf-swissguesser/private
 
-## a) Install Node.js and tools
+    git clone git@github.com:geoadmin/mf-swissguesser.git swissguesser
 
-1. Install Node.js http://nodejs.org/download/
-2. Install dependencies from the Node Package Manager with this command at the project root:
+    cd swissguesser
 
-`storymap5$ npm install`
+    sudo apache2ctl graceful
 
-This will install Grunt and Bower automatically. However, it is recommended that they are installed globally:
+    sudo -u deploy deploy -r deploy/deploy.cfg int   # or prod
 
-`storymap5# npm install -g grunt-cli bower`
+2/ Updating data
 
-Run this command as root to use system-wide, or use the [nave.sh](https://github.com/isaacs/nave) utility for your local user.
+To update a project, you need to install the buildout environment, update the `MetadatenAufnahme.csv` and `translation.csv`, and 
+generate the new project file.
 
-## b) Install dependencies
+    cd /var/www/vhosts/mf-swissguesser/private
 
-`storymap5# bower install`
+    git clone git@github.com:geoadmin/mf-swissguesser.git swissguesser
 
-or
+    python bootstrap.py --version 1.5.2 --distribute --download-base http://pypi.camptocamp.net/distribute-0.6.22_fix-issue-227/ --setup-source http://pypi.camptocamp.net/distribute-0.6.22_fix-issue-227/distribute_setup.py
 
-`storymap5# node_modules/.bin/bower install`
+    buildout/bin/buildout -c <project buildout>.cfg
 
-For generating documentation, the [Pygments](http://pygments.org/) utility is required, which can be installed as indicated [on the website](http://pygments.org/download/) or on Ubuntu/Debian systems as follows:
+    sudo apache2ctl graceful
 
-`# sudo apt-get install python-pygments`
 
-## c) Install OpenLayers 3
 
-A custom GeoAdmin build of the OpenLayers framework needs to be placed in the `app/src` directory, so that `app/src/build/ga.js` is available at runtime. We are using the [ga fork](https://github.com/geoadmin/ol3/):
+## Subproject specific
 
-1. Check out [geoadmin/ol3](https://github.com/geoadmin/ol3/), then build it using: 
-`$ python build-ga.py build`
-2. Copy the `build` folder to `storymap5/app/src`.
+Each subproject has two main .csv configurations files:
+* `MetadatenAufnahme.csv` and
+* `translation.csv`
 
-## d) Preparing images
+These two files are used to generate various json files, respectively with `buildout install convert-csv`and `buildout install translate-csv`.
 
-Photo JPEGs are copied manually to the `/app/data/photos/` folder and not included in the source code repository. Their filenames will correspond to the images defined in `base.json`, e.g. `14093_0799_A1.jpg`. 
+In `MetadatenAufnahme.csv`, the `Legend` columns may contain plain text, html entities or link to an external file. Using the `convert-csv`buildout part,
+if you provide a `downloadUrl`on as an argument, the images will be linked instead of beeing downloaded.
 
-Please see [app/data/photos/README.md](app/data/photos/README.md) for a file listing and information on how to obtain the original photos, which are available under a Creative Commons license.
+### Storymap5 (BAR)
 
-## e) Preparing data
+The original one! This GeoAdmin Story Map is an interactive game to guess historical locations from the Swiss National Archive on a Swisstopo map of Switzerland.
 
-The metadata for this project is provided in the form of a spreadsheet. Export this file to CSV then use the converter tool:
+* Images have to be copied to the `images\photos`directory
 
-`storymap5$ node util/convertCSV.js`
+### Storymap9 (KGS)
 
-The converter will tell you about any missing images.
+Protection of cultural property inventory
 
-## f) Preparing translations
+* Images are linked to the dav0 server
+* Explanations text and the copyright information are scraped from map.geo.admin.ch htmlPopup and the `meta.txt` file using the `util\kgs_scraper.py`script
+* The `MetadatenAufnahme.csv` has to be generated from the `MetadatenAufnahme.csv.template` using the
+  `util\kgs_scraper.py` script
 
-With a similar process, translations for this app are in a spreadsheet. Export to CSV and save the resulting file under `/app/data/i18n/translation.csv'. Then run:
 
-`storymap5$ node util/translationCSV.js`
+### Storymap10 (LUBIS)
 
-## g) Compile resources
+Historic aerial view
 
-To a local server watching for changes, and open a browser:
+* Images have to be copied to `static\storymap10\data\photos`
+* Explanations are linked to _map.geo.admin.ch_ popup
+* The `MetadatenAufnahme.csv` has to be generated from the `MetadatenAufnahme.csv.template` using the
+  `util\lubis_scraper.py` script
 
-`storymap5$ grunt server`
-
-To create a `docs/` folder with HTML documentation, run:
-
-`storymap5$ grunt docs`
-
-See Grunt documentation and `Gruntfile.js` for other commands.
-
-## h) Deploying releases
-
-First you need to build the Bootstrap framework. From the `app/bower_components/bootstrap/` folder run:
-
-`bootstrap$ npm install`
-
-`bootstrap$ grunt dist`
-
-Now you can build this project's distribution folder.
-
-`storymap5$ grunt build`
-
-Finally, zip up the `dist` folder and deploy it to the target host.
-
-# Further documentation
-
-See [guesser](app/scripts/guesser.html) and [wms-custom-proj](app/scripts/wms-custom-proj.html) for a detailed code walkthrough.
-
-For debugging the application, you can add `&debug=true` to the URL, which will include all images in the game instead of a random batch. The additional parameter `&ix=5` would then jump to the 5th image in the sequence.
-
-# Licensing
-
-Please see `LICENSE` in the web-storymaps project top folder.

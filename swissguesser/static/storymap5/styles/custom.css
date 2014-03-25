@@ -1,0 +1,5 @@
+.d-photo {
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: contain;; /* fit to available space, will only work with css3 */
+}
