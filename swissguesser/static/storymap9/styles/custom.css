@@ -11,7 +11,7 @@
     .d-photo {
     background-repeat:no-repeat;
     background-position: center center;
-    background-size: 600px auto;
+    background-size: 350px auto;
    }
 }
 
@@ -22,4 +22,8 @@
     height: 100px;
     text-align: right;
     background: url(../images/header_amt.jpg) no-repeat top right !important;
+}
+
+div.d-photo a {
+    display: none;
 }
