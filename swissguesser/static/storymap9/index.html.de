@@ -17,13 +17,13 @@
 	<meta name="description" content="Das 2009 vom Bundesrat in 3. Fassung verabschiedete KGS Inventar enthält rund 3200 Objekte von nationaler Bedeutung. Der Fachbereich KGS im Bundesamt für Bevölkerungsschutz (BABS) ist zusammen mit den Kantonen für die Nachführung verantwortlich. Lernen Sie die Kulturgüter der Schweiz kennen, und versuchen Sie, die Objekte in der Karte zu lokalisieren. "/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
-	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg" /> 
+	<meta property="og:image" content="images/preview.jpg" /> 
 	<meta property="og:title" content="SwissGuesser: Kulturgüterschutzinventar " />
 	<meta property="og:description" content="Das 2009 vom Bundesrat in 3. Fassung verabschiedete KGS Inventar enthält rund 3200 Objekte von nationaler Bedeutung. Der Fachbereich KGS im Bundesamt für Bevölkerungsschutz (BABS) ist zusammen mit den Kantonen für die Nachführung verantwortlich. Lernen Sie die Kulturgüter der Schweiz kennen, und versuchen Sie, die Objekte in der Karte zu lokalisieren. ">
 	<!-- Google+ tags -->
 	<meta itemprop="name" content="SwissGuesser: Kulturgüterschutzinventar ">
 	<meta itemprop="description" content="Das 2009 vom Bundesrat in 3. Fassung verabschiedete KGS Inventar enthält rund 3200 Objekte von nationaler Bedeutung. Der Fachbereich KGS im Bundesamt für Bevölkerungsschutz (BABS) ist zusammen mit den Kantonen für die Nachführung verantwortlich. Lernen Sie die Kulturgüter der Schweiz kennen, und versuchen Sie, die Objekte in der Karte zu lokalisieren. ">
-	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg">
+	<meta itemprop="image" content="images/preview.jpg">
 
 	<!-- Compiled page styles -->
 	<link rel="stylesheet" href="../styles/main.css">
