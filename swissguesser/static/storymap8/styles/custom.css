@@ -1,0 +1,8 @@
+
+#header #webHeaderLinks {
+    float: right;
+    width: 600px;
+    height: 100px;
+    text-align: right;
+    background: url(../images/header_amt.jpg) no-repeat top right !important;
+}
