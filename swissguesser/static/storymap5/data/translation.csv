@@ -15,6 +15,8 @@ Game-Start,Start,Start,Start,Start
 Head-BAR,Schweizerisches Bundesarchiv,Archives fédérales suisses,Archivio federale svizzero,Swiss Federal Archives
 Head-CH,Bundesverwaltung admin.ch,Administration fédérale admin.ch,Amministrazione federale admin.ch,Federal Administration admin.ch
 Head-EDI,Eidg. Departement des Innern,Département fédéral de l'intérieur,Dipartimento federale dell'interno,Federal Department of Home Affairs
+Link-BAR,http://www.bar.admin.ch/?lang=de,http://www.bar.admin.ch/?lang=fr,http://www.bar.admin.ch/?lang=it,http://www.bar.admin.ch/?lang=en
+Link-EDI,http://www.edi.admin.ch/index.html?lang=de,http://www.edi.admin.ch/index.html?lang=fr,http://www.edi.admin.ch/index.html?lang=it,http://www.edi.admin.ch/index.html?lang=en
 Photo-Copyright,Schweizerisches Bundesarchiv,Archives fédérales suisses,Archivio federale svizzero,Swiss Federal Archives
 Photo-Counter,Foto,Photo,Foto,Photo
 Photo-Restart,Neustart,Nouvelle partie,Nuova partita,Restart game
