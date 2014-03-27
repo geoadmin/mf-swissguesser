@@ -344,15 +344,17 @@ var guesser = {
 
 		// Load game history
 		var queryhist = this.query['history'];
-		if (queryhist) {
+		if (queryhist && queryhist.length == (this.user.count * this.user.collection_size)) {
 			// Shared game collection
-			var gamecoll = this.collection,
-				g = queryhist.split('');
+			var gamecoll = this.collection;
+                        var g = hash.match(/.{this.user.count}/g);
+                        
+			//g = queryhist.split('');
 			if (g.length < gamecoll.length) {
 				queryhist = '';
 				g.forEach(function(h) {
 					queryhist += h;
-					var ix = h.charCodeAt(0) - 97;
+					var ix = parseInt(h); // h.charCodeAt(0) - 97;
 					// Prevent this image from being shown again
 					if (ix != null && typeof gamecoll[ix] != 'undefined') {
 						gamecoll[ix].shown = true;
@@ -370,7 +372,7 @@ var guesser = {
 		if (this.query['game']) {
 			// Shared game collection
 			var shared = this.query['game'];//.split('');
-			if (share.length == this.user.count) { // old style hash
+			if (shared.length == this.user.count) { // old style hash
                             var g = s.split('');
                             if (g.length == this.user.count) {
 				for(var i = 0; i < this.user.count; i++) {
@@ -378,8 +380,8 @@ var guesser = {
 					this.user.collection.push(this.getImage(ix));
 				}
                             }
-			} else if (share.length == (this.user.count * this.user.collection_size)) {
-                            var g = hash.match(/.{this.user.count}/g);
+			} else if (shared.length == (this.user.count * this.user.collection_size)) {
+                            var g = shared.match(/.{5}/g);
                             if (g.length == this.user.count) {
                                 for(var i = 0; i < this.user.count; i++) {
                                         var ix = parseInt(g[i]);
@@ -443,22 +445,21 @@ var guesser = {
 		setTimeout(function() { self.fadeLayers(1); }, 4000);
 
 		// Get game location
-        var href = window.location.href;
+        var href = window.location.origin + window.location.pathname;
         var url = href.replace(/\/?(\?|#|$)/, '/$1'); // trailing slash
-        console.log(url)
-		
+ 		
         // Generate a hash of the current game
 	var hash = "";
   
 	for (var i = 0; i < self.user.count; i++) {
                 if (self.user.collection[i])
-                    console.log(self.user.collection[i]);
                     hash += self.zeroPad(self.user.collection[i].ix, self.user.collection_size)
                 }
 
 		// Create permalink and new game link
-		var permalink = url + "?game=" + hash,
-			histolink = url + "?history=" + hash + self.user.history;
+		
+		var permalink = url + "?" + $.param({game: hash}),
+			histolink = url + "?" +   $.param({history: hash + self.user.history}) ;
 
 		// For local devs
 		if (document.location.hostname == 'localhost')
