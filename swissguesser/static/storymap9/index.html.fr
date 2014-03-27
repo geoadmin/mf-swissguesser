@@ -17,13 +17,13 @@
 	<meta name="description" content="La troisième version de l'inventaire PBC, adoptée par le Conseil Fédéral en 2009, contient approximativement 3200 objets d'importance nationale. La Section PBC de Office fédéral de la protection de la population (OFPP)   et les cantons sont responsables pour la mise à jour de l'inventaire. Découvrez les biens culturels de la Suisse et essayez de localiser les objets sur la carte."/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
-	<meta property="og:image" content="images/preview.jpg" /> 
+	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg" /> 
 	<meta property="og:title" content="SwissGuesser: Inventaire des biens culturels " />
 	<meta property="og:description" content="La troisième version de l'inventaire PBC, adoptée par le Conseil Fédéral en 2009, contient approximativement 3200 objets d'importance nationale. La Section PBC de Office fédéral de la protection de la population (OFPP)   et les cantons sont responsables pour la mise à jour de l'inventaire. Découvrez les biens culturels de la Suisse et essayez de localiser les objets sur la carte.">
 	<!-- Google+ tags -->
 	<meta itemprop="name" content="SwissGuesser: Inventaire des biens culturels ">
 	<meta itemprop="description" content="La troisième version de l'inventaire PBC, adoptée par le Conseil Fédéral en 2009, contient approximativement 3200 objets d'importance nationale. La Section PBC de Office fédéral de la protection de la population (OFPP)   et les cantons sont responsables pour la mise à jour de l'inventaire. Découvrez les biens culturels de la Suisse et essayez de localiser les objets sur la carte.">
-	<meta itemprop="image" content="images/preview.jpg">
+	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg">
 
 	<!-- Compiled page styles -->
 	<link rel="stylesheet" href="../styles/main.css">
@@ -52,8 +52,8 @@
 			<!--UdmComment-->
 			<div id="webHeaderLinks">
 			<div id="adminch"><a href="http://www.admin.ch/" data-i18n="Head-CH">Bundesverwaltung admin.ch</a></div>
-			<div id="depart"><a href="http://www.edi.admin.ch/" data-i18n="Head-EDI">Eidg. Departement des Innern</a></div>
-			<a href="http://www.bar.admin.ch/" data-i18n="Head-BAR">Schweizerisches Bundesarchiv</a>
+			<div id="depart"><a href="http://www.vbs.admin.ch/internet/vbs/fr/home.html" data-i18n="Head-EDI">Eidg. Departement des Innern</a></div>
+			<a href="http://www.bevoelkerungsschutz.admin.ch/internet/bs/fr/home.html" data-i18n="Head-BAR">Schweizerisches Bundesarchiv</a>
 			</div>
 			<!--/UdmComment-->
 		</div>
