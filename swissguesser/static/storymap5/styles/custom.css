@@ -3,3 +3,13 @@
     background-position: center center;
     background-size: contain;; /* fit to available space, will only work with css3 */
 }
+
+#header #webHeaderLinks {
+    float: right;
+    width: 600px;
+    height: 100px;
+    text-align: right;
+    background: url(../images/BAR_header_amt.jpg) no-repeat top right;
+}
+
+
