@@ -392,7 +392,7 @@ var guesser = {
 			} else {
 				// Restart the game
 				window.alert('Invalid game code');
-				window.location.href = window.location.origin + window.location.pathname;
+				window.location.href = window.location.protocol + '//' + window.location.hostname + window.location.pathname
 				return;
 			}
 		} else if (this.query['debug']) {
@@ -445,7 +445,7 @@ var guesser = {
 		setTimeout(function() { self.fadeLayers(1); }, 4000);
 
 		// Get game location
-        var href = window.location.origin + window.location.pathname;
+        var href = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
         var url = href.replace(/\/?(\?|#|$)/, '/$1'); // trailing slash
  		
         // Generate a hash of the current game
