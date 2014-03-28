@@ -40,7 +40,7 @@ if __name__ == '__main__':
             data[key.replace('-','_')] = data.pop(key)
 
         data['lang'] = lang
-        data['Preview_Url'] = u"images/preview.jpg" # relative url should work
+        data['Preview_Url'] = u"http://storymaps.geo.admin.ch/storymaps/%s/images/preview.jpg" % project
         data['App_Url'] = u"http://storymaps.geo.admin.ch/storymaps/%s" % project
         buf = StringIO()
         ctx = Context(buf,**data)

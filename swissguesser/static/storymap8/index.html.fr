@@ -18,7 +18,7 @@ Inventaire suisse des installations à câbles</title>
 	<meta name="description" content="La Suisse est le pays du funiculaire par excellence. L'Office fédéral de la culture OFC, en tant qu'organisme spécialisé, recense la valeur du patrimoine culturel des remontées mécaniques en Suisse  dans l'inventaire suisse des installations à câbles. Reconnaissez-vous les funiculaires et pouvez-vous localiser les stations de départ ?"/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
-	<meta property="og:image" content="images/preview.jpg" /> 
+	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap8/images/preview.jpg" /> 
 	<meta property="og:title" content="SwissGuesser: 
 Inventaire suisse des installations à câbles" />
 	<meta property="og:description" content="La Suisse est le pays du funiculaire par excellence. L'Office fédéral de la culture OFC, en tant qu'organisme spécialisé, recense la valeur du patrimoine culturel des remontées mécaniques en Suisse  dans l'inventaire suisse des installations à câbles. Reconnaissez-vous les funiculaires et pouvez-vous localiser les stations de départ ?">
@@ -26,7 +26,7 @@ Inventaire suisse des installations à câbles" />
 	<meta itemprop="name" content="SwissGuesser: 
 Inventaire suisse des installations à câbles">
 	<meta itemprop="description" content="La Suisse est le pays du funiculaire par excellence. L'Office fédéral de la culture OFC, en tant qu'organisme spécialisé, recense la valeur du patrimoine culturel des remontées mécaniques en Suisse  dans l'inventaire suisse des installations à câbles. Reconnaissez-vous les funiculaires et pouvez-vous localiser les stations de départ ?">
-	<meta itemprop="image" content="images/preview.jpg">
+	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap8/images/preview.jpg">
 
 	<!-- Compiled page styles -->
 	<link rel="stylesheet" href="../styles/main.css">
@@ -55,8 +55,8 @@ Inventaire suisse des installations à câbles">
 			<!--UdmComment-->
 			<div id="webHeaderLinks">
 			<div id="adminch"><a href="http://www.admin.ch/" data-i18n="Head-CH">Bundesverwaltung admin.ch</a></div>
-			<div id="depart"><a href="http://www.edi.admin.ch/" data-i18n="Head-EDI">Eidg. Departement des Innern</a></div>
-			<a href="http://www.bar.admin.ch/" data-i18n="Head-BAR">Schweizerisches Bundesarchiv</a>
+			<div id="depart"><a href="http://www.edi.admin.ch/index.html?lang=fr" data-i18n="Head-EDI">Eidg. Departement des Innern</a></div>
+			<a href="http://www.bak.admin.ch/?lang=fr" data-i18n="Head-BAR">Schweizerisches Bundesarchiv</a>
 			</div>
 			<!--/UdmComment-->
 		</div>

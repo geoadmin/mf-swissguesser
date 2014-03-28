@@ -17,13 +17,13 @@
 	<meta name="description" content="Switzerland is the cable car country par excellence. The Federal Office of Culture as a specialized body records the historic preservation values of the cable cars in Switzerland  Swiss cable car inventory . Do you recognize the cable cars and can you position them on the map?"/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
-	<meta property="og:image" content="images/preview.jpg" /> 
+	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap8/images/preview.jpg" /> 
 	<meta property="og:title" content="SwissGuesser: Swiss cable car inventory" />
 	<meta property="og:description" content="Switzerland is the cable car country par excellence. The Federal Office of Culture as a specialized body records the historic preservation values of the cable cars in Switzerland  Swiss cable car inventory . Do you recognize the cable cars and can you position them on the map?">
 	<!-- Google+ tags -->
 	<meta itemprop="name" content="SwissGuesser: Swiss cable car inventory">
 	<meta itemprop="description" content="Switzerland is the cable car country par excellence. The Federal Office of Culture as a specialized body records the historic preservation values of the cable cars in Switzerland  Swiss cable car inventory . Do you recognize the cable cars and can you position them on the map?">
-	<meta itemprop="image" content="images/preview.jpg">
+	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap8/images/preview.jpg">
 
 	<!-- Compiled page styles -->
 	<link rel="stylesheet" href="../styles/main.css">
@@ -52,8 +52,8 @@
 			<!--UdmComment-->
 			<div id="webHeaderLinks">
 			<div id="adminch"><a href="http://www.admin.ch/" data-i18n="Head-CH">Bundesverwaltung admin.ch</a></div>
-			<div id="depart"><a href="http://www.edi.admin.ch/" data-i18n="Head-EDI">Eidg. Departement des Innern</a></div>
-			<a href="http://www.bar.admin.ch/" data-i18n="Head-BAR">Schweizerisches Bundesarchiv</a>
+			<div id="depart"><a href="http://www.edi.admin.ch/index.html?lang=en" data-i18n="Head-EDI">Eidg. Departement des Innern</a></div>
+			<a href="http://www.bak.admin.ch/?lang=en" data-i18n="Head-BAR">Schweizerisches Bundesarchiv</a>
 			</div>
 			<!--/UdmComment-->
 		</div>

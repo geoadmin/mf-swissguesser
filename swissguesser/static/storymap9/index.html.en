@@ -17,13 +17,18 @@
 	<meta name="description" content="The third version of PCP inventory was approved by the federal counsil in 2009 and contains 3200 objects of national importance. The PCP Section in the Federal Office for Civil Protection (FOCP)  together with the cantons are responsible for  the update. Discover the objects of cultural value and try to localize them on the map. "/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
-	<meta property="og:image" content="images/preview.jpg" /> 
+	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg" /> 
 	<meta property="og:title" content="SwissGuesser Inventory of Cultural Assets" />
 	<meta property="og:description" content="The third version of PCP inventory was approved by the federal counsil in 2009 and contains 3200 objects of national importance. The PCP Section in the Federal Office for Civil Protection (FOCP)  together with the cantons are responsible for  the update. Discover the objects of cultural value and try to localize them on the map. ">
 	<!-- Google+ tags -->
 	<meta itemprop="name" content="SwissGuesser Inventory of Cultural Assets">
+<<<<<<< HEAD
 	<meta itemprop="description" content="The third version of PCP inventory was approved by the federal counsil in 2009 and contains 3200 objects of national importance. The PCP Section in the Federal Office for Civil Protection (FOCP)  together with the cantons are responsible for  the update. Discover the objects of cultural value and try to localize them on the map. ">
 	<meta itemprop="image" content="images/preview.jpg">
+=======
+	<meta itemprop="description" content="Das 2009 vom Bundesrat in 3. Fassung verabschiedete KGS Inventar enthält rund 3200 Objekte von nationaler Bedeutung. The third version of PCP inventory was approved by the federal counsil in 2009 and contains 3200 objects of national importance. The PCP Section in the Federal Office for Civil Protection (FOCP)  together with the cantons are responsible for  the update. Discover the objects of cultural value and try to localize them on the map. ">
+	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg">
+>>>>>>> also updating link for KGS
 
 	<!-- Compiled page styles -->
 	<link rel="stylesheet" href="../styles/main.css">
@@ -52,8 +57,8 @@
 			<!--UdmComment-->
 			<div id="webHeaderLinks">
 			<div id="adminch"><a href="http://www.admin.ch/" data-i18n="Head-CH">Bundesverwaltung admin.ch</a></div>
-			<div id="depart"><a href="http://www.edi.admin.ch/" data-i18n="Head-EDI">Eidg. Departement des Innern</a></div>
-			<a href="http://www.bar.admin.ch/" data-i18n="Head-BAR">Schweizerisches Bundesarchiv</a>
+			<div id="depart"><a href="http://www.vbs.admin.ch/internet/vbs/en/home.html" data-i18n="Head-EDI">Eidg. Departement des Innern</a></div>
+			<a href="http://www.bevoelkerungsschutz.admin.ch/internet/bs/en/home.html" data-i18n="Head-BAR">Schweizerisches Bundesarchiv</a>
 			</div>
 			<!--/UdmComment-->
 		</div>
