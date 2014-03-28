@@ -53,7 +53,7 @@
 			<div id="webHeaderLinks">
 			<div id="adminch"><a href="http://www.admin.ch/" data-i18n="Head-CH"></a></div>
 			<div id="depart"><a href="http://www.edi.admin.ch/?lang=de" data-i18n="Head-EDI"></a></div>
-			<a href="http://www.swisstopo.admin.ch/" data-i18n="Head-BAR"></a>
+			<a href="http://www.swisstopo.admin.ch/internet/swisstopo/de/home.html" data-i18n="Head-BAR"></a>
 			</div>
 			<!--/UdmComment-->
 		</div>
