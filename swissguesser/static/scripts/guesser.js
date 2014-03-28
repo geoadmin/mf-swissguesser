@@ -15,6 +15,7 @@ var guesser = {
 	user: { 
 		score: 0, 		// current score
 		count: 5, 		// how many photos per game
+                collection_size: 5,         // log10 max number of available phos 
 		history: '',	// hash of previous game states
 		collection: [], // holds metadata during game
 		vectors: [], 	// holds shown vector layers
@@ -99,6 +100,11 @@ var guesser = {
 	is: {
 		mobile: function() { return $(window).width() <= 768 && $(window).height() < 1024; }
 	},
+
+        zeroPad: function (str, max) {
+            str = str.toString();
+            return str.length < max ? this.zeroPad("0" + str, max) : str;
+         },
 
 	// ### User Interface setup
 	initLayout: function(self) {
@@ -338,15 +344,17 @@ var guesser = {
 
 		// Load game history
 		var queryhist = this.query['history'];
-		if (queryhist) {
+		if (queryhist && queryhist.length == (this.user.count * this.user.collection_size)) {
 			// Shared game collection
-			var gamecoll = this.collection,
-				g = queryhist.split('');
+			var gamecoll = this.collection;
+                        var g = hash.match(/.{this.user.count}/g);
+                        
+			//g = queryhist.split('');
 			if (g.length < gamecoll.length) {
 				queryhist = '';
 				g.forEach(function(h) {
 					queryhist += h;
-					var ix = h.charCodeAt(0) - 97;
+					var ix = parseInt(h); // h.charCodeAt(0) - 97;
 					// Prevent this image from being shown again
 					if (ix != null && typeof gamecoll[ix] != 'undefined') {
 						gamecoll[ix].shown = true;
@@ -363,16 +371,28 @@ var guesser = {
 
 		if (this.query['game']) {
 			// Shared game collection
-			var g = this.query['game'].split('');
-			if (g.length == this.user.count) {
+			var shared = this.query['game'];//.split('');
+			if (shared.length == this.user.count) { // old style hash
+                            var g = s.split('');
+                            if (g.length == this.user.count) {
 				for(var i = 0; i < this.user.count; i++) {
 					var ix = g[i].charCodeAt(0) - 97;
 					this.user.collection.push(this.getImage(ix));
 				}
+                            }
+			} else if (shared.length == (this.user.count * this.user.collection_size)) {
+                            var g = shared.match(/.{5}/g);
+                            if (g.length == this.user.count) {
+                                for(var i = 0; i < this.user.count; i++) {
+                                        var ix = parseInt(g[i]);
+                                        this.user.collection.push(this.getImage(ix));
+                                }
+                            }
+                                    
 			} else {
 				// Restart the game
 				window.alert('Invalid game code');
-				window.location.href = window.location.origin;
+				window.location.href = window.location.origin + window.location.pathname;
 				return;
 			}
 		} else if (this.query['debug']) {
@@ -425,18 +445,21 @@ var guesser = {
 		setTimeout(function() { self.fadeLayers(1); }, 4000);
 
 		// Get game location
-		var url = window.location.protocol + "//" + window.location.host + "/";
-		
-		// Generate a hash of the current game
-		var hash = "";
-		for (var i = 0; i < self.user.count; i++) {
-			if (self.user.collection[i])
-				hash += String.fromCharCode(self.user.collection[i].ix + 97);
-		}
+        var href = window.location.origin + window.location.pathname;
+        var url = href.replace(/\/?(\?|#|$)/, '/$1'); // trailing slash
+ 		
+        // Generate a hash of the current game
+	var hash = "";
+  
+	for (var i = 0; i < self.user.count; i++) {
+                if (self.user.collection[i])
+                    hash += self.zeroPad(self.user.collection[i].ix, self.user.collection_size)
+                }
 
 		// Create permalink and new game link
-		var permalink = url + "?game=" + hash,
-			histolink = url + "?history=" + hash + self.user.history;
+		
+		var permalink = url + "?" + $.param({game: hash}),
+			histolink = url + "?" +   $.param({history: hash + self.user.history}) ;
 
 		// For local devs
 		if (document.location.hostname == 'localhost')
