@@ -68,9 +68,9 @@ def strip_tags(html):
 		<div id="webHeaderDiv">
 			<!--UdmComment-->
 			<div id="webHeaderLinks">
-			<div id="adminch"><a href="http://www.admin.ch/" data-i18n="Head-CH">Bundesverwaltung admin.ch</a></div>
-			<div id="depart"><a href="${Link_EDI}" data-i18n="Head-EDI">Eidg. Departement des Innern</a></div>
-			<a href="${Link_BAR}" data-i18n="Head-BAR">Schweizerisches Bundesarchiv</a>
+			<div id="adminch"><a href="http://www.admin.ch/" data-i18n="Head-CH"></a></div>
+			<div id="depart"><a href="${Link_EDI}" data-i18n="Head-EDI"></a></div>
+			<a href="${Link_BAR}" data-i18n="Head-BAR"></a>
 			</div>
 			<!--/UdmComment-->
 		</div>
