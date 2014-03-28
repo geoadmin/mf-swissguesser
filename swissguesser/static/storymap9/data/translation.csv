@@ -18,6 +18,7 @@ Head-EDI,"Eidg. Departement für Verteidigung, Bevölkerungsschutz und Sport","D
 Link-EDI,http://www.vbs.admin.ch/internet/vbs/de/home.html,http://www.vbs.admin.ch/internet/vbs/fr/home.html,http://www.vbs.admin.ch/internet/vbs/it/home.html,http://www.vbs.admin.ch/internet/vbs/en/home.html
 Link-BAR,http://www.bevoelkerungsschutz.admin.ch/internet/bs/de/home.html,http://www.bevoelkerungsschutz.admin.ch/internet/bs/fr/home.html,http://www.bevoelkerungsschutz.admin.ch/internet/bs/it/home.html,http://www.bevoelkerungsschutz.admin.ch/internet/bs/en/home.html
 Photo-Copyright,"© BABS, KGS","© OFPP, PBC","© UFPP, PBC","© FOCP, PCP"
+Photo-Copyright-Link,http://map.geo.admin.ch/?topic=kgs&lang=de,http://map.geo.admin.ch/?topic=kgs&lang=fr,http://map.geo.admin.ch/?topic=kgs&lang=it,http://map.geo.admin.ch/?topic=kgs&lang=en
 Photo-Counter,Foto,Photo,Foto,Photo
 Photo-Restart,Neustart,Nouvelle partie,Nuova partita,Restart game
 Photo-Text,Wo wurde das Foto aufgenommen? Klick in die Karte.,Où a été prise la photographie? Clique sur la carte.,Dove è stata scattata la foto? Cliccare sulla mappa.,Where do you think has the photo been taken? Click anywhere on the map.

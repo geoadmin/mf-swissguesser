@@ -22,13 +22,8 @@
 	<meta property="og:description" content="The third version of PCP inventory was approved by the federal counsil in 2009 and contains 3200 objects of national importance. The PCP Section in the Federal Office for Civil Protection (FOCP)  together with the cantons are responsible for  the update. Discover the objects of cultural value and try to localize them on the map. ">
 	<!-- Google+ tags -->
 	<meta itemprop="name" content="SwissGuesser Inventory of Cultural Assets">
-<<<<<<< HEAD
 	<meta itemprop="description" content="The third version of PCP inventory was approved by the federal counsil in 2009 and contains 3200 objects of national importance. The PCP Section in the Federal Office for Civil Protection (FOCP)  together with the cantons are responsible for  the update. Discover the objects of cultural value and try to localize them on the map. ">
-	<meta itemprop="image" content="images/preview.jpg">
-=======
-	<meta itemprop="description" content="Das 2009 vom Bundesrat in 3. Fassung verabschiedete KGS Inventar enthält rund 3200 Objekte von nationaler Bedeutung. The third version of PCP inventory was approved by the federal counsil in 2009 and contains 3200 objects of national importance. The PCP Section in the Federal Office for Civil Protection (FOCP)  together with the cantons are responsible for  the update. Discover the objects of cultural value and try to localize them on the map. ">
 	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg">
->>>>>>> also updating link for KGS
 
 	<!-- Compiled page styles -->
 	<link rel="stylesheet" href="../styles/main.css">
@@ -126,8 +121,8 @@
 		</a>
 	</div>
 	<div class="d-copyright">
-		<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/ch/">CC-BY-SA 3.0-CH</a>
-		<a href="http://www.swiss-archives.ch" data-i18n="Photo-Copyright"></a>
+		<!-- <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/ch/">CC-BY-SA 3.0-CH</a> -->
+		<a href="http://map.geo.admin.ch/?topic=kgs&lang=en" data-i18n="Photo-Copyright"></a>
 	</div>
 	<p class="hidden">
 	  <span class="d-photo-text" data-i18n="Photo-Text"></span>

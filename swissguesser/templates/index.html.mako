@@ -138,8 +138,8 @@ def strip_tags(html):
 		</a>
 	</div>
 	<div class="d-copyright">
-		<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/ch/">CC-BY-SA 3.0-CH</a>
-		<a href="http://www.swiss-archives.ch" data-i18n="Photo-Copyright"></a>
+		<!-- <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/ch/">CC-BY-SA 3.0-CH</a> -->
+		<a href="${Photo_Copyright_Link}" data-i18n="Photo-Copyright"></a>
 	</div>
 	<p class="hidden">
 	  <span class="d-photo-text" data-i18n="Photo-Text"></span>
