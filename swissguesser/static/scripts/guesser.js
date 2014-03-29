@@ -347,7 +347,9 @@ var guesser = {
 		if (queryhist && queryhist.length == (this.user.count * this.user.collection_size)) {
 			// Shared game collection
 			var gamecoll = this.collection;
-                        var g = hash.match(/.{this.user.count}/g);
+            // FIXME dynamic regex
+            var re = new RegExp(".{" + (this.user.collection.length) + "}","g");
+            var g = queryhist.match(re);
                         
 			//g = queryhist.split('');
 			if (g.length < gamecoll.length) {
@@ -381,7 +383,8 @@ var guesser = {
 				}
                             }
 			} else if (shared.length == (this.user.count * this.user.collection_size)) {
-                            var g = shared.match(/.{5}/g);
+                            var re = new RegExp(".{" + (this.user.collection.length) + "}","g");
+                            var g = shared.match(re);
                             if (g.length == this.user.count) {
                                 for(var i = 0; i < this.user.count; i++) {
                                         var ix = parseInt(g[i]);
