@@ -14,15 +14,15 @@
 	<link href="http://www.swisstopo.admin.ch/internet/swisstopo.ConfigFavicon.ico" type="image/x-icon" rel="Shortcut Icon">
 
 	<title>SwissGuesser: Inventario dei beni culturali </title>
-	<meta name="description" content="La terza versione dell'Inventario PBC, redatta nel 2009 ed approvata dal Consiglio federale lo stesso anno, contiene circa 3200 oggetti d'importanza nazionale. La Sezione PBC  nell ‘Ufficio federale della protezione della popolazione (UFPP)   ed i Cantoni sono responsabili dell'aggiornamento dell'inventario. Si informi sul patrominio culturale della Svizzera e cerchi di localizzare gli oggetti sulla mappa."/>
+	<meta name="description" content="La terza versione dell'Inventario PBC, redatta nel 2009 ed approvata dal Consiglio federale lo stesso anno, contiene circa 3200 oggetti d'importanza nazionale. La Sezione PBC  nell Ufficio federale della protezione della popolazione (UFPP)  ed i Cantoni sono responsabili dell'aggiornamento dell'inventario. Si informi sul patrominio culturale della Svizzera e cerchi di localizzare gli oggetti sulla mappa."/>
 	<!-- Facebook tags -->
 	<meta property="og:site_name" content="geo.admin.ch storymaps"/>
 	<meta property="og:image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg" /> 
 	<meta property="og:title" content="SwissGuesser: Inventario dei beni culturali " />
-	<meta property="og:description" content="La terza versione dell'Inventario PBC, redatta nel 2009 ed approvata dal Consiglio federale lo stesso anno, contiene circa 3200 oggetti d'importanza nazionale. La Sezione PBC  nell ‘Ufficio federale della protezione della popolazione (UFPP)   ed i Cantoni sono responsabili dell'aggiornamento dell'inventario. Si informi sul patrominio culturale della Svizzera e cerchi di localizzare gli oggetti sulla mappa.">
+	<meta property="og:description" content="La terza versione dell'Inventario PBC, redatta nel 2009 ed approvata dal Consiglio federale lo stesso anno, contiene circa 3200 oggetti d'importanza nazionale. La Sezione PBC  nell Ufficio federale della protezione della popolazione (UFPP)  ed i Cantoni sono responsabili dell'aggiornamento dell'inventario. Si informi sul patrominio culturale della Svizzera e cerchi di localizzare gli oggetti sulla mappa.">
 	<!-- Google+ tags -->
 	<meta itemprop="name" content="SwissGuesser: Inventario dei beni culturali ">
-	<meta itemprop="description" content="La terza versione dell'Inventario PBC, redatta nel 2009 ed approvata dal Consiglio federale lo stesso anno, contiene circa 3200 oggetti d'importanza nazionale. La Sezione PBC  nell ‘Ufficio federale della protezione della popolazione (UFPP)   ed i Cantoni sono responsabili dell'aggiornamento dell'inventario. Si informi sul patrominio culturale della Svizzera e cerchi di localizzare gli oggetti sulla mappa.">
+	<meta itemprop="description" content="La terza versione dell'Inventario PBC, redatta nel 2009 ed approvata dal Consiglio federale lo stesso anno, contiene circa 3200 oggetti d'importanza nazionale. La Sezione PBC  nell Ufficio federale della protezione della popolazione (UFPP)  ed i Cantoni sono responsabili dell'aggiornamento dell'inventario. Si informi sul patrominio culturale della Svizzera e cerchi di localizzare gli oggetti sulla mappa.">
 	<meta itemprop="image" content="http://storymaps.geo.admin.ch/storymaps/storymap9/images/preview.jpg">
 
 	<!-- Compiled page styles -->

@@ -99,16 +99,16 @@ if __name__ == '__main__':
         print "Usage: kgs_scrapper.py <MetadatenAufnahme template>\nkgs_scrapper.py swissguesser/static/storymap9/data/MetadatenAufnahmen.csv.template"
         sys.exit(2)
 
-    f = open(sys.argv[1], 'r')  
-    test_file = open('swissguesser/static/storymap9/data/MetadatenAufnahmen.csv', 'w')
+    in_file = open(sys.argv[1], 'r')  
+    out_file = open('swissguesser/static/storymap9/data/MetadatenAufnahmen.csv', 'w')
 
     copyrights = get_copyrights()
 
     try:
-        csv_file = csv.DictReader(f, delimiter=',', quotechar='"')
+        csv_file = csv.DictReader(in_file, delimiter=',', quotechar='"')
 
         csvwriter = csv.DictWriter(
-            test_file, delimiter=',', fieldnames=csv_file.fieldnames)
+            out_file, delimiter=',', fieldnames=csv_file.fieldnames)
         csvwriter.writerow(dict((fn, fn) for fn in csv_file.fieldnames))
         n = 0
 
@@ -140,5 +140,5 @@ if __name__ == '__main__':
 
             csvwriter.writerow(row)
     finally:
-        f.close()      # closing
-        test_file.close()
+        in_file.close()      # closing
+        out_file.close()
