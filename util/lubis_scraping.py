@@ -1,4 +1,18 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Usage: lubis_scrapper.py <MetadatenAufnahme template>\nkgs_scrapper.py swissguesser/static/storymap9/data/MetadatenAufnahmen.csv.template
+
+This script convert a file <MetadatenAufnahme template> into a usable <MetadatenAufnahme> file. The <MetadatenAufnahme template> contains
+only images number and their coordinates, while the geerated file has the 'legend' field infos filled.
+
+For LUBIS, the legend are simply link to map.geo.admin.ch popup, ie.
+
+http://api3.geo.admin.ch/main/wsgi/rest/services/all/MapServer/ch.swisstopo.lubis-luftbilder_farbe/19982271021945/extendedHtmlPopup
+
+
+"""
+
 
 import os
 import sys
@@ -17,11 +31,12 @@ SERVICE_BASE_URL = "http://mf-chsdi3.int.bgdi.ch"
 # Link to the htmlPopup or scrap it content to the file ?
 LINK_TO_INFO = True
 
-# url =
-# http://mf-chsdi3.int.bgdi.ch/main/wsgi/rest/services/all/MapServer/ch.swisstopo.lubis-luftbilder_farbe/19982271021945/extendedHtmlPopup
 
-# Given an id return the layer id to which it belongs...
+
 def guess_layername(id):
+    '''
+        Given an id return the layer id to which it belongs...
+    '''
     h = httplib2.Http(".cache")
 
     for layer in layers:
@@ -38,6 +53,9 @@ def guess_layername(id):
 
 
 def get_html(id, lang='de'):
+    '''
+        Get the html content of a popup
+    '''
     h = httplib2.Http(".cache")
 
     for layer in layers:
@@ -55,6 +73,9 @@ def get_html(id, lang='de'):
 
 
 def extract_table(content):
+    '''
+        Extract a table form the whole html popup
+    '''
     soup = BeautifulSoup(content)
 
     table = soup.find(
@@ -66,6 +87,10 @@ def extract_table(content):
 
 
 if __name__ == '__main__':
+
+    if len(sys.argv) <>  2:
+        print __doc__
+        sys.exit(2)
 
     input_file_name = sys.argv[1]
 
@@ -101,12 +126,12 @@ if __name__ == '__main__':
                     ct = get_html(nr,lang=lang)
                     row[fieldname] = extract_table(ct)
 
-            # print row.encode('utf-8')
+
             csvwriter.writerow(
                 {k: v.encode('utf8') if v is not None else v for k, v in row.items()})
             print
 
             csvwriter.writerow(row)
     finally:
-        f.close()      # closing
+        f.close()     
         test_file.close()
