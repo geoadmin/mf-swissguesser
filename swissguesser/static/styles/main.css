@@ -6854,15 +6854,6 @@ body #map .ol-scale-line {
     background: 0;
 }
 
-body #map .ol-attribution {
-    right: auto;
-    bottom: 2px;
-    left: 0;
-    width: 100%;
-    color: #000;
-    text-align: center;
-    background: 0;
-}
 
 body #map .ol-attribution li:before {
     content: "© Data:";
