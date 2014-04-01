@@ -5,8 +5,7 @@ Swissguesser multi-projects
 
 ### 1/ Install and deploy
 
-If you do not update the data, you may simply clone the project from the repository, copy the images file (see _subproject specifi_ below),
-run the `template`part from buildout and deploy it:
+If you do not update the data, you may simply clone the project from the repository, copy the images file (see _subproject specific_ below) and deploy it:
 
     cd /var/www/vhosts/mf-swissguesser/private
 
@@ -24,8 +23,8 @@ run the `template`part from buildout and deploy it:
 
 ### 2/ Updating data
 
-To update a project, you need to install the buildout environment, update the `MetadatenAufnahme.csv` and `translation.csv`, and 
-generate the new project file.
+To update a project, you need to install the buildout environment, update the configuration file `MetadatenAufnahme.csv` and translation file `translation.csv`, and 
+generate the new project JSON files 
 
     cd /var/www/vhosts/mf-swissguesser/private
 
@@ -41,7 +40,7 @@ generate the new project file.
 
 ### Subproject specific
 
-Each subproject has two main .csv configurations files:
+Each subproject has two main .csv configurations files, which are used to generate the JSON files used by the application:
 
 * `MetadatenAufnahme.csv`, the list of images to display
 * `translation.csv`, obviously for internationalization of the user interface
@@ -58,8 +57,15 @@ The original one! This GeoAdmin Story Map is an interactive game to guess histor
 
 http://storymaps.geo.admin.ch/storymaps/storymap5
 
-* The `MetadatenAufnahme` is derived from this `doc <https://docs.google.com/spreadsheet/ccc?key=0Alq30s3mf7gPdDZPbWlVaFA0SmVoaWFCZ3hTbGtyaWc&usp=drive_web#gid=0>`__
+* The `MetadatenAufnahme` is derived from this [doc] (https://docs.google.com/spreadsheet/ccc?key=0Alq30s3mf7gPdDZPbWlVaFA0SmVoaWFCZ3hTbGtyaWc&usp=drive_web#gid=0)
 * Images have to be copied to the `images\photos` directory
+* Generate the project with:
+    
+    ./buildout/bin/buildout -c storymap5.cfg install convert-csv
+    ./buildout/bin/buildout -c storymap5.cfg install translation-csv
+    ./buildout/bin/buildout -c storymap5.cfg install templify
+
+* Commit your changes
 
 ### Storymap8 (BAK)
 
@@ -67,9 +73,15 @@ Switzerland is the cable car country par excellence.
 
 http://storymaps.geo.admin.ch/storymaps/storymap8
 
-* Use plain `MetadatenAufnahme` and `translation.csv`
+* Use plain `MetadatenAufnahmei.csv` and `translation.csv`
 * Images have to be copied to the `images\photos` directory (original source ?)
+* Generate the project with:
+    
+    ./buildout/bin/buildout -c storymap8.cfg install convert-csv
+    ./buildout/bin/buildout -c storymap8.cfg install translation-csv
+    ./buildout/bin/buildout -c storymap8.cfg install templify
 
+* Commit your changes
 
 ### Storymap9 (KGS)
 
@@ -81,6 +93,14 @@ http://storymaps.geo.admin.ch/storymaps/storymap9
 * Explanations text and the copyright information are scraped from map.geo.admin.ch htmlPopup and the `meta.txt` file using the `util\kgs_scraper.py` script
 * The `MetadatenAufnahme.csv` has to be generated from the `MetadatenAufnahme.csv.template` using the
   `util\kgs_scraper.py` script
+* Generate the project with:
+    
+    ./buildout/bin/python util/kgs_scrapper.py swissguesser/static/storymap9/data/MetadatenAufnahmen.csv.template
+    ./buildout/bin/buildout -c storymap9.cfg install convert-csv
+    ./buildout/bin/buildout -c storymap9.cfg install translation-csv
+    ./buildout/bin/buildout -c storymap9.cfg install templify
+
+* Commit your changes
 
 
 ### Storymap10 (LUBIS)
@@ -93,4 +113,11 @@ http://storymaps.geo.admin.ch/storymaps/storymap10
 * Explanations are linked to _map.geo.admin.ch_ popup
 * The `MetadatenAufnahme.csv` has to be generated from the `MetadatenAufnahme.csv.template` using the
   `util\lubis_scraper.py` script
+* Generate the project with:
+    
+    ./buildout/bin/python util/lubis_scrapper.py swissguesser/static/storymap10/data/MetadatenAufnahmen.csv.template
+    ./buildout/bin/buildout -c storymap10.cfg install convert-csv
+    ./buildout/bin/buildout -c storymap10.cfg install translation-csv
+    ./buildout/bin/buildout -c storymap10.cfg install templify
 
+* Commit your changes
