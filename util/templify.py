@@ -40,6 +40,7 @@ if __name__ == '__main__':
             data[key.replace('-','_')] = data.pop(key)
 
         data['lang'] = lang
+        data['project'] = project
         data['Preview_Url'] = u"http://storymaps.geo.admin.ch/storymaps/%s/images/preview.jpg" % project
         data['App_Url'] = u"http://storymaps.geo.admin.ch/storymaps/%s" % project
         buf = StringIO()
