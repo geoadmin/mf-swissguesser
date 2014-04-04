@@ -373,25 +373,24 @@ var guesser = {
 
 		if (this.query['game']) {
 			// Shared game collection
-			var shared = this.query['game'];//.split('');
+			var shared = this.query['game'];
 			if (shared.length == this.user.count) { // old style hash
-                            var g = s.split('');
-                            if (g.length == this.user.count) {
-				for(var i = 0; i < this.user.count; i++) {
-					var ix = g[i].charCodeAt(0) - 97;
-					this.user.collection.push(this.getImage(ix));
-				}
-                            }
+                var g = s.split('');
+                if (g.length == this.user.count) {
+				    for(var i = 0; i < this.user.count; i++) {
+					    var ix = g[i].charCodeAt(0) - 97;
+					    this.user.collection.push(this.getImage(ix));
+				    }
+                }
 			} else if (shared.length == (this.user.count * this.user.collection_size)) {
-                            var re = new RegExp(".{" + (this.user.collection.length) + "}","g");
-                            var g = shared.match(re);
-                            if (g.length == this.user.count) {
-                                for(var i = 0; i < this.user.count; i++) {
-                                        var ix = parseInt(g[i]);
-                                        this.user.collection.push(this.getImage(ix));
-                                }
-                            }
-                                    
+                var re = new RegExp(".{" + (this.user.collection_size) + "}","g");
+                var g = shared.match(re);
+                if (g.length == this.user.count) {
+                    for(var i = 0; i < this.user.count; i++) {
+                        var ix = parseInt(g[i]);
+                        this.user.collection.push(this.getImage(ix));
+                    }
+                }
 			} else {
 				// Restart the game
 				window.alert('Invalid game code');
