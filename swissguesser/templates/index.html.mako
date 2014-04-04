@@ -138,7 +138,9 @@ def strip_tags(html):
 		</a>
 	</div>
 	<div class="d-copyright">
-		<!-- <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/ch/">CC-BY-SA 3.0-CH</a> -->
+        % if project == 'storymap5':
+		    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/ch/">CC-BY-SA 3.0-CH</a>
+        % endif
 		<a href="${Photo_Copyright_Link}" data-i18n="Photo-Copyright"></a>
 	</div>
 	<p class="hidden">
