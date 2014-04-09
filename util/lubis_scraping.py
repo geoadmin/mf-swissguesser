@@ -26,7 +26,7 @@ from htmlentitydefs import codepoint2name as entities
 layers = ['ch.swisstopo.lubis-luftbilder_farbe',
           'ch.swisstopo.lubis-luftbilder_schwarzweiss', 'ch.swisstopo.lubis-luftbilder-dritte-firmen']
 
-SERVICE_BASE_URL = "http://mf-chsdi3.int.bgdi.ch"
+SERVICE_BASE_URL = "http://api3.geo.admin.ch"
 
 # Link to the htmlPopup or scrap it content to the file ?
 LINK_TO_INFO = True
