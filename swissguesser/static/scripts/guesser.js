@@ -231,6 +231,7 @@ var guesser = {
 
 		// Show start game
 		$('#d-start').modal();
+        $('div.modal-body p').css('padding', '10px')
 	},
 
 	// ### Position the map container
