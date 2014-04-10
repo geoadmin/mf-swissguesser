@@ -268,11 +268,14 @@ var guesser = {
 		$('.total', infobox).html(this.user.score);
 
 		// Result box description
-                // either a html fragment or an url
+        //$.support.cors = true;
+        // either a html fragment or an url
                 var msg = metadata[this.lang];
                 if (msg.indexOf('http') == 0) {
                     $.ajax({
-                        url: msg
+                        url: msg, 
+                         dataType: 'jsonp',
+                        crossDomain: true
                     }).done(function(data) {
                         $('.info p', this.domResults).html(data);
                  });
