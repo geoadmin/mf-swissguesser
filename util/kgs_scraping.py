@@ -22,7 +22,7 @@ def get_html(id, lang='de'):
     h = httplib2.Http(".cache")
 
     for layer in layers:
-        url = "http://api3.geo.admin.ch/main/wsgi/rest/services/all/MapServer/%s/%s/htmlPopup?lang=%s" % (
+        url = "http://api3.geo.admin.ch/rest/services/all/MapServer/%s/%s/htmlPopup?lang=%s" % (
             layer, id, lang)
 
         try:
@@ -129,9 +129,9 @@ if __name__ == '__main__':
                 ct = get_html(kgs_nr, lang=lang)
                 fieldname = 'Legende %s **' % lang.upper()
 
-                table = extract_table(ct)
-
-                row[fieldname] = extract_table(ct, bild_copyright)
+                if ct:
+                    table = extract_table(ct)
+                    row[fieldname] = extract_table(ct, bild_copyright)
 
 
             csvwriter.writerow(

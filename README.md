@@ -17,6 +17,8 @@ If you do not update the data, you may simply clone the project from the reposit
 
     buildout/bin/buildout install template
 
+    cat "Include /var/www/mf-swissguesser/private/swissguesser/apache/*.conf" > /var/www/mf-swissguesser/conf/99-swissguesser.conf
+
     sudo apache2ctl graceful
 
     sudo -u deploy deploy -r deploy/deploy.cfg int   # or prod
@@ -61,9 +63,11 @@ http://storymaps.geo.admin.ch/storymaps/storymap5
 * Images have to be copied to the `images\photos` directory
 * Generate the project with:
     
+    ```
     ./buildout/bin/buildout -c storymap5.cfg install convert-csv
     ./buildout/bin/buildout -c storymap5.cfg install translation-csv
     ./buildout/bin/buildout -c storymap5.cfg install templify
+    ```
 
 * Commit your changes
 
@@ -77,9 +81,11 @@ http://storymaps.geo.admin.ch/storymaps/storymap8
 * Images have to be copied to the `images\photos` directory (original source ?)
 * Generate the project with:
     
+    ```
     ./buildout/bin/buildout -c storymap8.cfg install convert-csv
     ./buildout/bin/buildout -c storymap8.cfg install translation-csv
     ./buildout/bin/buildout -c storymap8.cfg install templify
+    ```
 
 * Commit your changes
 
@@ -95,10 +101,12 @@ http://storymaps.geo.admin.ch/storymaps/storymap9
   `util\kgs_scraper.py` script
 * Generate the project with:
     
-    ./buildout/bin/python util/kgs_scrapper.py swissguesser/static/storymap9/data/MetadatenAufnahmen.csv.template
+    ```
+    ./buildout/bin/python util/kgs_scrapping.py swissguesser/static/storymap9/data/MetadatenAufnahmen.csv.template
     ./buildout/bin/buildout -c storymap9.cfg install convert-csv
     ./buildout/bin/buildout -c storymap9.cfg install translation-csv
     ./buildout/bin/buildout -c storymap9.cfg install templify
+    ```
 
 * Commit your changes
 
@@ -115,9 +123,11 @@ http://storymaps.geo.admin.ch/storymaps/storymap10
   `util\lubis_scraper.py` script
 * Generate the project with:
     
+    ```
     ./buildout/bin/python util/lubis_scrapper.py swissguesser/static/storymap10/data/MetadatenAufnahmen.csv.template
     ./buildout/bin/buildout -c storymap10.cfg install convert-csv
     ./buildout/bin/buildout -c storymap10.cfg install translation-csv
     ./buildout/bin/buildout -c storymap10.cfg install templify
+    ```
 
 * Commit your changes

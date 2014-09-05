@@ -8,7 +8,7 @@ only images number and their coordinates, while the geerated file has the 'legen
 
 For LUBIS, the legend are simply link to map.geo.admin.ch popup, ie.
 
-http://api3.geo.admin.ch/main/wsgi/rest/services/all/MapServer/ch.swisstopo.lubis-luftbilder_farbe/19982271021945/extendedHtmlPopup
+http://api3.geo.admin.ch/rest/services/all/MapServer/ch.swisstopo.lubis-luftbilder_farbe/19982271021945/extendedHtmlPopup
 
 
 """
@@ -40,7 +40,7 @@ def guess_layername(id):
     h = httplib2.Http(".cache")
 
     for layer in layers:
-        url = SERVICE_BASE_URL + "/main/wsgi/rest/services/all/MapServer/%s/%d/htmlPopup" % (
+        url = SERVICE_BASE_URL + "/rest/services/all/MapServer/%s/%d/htmlPopup" % (
             layer, id)
         try:
             response, content = h.request(url)
@@ -59,7 +59,7 @@ def get_html(id, lang='de'):
     h = httplib2.Http(".cache")
 
     for layer in layers:
-        url = SERVICE_BASE_URL + "main/wsgi/rest/services/all/MapServer/%s/%d/extendedHtmlPopup?lang=%s" % (
+        url = SERVICE_BASE_URL + "/rest/services/all/MapServer/%s/%d/extendedHtmlPopup?lang=%s" % (
             layer, id, lang)
 
         try:
