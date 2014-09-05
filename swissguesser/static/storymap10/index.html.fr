@@ -124,7 +124,6 @@ Trouvez-vous le centre de la photographie aérienne historique sur la carte?">
 		</a>
 	</div>
 	<div class="d-copyright">
-		<!-- <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/ch/">CC-BY-SA 3.0-CH</a> -->
 		<a href="http://map.lubis.admin.ch/" data-i18n="Photo-Copyright"></a>
 	</div>
 	<p class="hidden">
