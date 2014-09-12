@@ -1,7 +1,8 @@
 SwissGuesser
 ============
 
-Swissguesser multi-projects
+Swissguesser multi-projects. This is a subset of *storymaps*. For a description of all *Storymaps* available, see
+https://github.com/geoadmin/web-storymaps/blob/master/README.md
 
 ### 1/ Install and deploy
 
