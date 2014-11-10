@@ -277,7 +277,10 @@ var guesser = {
                          dataType: 'jsonp',
                         crossDomain: true
                     }).done(function(data) {
-                        $('.info p', this.domResults).html(data);
+                      if (metadata.copyright) {
+                        data +='<div>' +  metadata.copyright + '</div>';
+                      }  
+                      $('.info p', this.domResults).html(data);
                  });
                 } else {
                     var decoded =  $("<div/>").html(msg).text();

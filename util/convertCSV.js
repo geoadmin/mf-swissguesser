@@ -75,6 +75,7 @@ csvConverter.on("end_parsed", function (jsonObj) {
             id: item['Bildnummer'],
             x: parseFloat(item['X Koordinate']),
             y: parseFloat(item['Y Koordinate']),
+            copyright: item['Copyright'],
             DE: item['Legende DE **'],
             FR: item['Legende FR **'],
             IT: item['Legende IT **'],
