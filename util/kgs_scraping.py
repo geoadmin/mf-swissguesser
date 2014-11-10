@@ -17,6 +17,30 @@ layers = ['ch.babs.kulturgueter']
 # url =
 # http://mf-chsdi3.int.bgdi.ch/main/wsgi/rest/services/all/MapServer/ch.swisstopo.lubis-luftbilder_farbe/19982271021945/extendedHtmlPopup
 
+SERVICE_BASE_URL = "http://api3.geo.admin.ch"
+
+# Link to the htmlPopup or scrap it content to the file ?
+LINK_TO_INFO = True
+
+
+def guess_layername(id):
+    '''
+        Given an id return the layer id to which it belongs...
+    '''
+    h = httplib2.Http(".cache")
+
+    for layer in layers:
+        url = SERVICE_BASE_URL + "/rest/services/all/MapServer/%s/%d/htmlPopup" % (
+            layer, id)
+        try:
+            response, content = h.request(url)
+            if response.status == 200:
+                return url
+        except httplib2.ServerNotFoundError:
+            print "Site is Down"
+
+    return None
+
 
 def get_html(id, lang='de'):
     h = httplib2.Http(".cache")
@@ -115,23 +139,28 @@ if __name__ == '__main__':
         for row in csv_file:  
             n += 1
             bild_nr = row['Bildnummer']
-            kgs_nr = bild_nr.split('_')[1]
+            nr = int(bild_nr.split('_')[1])
 
             bild_copyright = None
 
             if bild_nr in copyrights.keys():
                 bild_copyright = copyrights[bild_nr]
 
-            print kgs_nr,
+            print nr,
+            url = guess_layername(nr)
+
+
 
             for lang in ['de', 'fr', 'it', 'en']:
                 print lang,
-                ct = get_html(kgs_nr, lang=lang)
+                
                 fieldname = 'Legende %s **' % lang.upper()
 
-                if ct:
-                    table = extract_table(ct)
-                    row[fieldname] = extract_table(ct, bild_copyright)
+                if LINK_TO_INFO:
+                    row[fieldname] = "?".join([url, "lang=%s" % lang])
+                else:
+                    ct = get_html(nr,lang=lang)
+                    row[fieldname] = extract_table(ct)
 
 
             csvwriter.writerow(
@@ -139,6 +168,7 @@ if __name__ == '__main__':
             print
 
             csvwriter.writerow(row)
+
     finally:
         in_file.close()      # closing
         out_file.close()
