@@ -2,7 +2,7 @@
 /*
 goog.require('ga.Map');
 goog.require('ga.layer');
-goog.require('ol.View2D');
+goog.require('ol.View');
 */
 
 // Create a GeoAdmin Map
@@ -13,7 +13,7 @@ geoadmin.init = function() {
     // Define the div where the map is placed
     target: 'map',
     // Create a 2D view
-    view: new ol.View2D({
+    view: new ol.View({
       // Define the default resolution
       // 10 means that one pixel is 10m width and height
       // List of resolution of the WMTS layers:

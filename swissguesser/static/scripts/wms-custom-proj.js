@@ -41,7 +41,7 @@ function initGeoAdmin() {
     /// renderers: ol.RendererHints.createFromQueryData(),
     renderer: ol.RendererHint.CANVAS,
     target: 'map',
-    view: new ol.View2D({
+    view: new ol.View({
       projection: projection,
       center: [660000, 190000],
       resolutions: [650.0, 500.0, 250.0, 100.0],

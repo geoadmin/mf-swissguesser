@@ -54,7 +54,7 @@ var map = new ol.Map({
   renderers: ol.RendererHints.createFromQueryData(),
   //renderer: ol.RendererHint.CANVAS,
   target: 'map',
-  view: new ol.View2D({
+  view: new ol.View({
     projection: swissProjection,
     center: [660000, 190000],
     resolutions: [650.0, 500.0, 250.0, 100.0],
@@ -223,7 +223,7 @@ var map = new ol.Map({
   }),
   renderer: ol.RendererHint.CANVAS,
   target: 'map',
-  view: new ol.View2D({
+  view: new ol.View({
     center: [0, 0],
     zoom: 1
   })
@@ -239,7 +239,7 @@ var map = new ol.Map({
   //renderers: ol.RendererHints.createFromQueryData(),
   renderer: ol.RendererHint.CANVAS,
   target: 'map',
-  view: new ol.View2D({
+  view: new ol.View({
     projection: swissProjection,
     center: [660000, 190000],
     resolutions: [650.0, 500.0, 250.0, 100.0],
