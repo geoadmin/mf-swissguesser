@@ -728,7 +728,7 @@ var guesser = {
 	// ### Animates transitions between points
 	startAnim: function(flyFrom, flyTo, flyExtent) {
 
-		var view = map.getView().getView();
+		var view = map.getView();
 
 		// Fly to the answer
 		setTimeout(function() {
