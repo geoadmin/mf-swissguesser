@@ -41,6 +41,11 @@ def guess_layername(id):
 
     return None
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 46cb49fb1803af586033bc224958d881881e841b
 
 def get_html(id, lang='de'):
     h = httplib2.Http(".cache")
@@ -144,12 +149,19 @@ if __name__ == '__main__':
             bild_copyright = None
 
             if bild_nr in copyrights.keys():
+<<<<<<< HEAD
                 bild_copyright = copyrights[bild_nr]
 
             print nr,
             url = guess_layername(nr)
 
 
+=======
+                row['Copyright'] = copyrights[bild_nr]
+             
+            print nr,
+            url = guess_layername(nr)
+>>>>>>> 46cb49fb1803af586033bc224958d881881e841b
 
             for lang in ['de', 'fr', 'it', 'en']:
                 print lang,
