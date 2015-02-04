@@ -476,7 +476,7 @@ var guesser = {
 
 		// Generate shortened URL
 		$.ajax({
-			url: "https://api.geo.admin.ch/shorten.json",
+			url: "https://api3.geo.admin.ch/shorten.json",
 			jsonp: "cb",
 			data: { "url": permalink },
 			success: function(data) {
@@ -731,7 +731,7 @@ var guesser = {
 	// ### Animates transitions between points
 	startAnim: function(flyFrom, flyTo, flyExtent) {
 
-		var view = map.getView().getView2D();
+		var view = map.getView();
 
 		// Fly to the answer
 		setTimeout(function() {
